@@ -13,9 +13,17 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "comment"
+        },
+        {
+          "type": "SYMBOL",
           "name": "expression"
         }
       ]
+    },
+    "comment": {
+      "type": "PATTERN",
+      "value": "%.*\\n"
     },
     "expression": {
       "type": "CHOICE",

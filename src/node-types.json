@@ -229,6 +229,10 @@
       "required": false,
       "types": [
         {
+          "type": "comment",
+          "named": true
+        },
+        {
           "type": "expression",
           "named": true
         }
@@ -368,6 +372,10 @@
   },
   {
     "type": "char",
+    "named": true
+  },
+  {
+    "type": "comment",
     "named": true
   },
   {

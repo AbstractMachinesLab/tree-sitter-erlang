@@ -3,7 +3,9 @@ module.exports = grammar({
   rules: {
     source_file: ($) => repeat($._structure_item),
 
-    _structure_item: ($) => choice($.expression),
+    _structure_item: ($) => choice($.comment, $.expression),
+
+    comment: ($) => /%.*\n/,
 
     expression: ($) => choice($.variable, $.term),
 
