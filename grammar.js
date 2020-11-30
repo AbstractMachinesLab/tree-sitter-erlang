@@ -1,17 +1,117 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// Tokens
+//
+///////////////////////////////////////////////////////////////////////////////
+const ARROW = "->";
+const BINARY_LEFT = "<<";
+const BINARY_RIGHT = ">>";
+const BRACE_LEFT = "{";
+const BRACE_RIGHT = "}";
+const BRACKET_LEFT = "[";
+const BRACKET_RIGHT = "]";
+const COMMA = ",";
+const DASH = "-";
+const DOT = ".";
+const EQUAL = "=";
+const FAT_ARROW = "=>";
+const HASH = "#";
+const PARENS_LEFT = "(";
+const PARENS_RIGHT = ")";
+const QUESTION = "?";
+const SEMI = ";";
+const SLASH = "/";
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Combinators
+//
+///////////////////////////////////////////////////////////////////////////////
+const opt = optional;
+const sepBy = (sep, x) => seq(x, repeat(seq(sep, x)));
+const delim = (open, x, close) => seq(open, x, close);
+
+const tuple = (x) => delim(BRACE_LEFT, opt(sepBy(COMMA, x)), BRACE_RIGHT);
+const list = (x) => delim(BRACKET_LEFT, opt(sepBy(COMMA, x)), BRACKET_RIGHT);
+const args = (x) => delim(PARENS_LEFT, opt(sepBy(COMMA, x)), PARENS_RIGHT);
+
+///////////////////////////////////////////////////////////////////////////////
+//
+// Grammar
+//
+///////////////////////////////////////////////////////////////////////////////
 module.exports = grammar({
   name: "erlang",
   rules: {
     source_file: ($) => repeat($._structure_item),
 
-    _structure_item: ($) => choice($.comment, $.expression),
+    _structure_item: ($) =>
+      choice(
+        $.comment,
+        $.expression,
+        $.module_attribute,
+        $.module_name,
+        $.module_export,
+        $.function_declaration
+      ),
+
+    _identifier: ($) => /(_|[A-Z])[a-zA-Z0-9@_]*/,
+
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Modules
+    //
+    ////////////////////////////////////////////////////////////////////////////
+
+    module_attribute: ($) =>
+      seq(DASH, $.atom, delim(PARENS_LEFT, $.expression, PARENS_RIGHT), DOT),
+
+    module_name: ($) =>
+      seq(DASH, "module", delim(PARENS_LEFT, $.atom, PARENS_RIGHT), DOT),
+
+    module_export: ($) =>
+      seq(
+        DASH,
+        "export",
+        delim(PARENS_LEFT, list(seq($.atom, SLASH, $.integer)), PARENS_RIGHT),
+        DOT
+      ),
+
+    function_declaration: ($) => seq(sepBy(SEMI, $.function_clause), DOT),
+
+    function_clause: ($) =>
+      seq(
+        field("name", $.atom),
+        field("arguments", args($.pattern)),
+        ARROW,
+        field("body", sepBy(COMMA, $.expression))
+      ),
 
     comment: ($) => /%.*\n/,
 
-    expression: ($) => choice($.variable, $.term),
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Patterns
+    //
+    ////////////////////////////////////////////////////////////////////////////
 
-    _identifier: ($) => /[A-Z][a-zA-Z0-9@_]*/,
+    pattern: ($) => choice($.variable, $.pat_list, $.pat_tuple),
 
-    variable: ($) => seq(optional(/_/), $._identifier),
+    pat_list: ($) => list($.pattern),
+    pat_tuple: ($) => tuple($.pattern),
+
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Expressions
+    //
+    ////////////////////////////////////////////////////////////////////////////
+
+    expression: ($) => choice($.variable, $.term, $.macro_application),
+
+    macro_application: ($) =>
+      seq(QUESTION, $._identifier, opt(args($.expression))),
+
+    variable: ($) => $._identifier,
 
     term: ($) =>
       choice(
@@ -21,15 +121,18 @@ module.exports = grammar({
         $.float,
         $.integer,
         $.list,
+        $.tuple,
         $.map,
         $.record,
-        $.string,
-        $.tuple
+        $.string
       ),
 
+    list: ($) => list($.expression),
+    tuple: ($) => tuple($.expression),
+
     atom: ($) => field("value", choice($.quoted_atom, $.unquoted_atom)),
-    quoted_atom: ($) => seq(/'/, /[\W!.!"_#%@^&\*\(\)\{\}\[\]]+/, /'/),
-    unquoted_atom: ($) => /[a-z][a-zA-Z_0-9.]*/,
+    quoted_atom: ($) => /'[\W!\.!"_#%@^&\*\(\)\{\}\[\]]+'/,
+    unquoted_atom: ($) => /[a-z][a-zA-Z_0-9]*/,
 
     integer: ($) =>
       choice(
@@ -47,25 +150,24 @@ module.exports = grammar({
     string: ($) => /".*"/,
 
     binary_string: ($) =>
-      seq(/<</, optional(seq($.bin_part, repeat(seq(",", $.bin_part)))), />>/),
+      seq(BINARY_LEFT, opt(sepBy(COMMA, $.bin_part)), BINARY_RIGHT),
     bin_part: ($) =>
       choice(
         seq(
           choice($.integer, $.float, $.string),
-          optional($.bin_sized),
-          optional($.bin_type_list)
+          opt($.bin_sized),
+          opt($.bin_type_list)
         ),
         seq(
-          "(",
+          PARENS_LEFT,
           $.expression,
-          ")",
-          optional($.bin_sized),
-          optional($.bin_type_list)
+          PARENS_RIGHT,
+          opt($.bin_sized),
+          opt($.bin_type_list)
         )
       ),
     bin_sized: ($) => seq(/:/, $.integer),
-    bin_type_list: ($) =>
-      seq(/\//, seq($.bin_type, repeat(seq("-", $.bin_type)))),
+    bin_type_list: ($) => seq(/\//, sepBy(DASH, $.bin_type)),
     bin_type: ($) =>
       choice(
         "big",
@@ -84,32 +186,18 @@ module.exports = grammar({
         "utf8"
       ),
 
-    tuple: ($) =>
-      seq(
-        "{",
-        optional(seq($.expression, repeat(seq(",", $.expression)))),
-        "}"
-      ),
-
-    list: ($) =>
-      seq(
-        "[",
-        optional(seq($.expression, repeat(seq(",", $.expression)))),
-        "]"
-      ),
-
     map: ($) =>
-      seq("#{", optional(seq($.map_entry, repeat(seq(",", $.map_entry)))), "}"),
-    map_entry: ($) => seq($.term, "=>", $.expression),
+      seq(HASH, BRACE_LEFT, opt(sepBy(COMMA, $.map_entry)), BRACE_RIGHT),
+    map_entry: ($) => seq($.term, FAT_ARROW, $.expression),
 
     record: ($) =>
       seq(
-        "#",
+        HASH,
         $.atom,
-        "{",
-        optional(seq($.record_field, repeat(seq(",", $.record_field)))),
-        "}"
+        BRACE_LEFT,
+        opt(sepBy(COMMA, $.record_field)),
+        BRACE_RIGHT
       ),
-    record_field: ($) => seq($.term, "=", $.expression),
+    record_field: ($) => seq($.term, EQUAL, $.expression),
   },
 });
