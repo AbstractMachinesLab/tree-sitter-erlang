@@ -121,6 +121,36 @@
     }
   },
   {
+    "type": "map",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "map_entry",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "map_entry",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "term",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "quoted_atom",
     "named": true,
     "fields": {}
@@ -173,6 +203,10 @@
           "named": true
         },
         {
+          "type": "map",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         },
@@ -199,11 +233,19 @@
     }
   },
   {
+    "type": "#{",
+    "named": false
+  },
+  {
     "type": ",",
     "named": false
   },
   {
     "type": "-",
+    "named": false
+  },
+  {
+    "type": "=>",
     "named": false
   },
   {
