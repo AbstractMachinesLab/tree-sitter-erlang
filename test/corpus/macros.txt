@@ -1,8 +1,21 @@
--module(macros).
+===============================================================================
+macro usage
+===============================================================================
 
--define(MY_MACRO, 1).
--define(MY_MACRO(X), X + 1).
+?MY_MACRO
 
-f() -> ?MY_MACRO.
-f() -> ?MY_MACRO().
-f() -> ?MY_MACRO(2).
+---
+
+(source_file (expression (macro_application)))
+
+===============================================================================
+macro application
+===============================================================================
+
+?MY_MACRO(2)
+?MY_MACRO(2, [1])
+?MY_MACRO(2, [1], ?MY_MACRO_EXTRA)
+
+---
+
+(source_file (expression (macro_application (expression (term (integer))))) (expression (macro_application (expression (term (integer))) (expression (term (list (expression (term (integer)))))))) (expression (macro_application (expression (term (integer))) (expression (term (list (expression (term (integer)))))) (expression (macro_application)))))

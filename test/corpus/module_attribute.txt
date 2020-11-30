@@ -1,18 +1,20 @@
 ===============================================================================
-named
+name attribute
 ===============================================================================
 
-A
+-module(name).
 
 ---
 
-(source_file (expression (variable)))
+(source_file (module_name (atom (unquoted_atom))))
+
 
 ===============================================================================
-ignored variable
+export attribute
 ===============================================================================
 
-_A
+-export([hello/0, what/1]).
 
 ---
 
+(source_file (module_export (atom (unquoted_atom)) (integer) (atom (unquoted_atom)) (integer)))
