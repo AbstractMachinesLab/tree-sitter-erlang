@@ -93,12 +93,25 @@
       "value": "[a-z][a-zA-Z_0-9.]*"
     },
     "integer": {
-      "type": "PATTERN",
-      "value": "\\d+"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "-?2#[01_]+"
+        },
+        {
+          "type": "PATTERN",
+          "value": "-?16#[a-fA-F0-9_]+"
+        },
+        {
+          "type": "PATTERN",
+          "value": "-?([\\d*_]*#)?[\\d_]+"
+        }
+      ]
     },
     "float": {
       "type": "PATTERN",
-      "value": "\\d+\\.\\d+(e\\d+)?"
+      "value": "-?([\\d_]*#)?[\\d_]+\\.[\\d_]+(e-?[\\d_]+)?"
     },
     "char": {
       "type": "PATTERN",
