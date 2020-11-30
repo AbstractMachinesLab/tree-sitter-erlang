@@ -71,6 +71,10 @@
           "named": true
         },
         {
+          "type": "float",
+          "named": true
+        },
+        {
           "type": "integer",
           "named": true
         }

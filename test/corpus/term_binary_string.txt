@@ -9,7 +9,7 @@ empty
 (source_file (term (binary_string)))
 
 ===============================================================================
-with number
+with integer
 ===============================================================================
 
 <<10>>
@@ -19,7 +19,7 @@ with number
 (source_file (term (binary_string (integer))))
 
 ===============================================================================
-with number and type-specifier
+with integer and type-specifier
 ===============================================================================
 
 <<10/integer>>
@@ -33,7 +33,7 @@ with number and type-specifier
    (bin_type_list (bin_type)))))
 
 ===============================================================================
-with number and multiple type-specifier
+with integer and multiple type-specifier
 ===============================================================================
 
 <<10/integer-signed-native>>
@@ -47,7 +47,7 @@ with number and multiple type-specifier
    (bin_type_list (bin_type) (bin_type) (bin_type)))))
 
 ===============================================================================
-with number and bit-pattern size
+with integer and bit-pattern size
 ===============================================================================
 
 <<10:2>>
@@ -59,7 +59,7 @@ with number and bit-pattern size
   (binary_string (integer) (bin_sized (integer)))))
 
 ===============================================================================
-with number and bit-pattern size and type-specifier
+with integer and bit-pattern size and type-specifier
 ===============================================================================
 
 <<10:2/little>>
@@ -74,7 +74,7 @@ with number and bit-pattern size and type-specifier
     (bin_type_list (bin_type)))))
 
 ===============================================================================
-with number and bit-pattern size and multiple type-specifiers
+with integer and bit-pattern size and multiple type-specifiers
 ===============================================================================
 
 <<10:2/little-unsigned>>
@@ -85,5 +85,85 @@ with number and bit-pattern size and multiple type-specifiers
  (term
   (binary_string
     (integer)
+    (bin_sized (integer))
+    (bin_type_list (bin_type) (bin_type)))))
+
+===============================================================================
+with float
+===============================================================================
+
+<<10.10>>
+
+---
+
+(source_file (term (binary_string (float))))
+
+===============================================================================
+with float and type-specifier
+===============================================================================
+
+<<10.10/float>>
+
+---
+
+(source_file
+ (term
+  (binary_string
+   (float)
+   (bin_type_list (bin_type)))))
+
+===============================================================================
+with float and multiple type-specifier
+===============================================================================
+
+<<10.10/float-signed-native>>
+
+---
+
+(source_file
+ (term
+  (binary_string
+   (float)
+   (bin_type_list (bin_type) (bin_type) (bin_type)))))
+
+===============================================================================
+with float and bit-pattern size
+===============================================================================
+
+<<10.10:2>>
+
+---
+
+(source_file
+ (term
+  (binary_string (float) (bin_sized (integer)))))
+
+===============================================================================
+with float and bit-pattern size and type-specifier
+===============================================================================
+
+<<10.10:2/little>>
+
+---
+
+(source_file
+ (term
+  (binary_string
+    (float)
+    (bin_sized (integer))
+    (bin_type_list (bin_type)))))
+
+===============================================================================
+with float and bit-pattern size and multiple type-specifiers
+===============================================================================
+
+<<10.10:2/little-unsigned>>
+
+---
+
+(source_file
+ (term
+  (binary_string
+    (float)
     (bin_sized (integer))
     (bin_type_list (bin_type) (bin_type)))))

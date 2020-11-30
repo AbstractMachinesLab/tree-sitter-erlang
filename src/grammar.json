@@ -82,7 +82,7 @@
     },
     "float": {
       "type": "PATTERN",
-      "value": "\\d+.\\d+(e\\d+)?"
+      "value": "\\d+\\.\\d+(e\\d+)?"
     },
     "binary_string": {
       "type": "SEQ",
@@ -98,8 +98,17 @@
               "type": "SEQ",
               "members": [
                 {
-                  "type": "SYMBOL",
-                  "name": "integer"
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "integer"
+                    },
+                    {
+                      "type": "SYMBOL",
+                      "name": "float"
+                    }
+                  ]
                 },
                 {
                   "type": "CHOICE",

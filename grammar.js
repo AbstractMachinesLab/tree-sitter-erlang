@@ -12,13 +12,17 @@ module.exports = grammar({
     unquoted_atom: ($) => /[a-z][a-zA-Z_0-9.]*/,
 
     integer: ($) => /\d+/,
-    float: ($) => /\d+.\d+(e\d+)?/,
+    float: ($) => /\d+\.\d+(e\d+)?/,
 
     binary_string: ($) =>
       seq(
         /<</,
         optional(
-          seq($.integer, optional($.bin_sized), optional($.bin_type_list))
+          seq(
+            choice($.integer, $.float),
+            optional($.bin_sized),
+            optional($.bin_type_list)
+          )
         ),
         />>/
       ),
