@@ -37,16 +37,12 @@ module.exports = grammar({
     string: ($) => /".*"/,
 
     binary_string: ($) =>
+      seq(/<</, optional(seq($.bin_part, repeat(seq(",", $.bin_part)))), />>/),
+    bin_part: ($) =>
       seq(
-        /<</,
-        optional(
-          seq(
-            choice($.integer, $.float, $.string),
-            optional($.bin_sized),
-            optional($.bin_type_list)
-          )
-        ),
-        />>/
+        choice($.integer, $.float, $.string),
+        optional($.bin_sized),
+        optional($.bin_type_list)
       ),
     bin_sized: ($) => seq(/:/, $.integer),
     bin_type_list: ($) =>

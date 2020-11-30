@@ -47,7 +47,7 @@ triplet
   (list
    (term (integer))
    (term (atom (unquoted_atom)))
-   (term (binary_string (string))))))
+   (term (binary_string (bin_part (string)))))))
 
 ===============================================================================
 quad
@@ -62,7 +62,7 @@ quad
   (list
    (term (integer))
    (term (atom (unquoted_atom)))
-   (term (binary_string (string)))
+   (term (binary_string (bin_part (string))))
    (term (char)))))
 
 ===============================================================================

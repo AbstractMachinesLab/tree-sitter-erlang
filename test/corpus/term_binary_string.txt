@@ -16,7 +16,9 @@ with integer
 
 ---
 
-(source_file (term (binary_string (integer))))
+(source_file
+ (term
+  (binary_string (bin_part (integer)))))
 
 ===============================================================================
 with integer and type-specifier
@@ -29,8 +31,9 @@ with integer and type-specifier
 (source_file
  (term
   (binary_string
-   (integer)
-   (bin_type_list (bin_type)))))
+   (bin_part 
+    (integer)
+    (bin_type_list (bin_type))))))
 
 ===============================================================================
 with integer and multiple type-specifier
@@ -43,8 +46,9 @@ with integer and multiple type-specifier
 (source_file
  (term
   (binary_string
-   (integer)
-   (bin_type_list (bin_type) (bin_type) (bin_type)))))
+   (bin_part 
+    (integer)
+    (bin_type_list (bin_type) (bin_type) (bin_type))))))
 
 ===============================================================================
 with integer and bit-pattern size
@@ -56,7 +60,8 @@ with integer and bit-pattern size
 
 (source_file
  (term
-  (binary_string (integer) (bin_sized (integer)))))
+  (binary_string 
+   (bin_part (integer) (bin_sized (integer))))))
 
 ===============================================================================
 with integer and bit-pattern size and type-specifier
@@ -69,9 +74,10 @@ with integer and bit-pattern size and type-specifier
 (source_file
  (term
   (binary_string
+   (bin_part
     (integer)
     (bin_sized (integer))
-    (bin_type_list (bin_type)))))
+    (bin_type_list (bin_type))))))
 
 ===============================================================================
 with integer and bit-pattern size and multiple type-specifiers
@@ -84,9 +90,10 @@ with integer and bit-pattern size and multiple type-specifiers
 (source_file
  (term
   (binary_string
+   (bin_part 
     (integer)
     (bin_sized (integer))
-    (bin_type_list (bin_type) (bin_type)))))
+    (bin_type_list (bin_type) (bin_type))))))
 
 ===============================================================================
 with float
@@ -96,7 +103,11 @@ with float
 
 ---
 
-(source_file (term (binary_string (float))))
+(source_file 
+ (term 
+  (binary_string 
+   (bin_part 
+    (float)))))
 
 ===============================================================================
 with float and type-specifier
@@ -109,8 +120,9 @@ with float and type-specifier
 (source_file
  (term
   (binary_string
-   (float)
-   (bin_type_list (bin_type)))))
+   (bin_part 
+    (float)
+    (bin_type_list (bin_type))))))
 
 ===============================================================================
 with float and multiple type-specifier
@@ -123,8 +135,9 @@ with float and multiple type-specifier
 (source_file
  (term
   (binary_string
-   (float)
-   (bin_type_list (bin_type) (bin_type) (bin_type)))))
+   (bin_part 
+    (float)
+    (bin_type_list (bin_type) (bin_type) (bin_type))))))
 
 ===============================================================================
 with float and bit-pattern size
@@ -136,7 +149,9 @@ with float and bit-pattern size
 
 (source_file
  (term
-  (binary_string (float) (bin_sized (integer)))))
+  (binary_string 
+   (bin_part 
+    (float) (bin_sized (integer))))))
 
 ===============================================================================
 with float and bit-pattern size and type-specifier
@@ -149,9 +164,10 @@ with float and bit-pattern size and type-specifier
 (source_file
  (term
   (binary_string
+   (bin_part 
     (float)
     (bin_sized (integer))
-    (bin_type_list (bin_type)))))
+    (bin_type_list (bin_type))))))
 
 ===============================================================================
 with float and bit-pattern size and multiple type-specifiers
@@ -164,9 +180,10 @@ with float and bit-pattern size and multiple type-specifiers
 (source_file
  (term
   (binary_string
+   (bin_part
     (float)
     (bin_sized (integer))
-    (bin_type_list (bin_type) (bin_type)))))
+    (bin_type_list (bin_type) (bin_type))))))
 
 ===============================================================================
 with string
@@ -176,4 +193,22 @@ with string
 
 ---
 
-(source_file (term (binary_string (string))))
+(source_file
+ (term
+  (binary_string (bin_part (string)))))
+
+===============================================================================
+with many components
+===============================================================================
+
+<<10:1/native, "hello", 10.2/unsigned>>
+
+---
+
+(source_file 
+ (term 
+  (binary_string 
+   (bin_part (integer) (bin_sized (integer)) (bin_type_list (bin_type)))
+   (bin_part (string)) 
+   (bin_part (float) (bin_type_list (bin_type))))))
+

@@ -20,6 +20,37 @@
     }
   },
   {
+    "type": "bin_part",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bin_sized",
+          "named": true
+        },
+        {
+          "type": "bin_type_list",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "bin_sized",
     "named": true,
     "fields": {},
@@ -63,23 +94,7 @@
       "required": false,
       "types": [
         {
-          "type": "bin_sized",
-          "named": true
-        },
-        {
-          "type": "bin_type_list",
-          "named": true
-        },
-        {
-          "type": "float",
-          "named": true
-        },
-        {
-          "type": "integer",
-          "named": true
-        },
-        {
-          "type": "string",
+          "type": "bin_part",
           "named": true
         }
       ]
