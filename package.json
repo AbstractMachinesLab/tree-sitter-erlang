@@ -1,0 +1,15 @@
+{
+  "name": "tree-parser-erlang",
+  "version": "0.0.0",
+  "description": "Tree Parser support for Erlang",
+  "scripts": {
+    "gen": "tree-sitter generate",
+    "parse": "tree-sitter parse"
+  },
+  "author": "Leandro Ostera <leandro@ostera.io>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "nan": "^2.14.1",
+    "tree-sitter-cli": "^0.17.1"
+  }
+}
