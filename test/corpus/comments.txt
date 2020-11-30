@@ -23,10 +23,11 @@ multiple start symbols
 ===============================================================================
 
 %%% multi "%"
+hello
 
 ---
 
-(source_file (comment))
+(source_file (comment) (expression (term (atom (unquoted_atom)))))
 
 ===============================================================================
 many consecutive lines
@@ -34,8 +35,9 @@ many consecutive lines
 
 %% many
 %% consecutive
+hello
 %% lines
 
 ---
 
-(source_file (comment) (comment) (comment))
+(source_file (comment) (comment) (expression (term (atom (unquoted_atom)))) (comment))
