@@ -1,0 +1,89 @@
+===============================================================================
+empty
+===============================================================================
+
+<<>>
+
+---
+
+(source_file (term (binary_string)))
+
+===============================================================================
+with number
+===============================================================================
+
+<<10>>
+
+---
+
+(source_file (term (binary_string (integer))))
+
+===============================================================================
+with number and type-specifier
+===============================================================================
+
+<<10/integer>>
+
+---
+
+(source_file
+ (term
+  (binary_string
+   (integer)
+   (bin_type_list (bin_type)))))
+
+===============================================================================
+with number and multiple type-specifier
+===============================================================================
+
+<<10/integer-signed-native>>
+
+---
+
+(source_file
+ (term
+  (binary_string
+   (integer)
+   (bin_type_list (bin_type) (bin_type) (bin_type)))))
+
+===============================================================================
+with number and bit-pattern size
+===============================================================================
+
+<<10:2>>
+
+---
+
+(source_file
+ (term
+  (binary_string (integer) (bin_sized (integer)))))
+
+===============================================================================
+with number and bit-pattern size and type-specifier
+===============================================================================
+
+<<10:2/little>>
+
+---
+
+(source_file
+ (term
+  (binary_string
+    (integer)
+    (bin_sized (integer))
+    (bin_type_list (bin_type)))))
+
+===============================================================================
+with number and bit-pattern size and multiple type-specifiers
+===============================================================================
+
+<<10:2/little-unsigned>>
+
+---
+
+(source_file
+ (term
+  (binary_string
+    (integer)
+    (bin_sized (integer))
+    (bin_type_list (bin_type) (bin_type)))))

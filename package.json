@@ -10,6 +10,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "nan": "^2.14.1",
+    "prettier": "^2.2.1",
     "tree-sitter-cli": "^0.17.1"
   }
 }
