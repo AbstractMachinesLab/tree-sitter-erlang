@@ -156,6 +156,40 @@
     "fields": {}
   },
   {
+    "type": "record",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "record_field",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "record_field",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "term",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "source_file",
     "named": true,
     "fields": {},
@@ -207,6 +241,10 @@
           "named": true
         },
         {
+          "type": "record",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         },
@@ -233,6 +271,10 @@
     }
   },
   {
+    "type": "#",
+    "named": false
+  },
+  {
     "type": "#{",
     "named": false
   },
@@ -242,6 +284,10 @@
   },
   {
     "type": "-",
+    "named": false
+  },
+  {
+    "type": "=",
     "named": false
   },
   {

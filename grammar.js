@@ -7,15 +7,16 @@ module.exports = grammar({
 
     term: ($) =>
       choice(
-        $.char,
         $.atom,
+        $.binary_string,
+        $.char,
         $.float,
         $.integer,
-        $.string,
-        $.binary_string,
-        $.tuple,
         $.list,
-        $.map
+        $.map,
+        $.record,
+        $.string,
+        $.tuple
       ),
 
     atom: ($) => field("value", choice($.quoted_atom, $.unquoted_atom)),
@@ -74,5 +75,15 @@ module.exports = grammar({
     map: ($) =>
       seq("#{", optional(seq($.map_entry, repeat(seq(",", $.map_entry)))), "}"),
     map_entry: ($) => seq($.term, "=>", $.term),
+
+    record: ($) =>
+      seq(
+        "#",
+        $.atom,
+        "{",
+        optional(seq($.record_field, repeat(seq(",", $.record_field)))),
+        "}"
+      ),
+    record_field: ($) => seq($.term, "=", $.term),
   },
 });

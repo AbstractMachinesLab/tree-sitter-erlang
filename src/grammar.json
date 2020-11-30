@@ -22,11 +22,15 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "char"
+          "name": "atom"
         },
         {
           "type": "SYMBOL",
-          "name": "atom"
+          "name": "binary_string"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "char"
         },
         {
           "type": "SYMBOL",
@@ -38,23 +42,23 @@
         },
         {
           "type": "SYMBOL",
-          "name": "string"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "binary_string"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "tuple"
-        },
-        {
-          "type": "SYMBOL",
           "name": "list"
         },
         {
           "type": "SYMBOL",
           "name": "map"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "record"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tuple"
         }
       ]
     },
@@ -473,6 +477,77 @@
         {
           "type": "STRING",
           "value": "=>"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "term"
+        }
+      ]
+    },
+    "record": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "atom"
+        },
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "record_field"
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": ","
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "record_field"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "record_field": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "term"
+        },
+        {
+          "type": "STRING",
+          "value": "="
         },
         {
           "type": "SYMBOL",
