@@ -152,9 +152,8 @@ with string
 with many components
 ===============================================================================
 
-<<10:1/native, "hello", 10.2/unsigned>>
+<<10:1/native, "hello", 10.2/unsigned, (A)/binary, (B):8>>
 
 ---
 
-(source_file (expression (term (binary_string (bin_part (integer) (bin_sized (integer)) (bin_type_list (bin_type))) (bin_part (string)) (bin_part (float) (bin_type_list (bin_type)))))))
-
+(source_file (expression (term (binary_string (bin_part (integer) (bin_sized (integer)) (bin_type_list (bin_type))) (bin_part (string)) (bin_part (float) (bin_type_list (bin_type))) (bin_part (expression (variable)) (bin_type_list (bin_type))) (bin_part (expression (variable)) (bin_sized (integer)))))))

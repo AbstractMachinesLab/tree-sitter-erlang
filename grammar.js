@@ -47,10 +47,19 @@ module.exports = grammar({
     binary_string: ($) =>
       seq(/<</, optional(seq($.bin_part, repeat(seq(",", $.bin_part)))), />>/),
     bin_part: ($) =>
-      seq(
-        choice($.integer, $.float, $.string),
-        optional($.bin_sized),
-        optional($.bin_type_list)
+      choice(
+        seq(
+          choice($.integer, $.float, $.string),
+          optional($.bin_sized),
+          optional($.bin_type_list)
+        ),
+        seq(
+          "(",
+          $.expression,
+          ")",
+          optional($.bin_sized),
+          optional($.bin_type_list)
+        )
       ),
     bin_sized: ($) => seq(/:/, $.integer),
     bin_type_list: ($) =>
@@ -74,9 +83,18 @@ module.exports = grammar({
       ),
 
     tuple: ($) =>
-      seq("{", optional(seq($.expression, repeat(seq(",", $.expression)))), "}"),
+      seq(
+        "{",
+        optional(seq($.expression, repeat(seq(",", $.expression)))),
+        "}"
+      ),
 
-    list: ($) => seq("[", optional(seq($.expression, repeat(seq(",", $.expression)))), "]"),
+    list: ($) =>
+      seq(
+        "[",
+        optional(seq($.expression, repeat(seq(",", $.expression)))),
+        "]"
+      ),
 
     map: ($) =>
       seq("#{", optional(seq($.map_entry, repeat(seq(",", $.map_entry)))), "}"),

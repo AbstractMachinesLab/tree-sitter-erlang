@@ -17,8 +17,7 @@ with one key and value
 
 ---
 
-(source_file (expression (term (record (atom (unquoted_atom)) (record_field (term (atom (unquoted_atom))) (term (atom (unquoted_atom))))))))
-
+    (source_file (expression (term (record (atom (unquoted_atom)) (record_field (term (atom (unquoted_atom))) (expression (term (atom (unquoted_atom)))))))))
 
 
 ===============================================================================
@@ -31,6 +30,5 @@ with many keys and values
 
 ---
 
-(source_file (expression (term (record (atom (unquoted_atom)) (record_field (term (atom (unquoted_atom))) (term (atom (unquoted_atom)))) (record_field (term (atom (unquoted_atom))) (term (atom (unquoted_atom))))))))
-
+    (source_file (expression (term (record (atom (unquoted_atom)) (record_field (term (atom (unquoted_atom))) (expression (term (atom (unquoted_atom))))) (record_field (term (atom (unquoted_atom))) (expression (term (atom (unquoted_atom)))))))))
 

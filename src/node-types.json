@@ -36,6 +36,10 @@
           "named": true
         },
         {
+          "type": "expression",
+          "named": true
+        },
+        {
           "type": "float",
           "named": true
         },
@@ -133,7 +137,7 @@
       "required": false,
       "types": [
         {
-          "type": "term",
+          "type": "expression",
           "named": true
         }
       ]
@@ -162,6 +166,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
         {
           "type": "term",
           "named": true
@@ -201,6 +209,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
         {
           "type": "term",
           "named": true
@@ -283,7 +295,7 @@
       "required": false,
       "types": [
         {
-          "type": "term",
+          "type": "expression",
           "named": true
         }
       ]
@@ -300,6 +312,14 @@
   },
   {
     "type": "#{",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
     "named": false
   },
   {

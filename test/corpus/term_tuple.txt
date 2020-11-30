@@ -16,8 +16,7 @@ tuple of size 1
 
 ---
 
-(source_file (expression (term (tuple (term (integer))))))
-
+(source_file (expression (term (tuple (expression (term (integer)))))))
 
 ===============================================================================
 pair
@@ -27,8 +26,7 @@ pair
 
 ---
 
-(source_file (expression (term (tuple (term (integer)) (term (atom (unquoted_atom)))))))
-
+(source_file (expression (term (tuple (expression (term (integer))) (expression (term (atom (unquoted_atom))))))))
 
 ===============================================================================
 triplet
@@ -38,8 +36,7 @@ triplet
 
 ---
 
-(source_file (expression (term (tuple (term (integer)) (term (atom (unquoted_atom))) (term (binary_string (bin_part (string))))))))
-
+(source_file (expression (term (tuple (expression (term (integer))) (expression (term (atom (unquoted_atom)))) (expression (term (binary_string (bin_part (string)))))))))
 
 ===============================================================================
 quad
@@ -49,8 +46,7 @@ quad
 
 ---
 
-(source_file (expression (term (tuple (term (integer)) (term (atom (unquoted_atom))) (term (binary_string (bin_part (string)))) (term (char))))))
-
+(source_file (expression (term (tuple (expression (term (integer))) (expression (term (atom (unquoted_atom)))) (expression (term (binary_string (bin_part (string))))) (expression (term (char)))))))
 
 ===============================================================================
 nested tuples
@@ -60,5 +56,4 @@ nested tuples
 
 ---
 
-(source_file (expression (term (tuple (term (atom (unquoted_atom))) (term (tuple (term (integer)) (term (tuple))))))))
-
+(source_file (expression (term (tuple (expression (term (atom (unquoted_atom)))) (expression (term (tuple (expression (term (integer))) (expression (term (tuple))))))))))
