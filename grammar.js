@@ -5,7 +5,16 @@ module.exports = grammar({
 
     _structure_item: ($) => choice($.term),
 
-    term: ($) => choice($.atom, $.float, $.integer, $.string, $.binary_string),
+    term: ($) =>
+      choice(
+        $.char,
+        $.atom,
+        $.float,
+        $.integer,
+        $.string,
+        $.binary_string,
+        $.tuple
+      ),
 
     atom: ($) => field("value", choice($.quoted_atom, $.unquoted_atom)),
     quoted_atom: ($) => seq(/'/, /[\W!.!"_#%@^&\*\(\)\{\}\[\]]+/, /'/),
@@ -14,6 +23,7 @@ module.exports = grammar({
     integer: ($) => /\d+/,
     float: ($) => /\d+\.\d+(e\d+)?/,
 
+    char: ($) => /\$./,
     /// NOTE(@ostera): this is an obviously incomplete regex for strings
     string: ($) => /".*"/,
 
@@ -49,5 +59,8 @@ module.exports = grammar({
         "utf32",
         "utf8"
       ),
+
+    tuple: ($) =>
+      seq("{", optional(seq($.term, repeat(seq(",", $.term)))), "}"),
   },
 });

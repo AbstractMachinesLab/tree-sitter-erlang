@@ -122,6 +122,10 @@
           "named": true
         },
         {
+          "type": "char",
+          "named": true
+        },
+        {
           "type": "float",
           "named": true
         },
@@ -132,9 +136,32 @@
         {
           "type": "string",
           "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
         }
       ]
     }
+  },
+  {
+    "type": "tuple",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "term",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": ",",
+    "named": false
   },
   {
     "type": "-",
@@ -161,12 +188,16 @@
     "named": false
   },
   {
-    "type": "float",
-    "named": false
+    "type": "char",
+    "named": true
   },
   {
     "type": "float",
     "named": true
+  },
+  {
+    "type": "float",
+    "named": false
   },
   {
     "type": "integer",
@@ -210,6 +241,14 @@
   },
   {
     "type": "utf8",
+    "named": false
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
     "named": false
   }
 ]

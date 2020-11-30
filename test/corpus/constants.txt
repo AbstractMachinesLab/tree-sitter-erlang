@@ -17,7 +17,7 @@ f() ->
   _ = ["hello", ["world"]],
 
   %% Chars
-  _ = 'c',
+  _ = $c,
 
   %% atoms
   _ = hello,

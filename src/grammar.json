@@ -22,6 +22,10 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "char"
+        },
+        {
+          "type": "SYMBOL",
           "name": "atom"
         },
         {
@@ -39,6 +43,10 @@
         {
           "type": "SYMBOL",
           "name": "binary_string"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "tuple"
         }
       ]
     },
@@ -87,6 +95,10 @@
     "float": {
       "type": "PATTERN",
       "value": "\\d+\\.\\d+(e\\d+)?"
+    },
+    "char": {
+      "type": "PATTERN",
+      "value": "\\$."
     },
     "string": {
       "type": "PATTERN",
@@ -264,6 +276,52 @@
         {
           "type": "STRING",
           "value": "utf8"
+        }
+      ]
+    },
+    "tuple": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "term"
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": ","
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "term"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "}"
         }
       ]
     }
