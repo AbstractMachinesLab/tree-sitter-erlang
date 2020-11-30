@@ -2,8 +2,54 @@
   "name": "erlang",
   "rules": {
     "source_file": {
-      "type": "STRING",
-      "value": "hello"
+      "type": "REPEAT",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_structure_item"
+      }
+    },
+    "_structure_item": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "atom"
+        }
+      ]
+    },
+    "atom": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "quoted_atom"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unquoted_atom"
+        }
+      ]
+    },
+    "quoted_atom": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "'"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[\\W!.!\"_#%@^&\\*\\(\\)\\{\\}\\[\\]]+"
+        },
+        {
+          "type": "PATTERN",
+          "value": "'"
+        }
+      ]
+    },
+    "unquoted_atom": {
+      "type": "PATTERN",
+      "value": "[a-z][a-zA-Z_0-9.]*"
     }
   },
   "extras": [
