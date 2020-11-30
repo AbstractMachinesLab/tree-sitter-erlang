@@ -86,6 +86,21 @@
     }
   },
   {
+    "type": "list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "term",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "quoted_atom",
     "named": true,
     "fields": {}
@@ -134,6 +149,10 @@
           "named": true
         },
         {
+          "type": "list",
+          "named": true
+        },
+        {
           "type": "string",
           "named": true
         },
@@ -168,6 +187,14 @@
     "named": false
   },
   {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "]",
+    "named": false
+  },
+  {
     "type": "big",
     "named": false
   },
@@ -193,19 +220,19 @@
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "float",
-    "named": false
-  },
-  {
-    "type": "integer",
     "named": true
   },
   {
     "type": "integer",
     "named": false
+  },
+  {
+    "type": "integer",
+    "named": true
   },
   {
     "type": "little",

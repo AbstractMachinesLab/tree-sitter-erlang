@@ -13,7 +13,8 @@ module.exports = grammar({
         $.integer,
         $.string,
         $.binary_string,
-        $.tuple
+        $.tuple,
+        $.list
       ),
 
     atom: ($) => field("value", choice($.quoted_atom, $.unquoted_atom)),
@@ -62,5 +63,7 @@ module.exports = grammar({
 
     tuple: ($) =>
       seq("{", optional(seq($.term, repeat(seq(",", $.term)))), "}"),
+
+    list: ($) => seq("[", optional(seq($.term, repeat(seq(",", $.term)))), "]"),
   },
 });
