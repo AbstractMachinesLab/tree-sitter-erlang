@@ -77,6 +77,10 @@
         {
           "type": "integer",
           "named": true
+        },
+        {
+          "type": "string",
+          "named": true
         }
       ]
     }
@@ -124,6 +128,10 @@
         {
           "type": "integer",
           "named": true
+        },
+        {
+          "type": "string",
+          "named": true
         }
       ]
     }
@@ -154,11 +162,11 @@
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "integer",
@@ -179,6 +187,10 @@
   {
     "type": "signed",
     "named": false
+  },
+  {
+    "type": "string",
+    "named": true
   },
   {
     "type": "unquoted_atom",

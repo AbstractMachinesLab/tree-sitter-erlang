@@ -5,7 +5,7 @@ module.exports = grammar({
 
     _structure_item: ($) => choice($.term),
 
-    term: ($) => choice($.atom, $.float, $.integer, $.binary_string),
+    term: ($) => choice($.atom, $.float, $.integer, $.string, $.binary_string),
 
     atom: ($) => field("value", choice($.quoted_atom, $.unquoted_atom)),
     quoted_atom: ($) => seq(/'/, /[\W!.!"_#%@^&\*\(\)\{\}\[\]]+/, /'/),
@@ -14,12 +14,14 @@ module.exports = grammar({
     integer: ($) => /\d+/,
     float: ($) => /\d+\.\d+(e\d+)?/,
 
+    string: ($) => /"[\W]*"/,
+
     binary_string: ($) =>
       seq(
         /<</,
         optional(
           seq(
-            choice($.integer, $.float),
+            choice($.integer, $.float, $.string),
             optional($.bin_sized),
             optional($.bin_type_list)
           )
