@@ -13,7 +13,24 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "term"
+        }
+      ]
+    },
+    "term": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
           "name": "atom"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "float"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "integer"
         }
       ]
     },
@@ -50,6 +67,14 @@
     "unquoted_atom": {
       "type": "PATTERN",
       "value": "[a-z][a-zA-Z_0-9.]*"
+    },
+    "integer": {
+      "type": "PATTERN",
+      "value": "\\d+"
+    },
+    "float": {
+      "type": "PATTERN",
+      "value": "\\d+.\\d+(e\\d+)?"
     }
   },
   "extras": [

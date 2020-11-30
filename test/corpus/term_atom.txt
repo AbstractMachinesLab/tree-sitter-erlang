@@ -6,7 +6,7 @@ atom
 
 ---
 
-(source_file (atom (unquoted_atom)))
+(source_file (term (atom (unquoted_atom))))
 
 ===============================================================================
 simple with symbol
@@ -16,7 +16,7 @@ a_to_mic
 
 ---
 
-(source_file (atom (unquoted_atom)))
+(source_file (term (atom (unquoted_atom))))
 
 ===============================================================================
 simple with number
@@ -26,7 +26,7 @@ atom1
 
 ---
 
-(source_file (atom (unquoted_atom)))
+(source_file (term (atom (unquoted_atom))))
 
 ===============================================================================
 mixed case
@@ -36,7 +36,7 @@ anAtom
 
 ---
 
-(source_file (atom (unquoted_atom)))
+(source_file (term (atom (unquoted_atom))))
 
 ===============================================================================
 mixed case with number
@@ -46,7 +46,7 @@ anAtom9
 
 ---
 
-(source_file (atom (unquoted_atom)))
+(source_file (term (atom (unquoted_atom))))
 
 
 ===============================================================================
@@ -57,7 +57,7 @@ quoted atom
 
 ---
 
-(source_file (atom (quoted_atom)))
+(source_file (term (atom (quoted_atom))))
 
 ===============================================================================
 quoted atom with number
@@ -67,7 +67,7 @@ quoted atom with number
 
 ---
 
-(source_file (atom (quoted_atom)))
+(source_file (term (atom (quoted_atom))))
 
 ===============================================================================
 quoted atom with symbols
@@ -77,4 +77,4 @@ quoted atom with symbols
 
 ---
 
-(source_file (atom (quoted_atom)))
+(source_file (term (atom (quoted_atom))))

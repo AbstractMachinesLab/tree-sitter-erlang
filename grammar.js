@@ -4,7 +4,13 @@ module.exports = grammar({
     source_file: $ => repeat($._structure_item),
 
     _structure_item: $ => choice(
+      $.term,
+    ),
+
+    term: $ => choice(
       $.atom,
+      $.float,
+      $.integer,
     ),
 
     atom: $ => choice(
@@ -13,5 +19,8 @@ module.exports = grammar({
     ),
     quoted_atom: $ => seq(/'/, /[\W!.!"_#%@^&\*\(\)\{\}\[\]]+/, /'/),
     unquoted_atom: $ => /[a-z][a-zA-Z_0-9.]*/,
+
+    integer: $ => /\d+/,
+    float: $ => /\d+.\d+(e\d+)?/,
   }
 })
