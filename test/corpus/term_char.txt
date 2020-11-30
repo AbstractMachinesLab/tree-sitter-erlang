@@ -6,4 +6,4 @@ $a
 
 ---
 
-(source_file (term (char)))
+(source_file (expression (term (char))))

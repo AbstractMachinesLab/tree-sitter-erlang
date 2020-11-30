@@ -6,7 +6,8 @@ empty
 
 ---
 
-(source_file (term (record (atom (unquoted_atom)))))
+(source_file (expression (term (record (atom (unquoted_atom))))))
+
 
 ===============================================================================
 with one key and value
@@ -16,13 +17,9 @@ with one key and value
 
 ---
 
-(source_file
- (term
-  (record
-   (atom (unquoted_atom))
-   (record_field
-    (term (atom (unquoted_atom)))
-    (term (atom (unquoted_atom)))))))
+(source_file (expression (term (record (atom (unquoted_atom)) (record_field (term (atom (unquoted_atom))) (term (atom (unquoted_atom))))))))
+
+
 
 ===============================================================================
 with many keys and values
@@ -30,17 +27,10 @@ with many keys and values
 
 #r{ hello = world
   , goodbye = moe
-  }
+}
 
 ---
 
-(source_file
- (term
-  (record
-   (atom (unquoted_atom))
-   (record_field
-    (term (atom (unquoted_atom)))
-    (term (atom (unquoted_atom))))
-   (record_field
-    (term (atom (unquoted_atom)))
-    (term (atom (unquoted_atom)))))))
+(source_file (expression (term (record (atom (unquoted_atom)) (record_field (term (atom (unquoted_atom))) (term (atom (unquoted_atom)))) (record_field (term (atom (unquoted_atom))) (term (atom (unquoted_atom))))))))
+
+

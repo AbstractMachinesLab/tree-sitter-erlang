@@ -6,7 +6,7 @@ empty
 
 ---
 
-(source_file (term (list)))
+(source_file (expression (term (list))))
 
 ===============================================================================
 list of size 1
@@ -16,9 +16,7 @@ list of size 1
 
 ---
 
-(source_file
- (term
-  (list (term (integer)))))
+(source_file (expression (term (list (term (integer))))))
 
 ===============================================================================
 pair
@@ -28,42 +26,7 @@ pair
 
 ---
 
-(source_file
- (term
-  (list
-   (term (integer))
-   (term (atom (unquoted_atom))))))
-
-===============================================================================
-triplet
-===============================================================================
-
-[1, a, <<"!">>]
-
----
-
-(source_file
- (term
-  (list
-   (term (integer))
-   (term (atom (unquoted_atom)))
-   (term (binary_string (bin_part (string)))))))
-
-===============================================================================
-quad
-===============================================================================
-
-[1, a, <<"!">>, $j]
-
----
-
-(source_file
- (term
-  (list
-   (term (integer))
-   (term (atom (unquoted_atom)))
-   (term (binary_string (bin_part (string))))
-   (term (char)))))
+(source_file (expression (term (list (term (integer)) (term (atom (unquoted_atom)))))))
 
 ===============================================================================
 nested lists
@@ -73,8 +36,4 @@ nested lists
 
 ---
 
-(source_file
- (term
-  (list
-   (term (atom (unquoted_atom)))
-   (term (list (term (integer)) (term (list)))))))
+(source_file (expression (term (list (term (atom (unquoted_atom))) (term (list (term (integer)) (term (list))))))))

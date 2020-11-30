@@ -6,7 +6,7 @@ empty
 
 ---
 
-(source_file (term (string)))
+(source_file (expression (term (string))))
 
 ===============================================================================
 alphabetic
@@ -16,7 +16,7 @@ alphabetic
 
 ---
 
-(source_file (term (string)))
+(source_file (expression (term (string))))
 
 ===============================================================================
 alphanumeric
@@ -26,4 +26,4 @@ alphanumeric
 
 ---
 
-(source_file (term (string)))
+(source_file (expression (term (string))))

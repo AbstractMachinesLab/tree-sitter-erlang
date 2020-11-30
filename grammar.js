@@ -3,7 +3,13 @@ module.exports = grammar({
   rules: {
     source_file: ($) => repeat($._structure_item),
 
-    _structure_item: ($) => choice($.term),
+    _structure_item: ($) => choice($.expression),
+
+    expression: ($) => choice($.variable, $.term),
+
+    _identifier: ($) => /[A-Z][a-zA-Z0-9@_]*/,
+
+    variable: ($) => seq(optional(/_/), $._identifier),
 
     term: ($) =>
       choice(
@@ -68,13 +74,13 @@ module.exports = grammar({
       ),
 
     tuple: ($) =>
-      seq("{", optional(seq($.term, repeat(seq(",", $.term)))), "}"),
+      seq("{", optional(seq($.expression, repeat(seq(",", $.expression)))), "}"),
 
-    list: ($) => seq("[", optional(seq($.term, repeat(seq(",", $.term)))), "]"),
+    list: ($) => seq("[", optional(seq($.expression, repeat(seq(",", $.expression)))), "]"),
 
     map: ($) =>
       seq("#{", optional(seq($.map_entry, repeat(seq(",", $.map_entry)))), "}"),
-    map_entry: ($) => seq($.term, "=>", $.term),
+    map_entry: ($) => seq($.term, "=>", $.expression),
 
     record: ($) =>
       seq(
@@ -84,6 +90,6 @@ module.exports = grammar({
         optional(seq($.record_field, repeat(seq(",", $.record_field)))),
         "}"
       ),
-    record_field: ($) => seq($.term, "=", $.term),
+    record_field: ($) => seq($.term, "=", $.expression),
   },
 });

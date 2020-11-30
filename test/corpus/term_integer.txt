@@ -6,7 +6,7 @@ small
 
 ---
 
-(source_file (term (integer)))
+(source_file (expression (term (integer))))
 
 ===============================================================================
 large
@@ -16,7 +16,7 @@ large
 
 ---
 
-(source_file (term (integer)))
+(source_file (expression (term (integer))))
 
 ===============================================================================
 with separator
@@ -26,7 +26,7 @@ with separator
 
 ---
 
-(source_file (term (integer)))
+(source_file (expression (term (integer))))
 
 ===============================================================================
 negative
@@ -36,7 +36,7 @@ negative
 
 ---
 
-(source_file (term (integer)))
+(source_file (expression (term (integer))))
 
 ===============================================================================
 fib(10000)
@@ -46,7 +46,7 @@ fib(10000)
 
 ---
 
-(source_file (term (integer)))
+(source_file (expression (term (integer))))
 
 ===============================================================================
 with base 2
@@ -56,7 +56,7 @@ with base 2
 
 ---
 
-(source_file (term (integer)))
+(source_file (expression (term (integer))))
 
 ===============================================================================
 with base 2 (large)
@@ -66,7 +66,7 @@ with base 2 (large)
 
 ---
 
-(source_file (term (integer)))
+(source_file (expression (term (integer))))
 
 ===============================================================================
 with base 16
@@ -76,7 +76,7 @@ with base 16
 
 ---
 
-(source_file (term (integer)))
+(source_file (expression (term (integer))))
 
 ===============================================================================
 with base 16 (large)
@@ -86,4 +86,4 @@ with base 16 (large)
 
 ---
 
-(source_file (term (integer)))
+(source_file (expression (term (integer))))
