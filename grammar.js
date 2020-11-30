@@ -14,7 +14,8 @@ module.exports = grammar({
     integer: ($) => /\d+/,
     float: ($) => /\d+\.\d+(e\d+)?/,
 
-    string: ($) => /"[\W]*"/,
+    /// NOTE(@ostera): this is an obviously incomplete regex for strings
+    string: ($) => /".*"/,
 
     binary_string: ($) =>
       seq(

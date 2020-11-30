@@ -90,7 +90,7 @@
     },
     "string": {
       "type": "PATTERN",
-      "value": "\"[\\W]*\""
+      "value": "\".*\""
     },
     "binary_string": {
       "type": "SEQ",
