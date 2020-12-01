@@ -1,5 +1,6 @@
 {
   "name": "erlang",
+  "word": "unquoted_atom",
   "rules": {
     "source_file": {
       "type": "REPEAT",
@@ -11,10 +12,6 @@
     "_structure_item": {
       "type": "CHOICE",
       "members": [
-        {
-          "type": "SYMBOL",
-          "name": "comment"
-        },
         {
           "type": "SYMBOL",
           "name": "expression"
@@ -36,10 +33,6 @@
           "name": "function_declaration"
         }
       ]
-    },
-    "_identifier": {
-      "type": "PATTERN",
-      "value": "(_|[A-Z])[a-zA-Z0-9@_]*"
     },
     "module_attribute": {
       "type": "SEQ",
@@ -331,7 +324,7 @@
         ]
       }
     },
-    "comment": {
+    "_comment": {
       "type": "PATTERN",
       "value": "%.*\\n"
     },
@@ -1737,7 +1730,11 @@
   "extras": [
     {
       "type": "PATTERN",
-      "value": "\\s"
+      "value": "[\\x00-\\x20\\x80-\\xA0]"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_comment"
     }
   ],
   "conflicts": [],

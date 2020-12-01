@@ -50,20 +50,25 @@ const args = (x) => field("arguments", parens(opt(sepBy(COMMA, x))));
 ///////////////////////////////////////////////////////////////////////////////
 module.exports = grammar({
   name: "erlang",
+
+  word: $ => $.unquoted_atom,
+
+  extras: $ => [
+    /[\x00-\x20\x80-\xA0]/,
+    $._comment
+  ],
+
   rules: {
     source_file: ($) => repeat($._structure_item),
 
     _structure_item: ($) =>
       choice(
-        $.comment,
         $.expression,
         $.module_attribute,
         $.module_name,
         $.module_export,
         $.function_declaration
       ),
-
-    _identifier: ($) => /(_|[A-Z])[a-zA-Z0-9@_]*/,
 
     ////////////////////////////////////////////////////////////////////////////
     //
@@ -90,7 +95,7 @@ module.exports = grammar({
     function_clause: ($) =>
       prec(10, seq(field("name", $.atom), $.lambda_clause)),
 
-    comment: ($) => /%.*\n/,
+    _comment: ($) => /%.*\n/,
 
     ////////////////////////////////////////////////////////////////////////////
     //
