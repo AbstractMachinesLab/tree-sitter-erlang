@@ -10,6 +10,7 @@ const BRACE_LEFT = "{";
 const BRACE_RIGHT = "}";
 const BRACKET_LEFT = "[";
 const BRACKET_RIGHT = "]";
+const COLON = ":";
 const COMMA = ",";
 const DASH = "-";
 const DOT = ".";
@@ -18,6 +19,7 @@ const FAT_ARROW = "=>";
 const HASH = "#";
 const PARENS_LEFT = "(";
 const PARENS_RIGHT = ")";
+const PIPE = "|";
 const QUESTION = "?";
 const SEMI = ";";
 const SLASH = "/";
@@ -32,8 +34,14 @@ const sepBy = (sep, x) => seq(x, repeat(seq(sep, x)));
 const delim = (open, x, close) => seq(open, x, close);
 
 const tuple = (x) => delim(BRACE_LEFT, opt(sepBy(COMMA, x)), BRACE_RIGHT);
-const list = (x) => delim(BRACKET_LEFT, opt(sepBy(COMMA, x)), BRACKET_RIGHT);
-const args = (x) => delim(PARENS_LEFT, opt(sepBy(COMMA, x)), PARENS_RIGHT);
+const list = (x) =>
+  delim(
+    BRACKET_LEFT,
+    opt(choice(sepBy(COMMA, x), sepBy(PIPE, x))),
+    BRACKET_RIGHT
+  );
+const parens = (x) => delim(PARENS_LEFT, x, PARENS_RIGHT);
+const args = (x) => field("arguments", parens(opt(sepBy(COMMA, x))));
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -80,12 +88,7 @@ module.exports = grammar({
     function_declaration: ($) => seq(sepBy(SEMI, $.function_clause), DOT),
 
     function_clause: ($) =>
-      seq(
-        field("name", $.atom),
-        field("arguments", args($.pattern)),
-        ARROW,
-        field("body", sepBy(COMMA, $.expression))
-      ),
+      prec(10, seq(field("name", $.atom), $.lambda_clause)),
 
     comment: ($) => /%.*\n/,
 
@@ -95,10 +98,11 @@ module.exports = grammar({
     //
     ////////////////////////////////////////////////////////////////////////////
 
-    pattern: ($) => choice($.variable, $.pat_list, $.pat_tuple),
+    pattern: ($) =>
+      prec(10, choice($.term, $.variable, $.pat_list, $.pat_tuple)),
 
-    pat_list: ($) => list($.pattern),
-    pat_tuple: ($) => tuple($.pattern),
+    pat_list: ($) => prec(10, list($.pattern)),
+    pat_tuple: ($) => prec(10, tuple($.pattern)),
 
     ////////////////////////////////////////////////////////////////////////////
     //
@@ -106,10 +110,51 @@ module.exports = grammar({
     //
     ////////////////////////////////////////////////////////////////////////////
 
-    expression: ($) => choice($.variable, $.term, $.macro_application),
+    expression: ($) =>
+      choice(
+        $.case,
+        $.variable,
+        $.term,
+        $.macro_application,
+        $.function_call,
+        $.lambda,
+        $.match
+      ),
+
+    case: ($) =>
+      seq("case", $.expression, "of", sepBy(SEMI, $.case_clause), "end"),
+
+    case_clause: ($) =>
+      seq(
+        field("pattern", $.pattern),
+        ARROW,
+        field("body", sepBy(COMMA, $.expression))
+      ),
+
+    match: ($) => prec.right(seq($.expression, EQUAL, $.expression)),
+
+    lambda: ($) => seq("fun", sepBy(SEMI, $.lambda_clause), "end"),
+
+    lambda_clause: ($) =>
+      seq(
+        field("arguments", args($.pattern)),
+        ARROW,
+        field("body", sepBy(COMMA, $.expression))
+      ),
+
+    function_call: ($) =>
+      choice(
+        seq(field("name", $.expression), args($.expression)),
+        seq(
+          $.expression,
+          COLON,
+          field("name", choice($.variable, $.atom, parens($.expression))),
+          args($.expression)
+        )
+      ),
 
     macro_application: ($) =>
-      seq(QUESTION, $._identifier, opt(args($.expression))),
+      prec.right(11, seq(QUESTION, $._identifier, opt(args($.expression)))),
 
     variable: ($) => $._identifier,
 
@@ -131,7 +176,7 @@ module.exports = grammar({
     tuple: ($) => tuple($.expression),
 
     atom: ($) => field("value", choice($.quoted_atom, $.unquoted_atom)),
-    quoted_atom: ($) => /'[\W!\.!"_#%@^&\*\(\)\{\}\[\]]+'/,
+    quoted_atom: ($) => /'[\W!\.!"_:#%@^&\*\(\)\{\}\[\]=+-/]+'/,
     unquoted_atom: ($) => /[a-z][a-zA-Z_0-9]*/,
 
     integer: ($) =>

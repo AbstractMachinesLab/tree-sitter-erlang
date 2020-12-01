@@ -39,3 +39,13 @@ nested lists
 ---
 
 (source_file (expression (term (list (expression (term (atom (unquoted_atom)))) (expression (term (list (expression (term (integer))) (expression (term (list))))))))))
+
+===============================================================================
+lists consing
+===============================================================================
+
+[ok | [1 | []]]
+
+---
+
+(source_file (expression (term (list (expression (term (atom (unquoted_atom)))) (expression (term (list (expression (term (integer))) (expression (term (list))))))))))

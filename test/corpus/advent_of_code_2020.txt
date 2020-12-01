@@ -1,0 +1,91 @@
+===============================================================================
+runner
+===============================================================================
+
+% Source code generated with Caramel.
+-module(runner).
+
+-export([main/1]).
+-export([run_days/1]).
+-export([run_one/1]).
+
+run_one({N, Day}) ->
+  io:format(<<"Running day #~p...">>, [N | []]),
+  io:format(<<"~p\n">>, [Day() | []]).
+
+% -spec run_days(list({any(), fun(() -> any())})) -> ok.
+run_days(Days) -> lists:foreach(fun
+  (Day) -> run_one(Day)
+end, Days).
+
+% -spec main(any()) -> ok.
+main(_) ->
+  io:format(<<"==# Advent Of Code 2020! #==\n\n">>, []),
+  Days = [{1, fun
+  () -> day_1:run()
+end} | []],
+  run_days(Days),
+  io:format(<<"\n\n">>, []).
+
+---
+
+(source_file (comment) (module_name (atom (unquoted_atom))) (module_export (atom (unquoted_atom)) (integer)) (module_export (atom (unquoted_atom)) (integer)) (module_export (atom (unquoted_atom)) (integer)) (function_declaration (function_clause (atom (unquoted_atom)) (lambda_clause (pattern (pat_tuple (pattern (variable)) (pattern (variable)))) (expression (function_call (expression (term (atom (unquoted_atom)))) (atom (unquoted_atom)) (expression (term (binary_string (bin_part (string))))) (expression (term (list (expression (variable)) (expression (term (list)))))))) (expression (function_call (expression (term (atom (unquoted_atom)))) (atom (unquoted_atom)) (expression (term (binary_string (bin_part (string))))) (expression (term (list (expression (function_call (expression (variable)))) (expression (term (list))))))))))) (comment) (function_declaration (function_clause (atom (unquoted_atom)) (lambda_clause (pattern (variable)) (expression (function_call (expression (term (atom (unquoted_atom)))) (atom (unquoted_atom)) (expression (lambda (lambda_clause (pattern (variable)) (expression (function_call (expression (term (atom (unquoted_atom)))) (expression (variable))))))) (expression (variable))))))) (comment) (function_declaration (function_clause (atom (unquoted_atom)) (lambda_clause (pattern (variable)) (expression (function_call (expression (term (atom (unquoted_atom)))) (atom (unquoted_atom)) (expression (term (binary_string (bin_part (string))))) (expression (term (list))))) (expression (match (expression (variable)) (expression (term (list (expression (term (tuple (expression (term (integer))) (expression (lambda (lambda_clause (expression (function_call (expression (term (atom (unquoted_atom)))) (atom (unquoted_atom)))))))))) (expression (term (list)))))))) (expression (function_call (expression (term (atom (unquoted_atom)))) (expression (variable)))) (expression (function_call (expression (term (atom (unquoted_atom)))) (atom (unquoted_atom)) (expression (term (binary_string (bin_part (string))))) (expression (term (list)))))))))
+
+
+===============================================================================
+day 1
+===============================================================================
+
+% Source code generated with Caramel.
+-module(day_1).
+
+-export([find_entry_pair/2]).
+-export([find_entry_triplet/2]).
+-export([run/0]).
+
+% -spec find_entry_triplet(integer(), list(integer())) -> option:t(integer()).
+find_entry_triplet(Number, Entries) -> lists:foldl(fun
+  (E1, Acc1) ->
+  case Acc1 of
+    none -> lists:foldl(fun
+  (E2, Acc2) ->
+  case Acc2 of
+    none -> lists:foldl(fun
+  (E3, Acc3) ->
+  case Acc3 of
+    none -> case erlang:'=:='(Number, erlang:'+'(erlang:'+'(E1, E2), E3)) of
+  true -> {some, erlang:'*'(erlang:'*'(E1, E2), E3)};
+  false -> none
+end;
+    _ -> Acc3
+  end
+end, none, Entries);
+    _ -> Acc2
+  end
+end, none, Entries);
+    _ -> Acc1
+  end
+end, none, Entries).
+
+% -spec find_entry_pair(integer(), list(integer())) -> option:t(integer()).
+find_entry_pair(Number, Entries) -> lists:foldl(fun
+  (E1, Acc1) ->
+  case Acc1 of
+    none -> lists:foldl(fun
+  (E2, Acc2) ->
+  case Acc2 of
+    none -> case erlang:'=:='(Number, erlang:'+'(E1, E2)) of
+  true -> {some, erlang:'*'(E1, E2)};
+  false -> none
+end;
+    _ -> Acc2
+  end
+end, none, Entries);
+    _ -> Acc1
+  end
+end, none, Entries).
+
+% -spec run() -> list(option:t(integer())).
+run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020, [0 | [0 | [0 | []]]]) | []]].
+
+---
