@@ -9,7 +9,6 @@ fmt:
 test: gen
 	$(TREE_SITTER) test
 
-
 .PHONY: gen
 gen:
 	$(TREE_SITTER) generate
@@ -25,3 +24,8 @@ web: wasm
 .PHONY: wasm
 wasm:
 	$(TREE_SITTER) build-wasm
+
+.PHONY: publish
+publish: all wasm
+	cp ./tree-sitter-erlang.wasm ./docs
+
