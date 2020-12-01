@@ -6,7 +6,7 @@ macro usage
 
 ---
 
-(source_file (expression (macro_application)))
+(source_file (expression (macro_application (variable))))
 
 ===============================================================================
 macro application
@@ -18,4 +18,4 @@ macro application
 
 ---
 
-(source_file (expression (macro_application (expression (term (integer))))) (expression (macro_application (expression (term (integer))) (expression (term (list (expression (term (integer)))))))) (expression (macro_application (expression (term (integer))) (expression (term (list (expression (term (integer)))))) (expression (macro_application)))))
+(source_file (expression (macro_application (variable) (expression (term (integer))))) (expression (macro_application (variable) (expression (term (integer))) (expression (term (list (expression (term (integer)))))))) (expression (macro_application (variable) (expression (term (integer))) (expression (term (list (expression (term (integer)))))) (expression (macro_application (variable))))))

@@ -943,7 +943,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "_identifier"
+            "name": "_macro_name"
           },
           {
             "type": "CHOICE",
@@ -1006,9 +1006,22 @@
         ]
       }
     },
+    "_macro_name": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "variable"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "atom"
+        }
+      ]
+    },
     "variable": {
-      "type": "SYMBOL",
-      "name": "_identifier"
+      "type": "PATTERN",
+      "value": "[_A-Z\\xC0-\\xD6\\xD8-\\xDE][_@a-zA-Z0-9\\xC0-\\xD6\\xD8-\\xDE\\xDF-\\xF6\\xF8-\\xFF]*"
     },
     "term": {
       "type": "CHOICE",
@@ -1185,22 +1198,47 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "quoted_atom"
+            "name": "unquoted_atom"
           },
           {
             "type": "SYMBOL",
-            "name": "unquoted_atom"
+            "name": "quoted_atom"
           }
         ]
       }
     },
-    "quoted_atom": {
-      "type": "PATTERN",
-      "value": "'[\\W!\\.!\"_:#%@^&\\*\\(\\)\\{\\}\\[\\]=+-/]+'"
-    },
     "unquoted_atom": {
       "type": "PATTERN",
-      "value": "[a-z][a-zA-Z_0-9]*"
+      "value": "[a-z\\xDF-\\xF6\\xF8-\\xFF][_@a-zA-Z0-9\\xC0-\\xD6\\xD8-\\xDE\\xDF-\\xF6\\xF8-\\xFF]*"
+    },
+    "quoted_atom": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "'"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[^'\\\\]+"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_escape"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "'"
+        }
+      ]
     },
     "integer": {
       "type": "CHOICE",
@@ -1223,13 +1261,93 @@
       "type": "PATTERN",
       "value": "-?([\\d_]*#)?[\\d_]+\\.[\\d_]+(e-?[\\d_]+)?"
     },
-    "char": {
-      "type": "PATTERN",
-      "value": "\\$."
-    },
     "string": {
-      "type": "PATTERN",
-      "value": "\".*\""
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\""
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[^\"\\\\]+"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_escape"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "\""
+        }
+      ]
+    },
+    "char": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "$"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "[^\\\\]"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_escape"
+            }
+          ]
+        }
+      ]
+    },
+    "_escape": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "\\"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[0-7]{1,3}"
+              },
+              {
+                "type": "PATTERN",
+                "value": "x[0-9a-fA-F]{2}"
+              },
+              {
+                "type": "PATTERN",
+                "value": "x{[0-9a-fA-F]+}"
+              },
+              {
+                "type": "STRING",
+                "value": "\n"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[nrtvbfesd]"
+              }
+            ]
+          }
+        ]
+      }
     },
     "binary_string": {
       "type": "SEQ",

@@ -154,9 +154,11 @@ module.exports = grammar({
       ),
 
     macro_application: ($) =>
-      prec.right(11, seq(QUESTION, $._identifier, opt(args($.expression)))),
+      prec.right(11, seq(QUESTION, $._macro_name, opt(args($.expression)))),
 
-    variable: ($) => $._identifier,
+    _macro_name: $ => choice($.variable, $.atom),
+
+    variable: $ => /[_A-Z\xC0-\xD6\xD8-\xDE][_@a-zA-Z0-9\xC0-\xD6\xD8-\xDE\xDF-\xF6\xF8-\xFF]*/,
 
     term: ($) =>
       choice(
@@ -175,9 +177,9 @@ module.exports = grammar({
     list: ($) => list($.expression),
     tuple: ($) => tuple($.expression),
 
-    atom: ($) => field("value", choice($.quoted_atom, $.unquoted_atom)),
-    quoted_atom: ($) => /'[\W!\.!"_:#%@^&\*\(\)\{\}\[\]=+-/]+'/,
-    unquoted_atom: ($) => /[a-z][a-zA-Z_0-9]*/,
+    atom: $ => field("value", choice($.unquoted_atom, $.quoted_atom)),
+    unquoted_atom: $ => /[a-z\xDF-\xF6\xF8-\xFF][_@a-zA-Z0-9\xC0-\xD6\xD8-\xDE\xDF-\xF6\xF8-\xFF]*/,
+    quoted_atom: $ => seq("'", repeat(choice(/[^'\\]+/, $._escape)), "'"),
 
     integer: ($) =>
       choice(
@@ -190,9 +192,11 @@ module.exports = grammar({
       ),
     float: ($) => /-?([\d_]*#)?[\d_]+\.[\d_]+(e-?[\d_]+)?/,
 
-    char: ($) => /\$./,
-    /// NOTE(@ostera): this is an obviously incomplete regex for strings
-    string: ($) => /".*"/,
+    string: $ => seq('"', repeat(choice(/[^"\\]+/, $._escape)), '"'),
+
+    char: $ => seq('$', choice(/[^\\]/, $._escape)),
+
+    _escape: $ => token(seq('\\', choice(/[0-7]{1,3}/, /x[0-9a-fA-F]{2}/, /x{[0-9a-fA-F]+}/, '\n', /[nrtvbfesd]/))),
 
     binary_string: ($) =>
       seq(BINARY_LEFT, opt(sepBy(COMMA, $.bin_part)), BINARY_RIGHT),
