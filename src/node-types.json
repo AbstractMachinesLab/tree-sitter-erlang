@@ -154,6 +154,11 @@
     }
   },
   {
+    "type": "char",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "expression",
     "named": true,
     "fields": {},
@@ -400,6 +405,20 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -562,6 +581,11 @@
     }
   },
   {
+    "type": "quoted_atom",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "record",
     "named": true,
     "fields": {},
@@ -608,10 +632,6 @@
       "required": false,
       "types": [
         {
-          "type": "comment",
-          "named": true
-        },
-        {
           "type": "expression",
           "named": true
         },
@@ -633,6 +653,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "string",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "term",
@@ -701,12 +726,19 @@
     }
   },
   {
-    "type": "variable",
-    "named": true,
-    "fields": {}
+    "type": "\"",
+    "named": false
   },
   {
     "type": "#",
+    "named": false
+  },
+  {
+    "type": "$",
+    "named": false
+  },
+  {
+    "type": "'",
     "named": false
   },
   {
@@ -798,14 +830,6 @@
     "named": false
   },
   {
-    "type": "char",
-    "named": true
-  },
-  {
-    "type": "comment",
-    "named": true
-  },
-  {
     "type": "end",
     "named": false
   },
@@ -850,16 +874,8 @@
     "named": false
   },
   {
-    "type": "quoted_atom",
-    "named": true
-  },
-  {
     "type": "signed",
     "named": false
-  },
-  {
-    "type": "string",
-    "named": true
   },
   {
     "type": "unquoted_atom",
@@ -880,6 +896,10 @@
   {
     "type": "utf8",
     "named": false
+  },
+  {
+    "type": "variable",
+    "named": true
   },
   {
     "type": "{",
