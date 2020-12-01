@@ -14,7 +14,8 @@ export attribute
 ===============================================================================
 
 -export([hello/0, what/1]).
+-export_type([t/0, t_aux/1]).
 
 ---
 
-(source_file (module_export (atom (unquoted_atom)) (integer) (atom (unquoted_atom)) (integer)))
+(source_file (module_export (atom (unquoted_atom)) (integer) (atom (unquoted_atom)) (integer)) (module_export (atom (unquoted_atom)) (integer) (atom (unquoted_atom)) (integer)))

@@ -80,7 +80,7 @@ module.exports = grammar({
     module_export: ($) =>
       seq(
         DASH,
-        "export",
+        choice("export", "export_type"),
         delim(PARENS_LEFT, list(seq($.atom, SLASH, $.integer)), PARENS_RIGHT),
         DOT
       ),

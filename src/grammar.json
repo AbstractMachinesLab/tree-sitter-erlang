@@ -117,8 +117,17 @@
           "value": "-"
         },
         {
-          "type": "STRING",
-          "value": "export"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "export"
+            },
+            {
+              "type": "STRING",
+              "value": "export_type"
+            }
+          ]
         },
         {
           "type": "SEQ",
