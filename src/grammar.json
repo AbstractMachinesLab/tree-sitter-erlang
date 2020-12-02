@@ -324,7 +324,7 @@
         ]
       }
     },
-    "_comment": {
+    "comment": {
       "type": "PATTERN",
       "value": "%.*\\n"
     },
@@ -1734,7 +1734,7 @@
     },
     {
       "type": "SYMBOL",
-      "name": "_comment"
+      "name": "comment"
     }
   ],
   "conflicts": [],

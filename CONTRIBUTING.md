@@ -2,7 +2,7 @@
 
 First of all, thanks for taking the time to contribute! :heart::tada::+1:
 
-There's two commands to run:
+There's 3 commands to run:
 
 1. `make` -- this will reformat, compile, and test everything. It's fast enough
    that you can run it often.
