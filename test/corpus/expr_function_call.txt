@@ -63,11 +63,41 @@ local:op(1, local:function(1,2,3))
 (source_file (expression (function_call (expression (term (atom (unquoted_atom)))) (atom (unquoted_atom)) (expression (term (integer))) (expression (function_call (expression (term (atom (unquoted_atom)))) (atom (unquoted_atom)) (expression (term (integer))) (expression (term (integer))) (expression (term (integer))))))))
 
 ===============================================================================
-mixed function calls
+local function call without args
 ===============================================================================
 
-Lambda(1, local:function(1,2,3))
+local_function()
 
 ---
 
-(source_file (expression (function_call (expression (variable)) (expression (term (integer))) (expression (function_call (expression (term (atom (unquoted_atom)))) (atom (unquoted_atom)) (expression (term (integer))) (expression (term (integer))) (expression (term (integer))))))))
+(source_file (expression (function_call (expression (term (atom (unquoted_atom)))) (atom (unquoted_atom)))))
+
+
+===============================================================================
+local function call with args
+===============================================================================
+
+local_function(1)
+local_function(1,2,3)
+
+---
+
+(source_file (expression (function_call (expression (term (atom (unquoted_atom)))) (atom (unquoted_atom)) (expression (term (integer))))) (expression (function_call (expression (term (atom (unquoted_atom)))) (atom (unquoted_atom)) (expression (term (integer))) (expression (term (integer))) (expression (term (integer))))))
+
+===============================================================================
+nested local function calls
+===============================================================================
+
+local_op(1, local_function(1,2,3))
+
+---
+
+(source_file (expression (function_call (expression (term (atom (unquoted_atom)))) (atom (unquoted_atom)) (expression (term (integer))) (expression (function_call (expression (term (atom (unquoted_atom)))) (atom (unquoted_atom)) (expression (term (integer))) (expression (term (integer))) (expression (term (integer))))))))
+
+===============================================================================
+mixed function calls
+===============================================================================
+
+module:function(Lambda(1, local_function(1,2,3))
+
+---
