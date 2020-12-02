@@ -30,3 +30,44 @@ Op(1, Lambda(1,2,3))
 
 (source_file (expression (function_call (expression (variable)) (expression (term (integer))) (expression (function_call (expression (variable)) (expression (term (integer))) (expression (term (integer))) (expression (term (integer))))))))
 
+===============================================================================
+qualified function call without args
+===============================================================================
+
+local:function()
+
+---
+
+(source_file (expression (function_call (expression (term (atom (unquoted_atom)))) (atom (unquoted_atom)))))
+
+
+===============================================================================
+qualified function call with args
+===============================================================================
+
+local:function(1)
+local:function(1,2,3)
+
+---
+
+(source_file (expression (function_call (expression (term (atom (unquoted_atom)))) (atom (unquoted_atom)) (expression (term (integer))))) (expression (function_call (expression (term (atom (unquoted_atom)))) (atom (unquoted_atom)) (expression (term (integer))) (expression (term (integer))) (expression (term (integer))))))
+
+===============================================================================
+nested qualified function calls
+===============================================================================
+
+local:op(1, local:function(1,2,3))
+
+---
+
+(source_file (expression (function_call (expression (term (atom (unquoted_atom)))) (atom (unquoted_atom)) (expression (term (integer))) (expression (function_call (expression (term (atom (unquoted_atom)))) (atom (unquoted_atom)) (expression (term (integer))) (expression (term (integer))) (expression (term (integer))))))))
+
+===============================================================================
+mixed function calls
+===============================================================================
+
+Lambda(1, local:function(1,2,3))
+
+---
+
+(source_file (expression (function_call (expression (variable)) (expression (term (integer))) (expression (function_call (expression (term (atom (unquoted_atom)))) (atom (unquoted_atom)) (expression (term (integer))) (expression (term (integer))) (expression (term (integer))))))))
