@@ -1,34 +1,70 @@
-===============================================================================
+================================================================================
 empty
-===============================================================================
+================================================================================
 
 #r{}
 
----
+--------------------------------------------------------------------------------
 
-(source_file (expression (term (record (atom (unquoted_atom))))))
+(source_file
+  (expression
+    (term
+      (record
+        (atom
+          (unquoted_atom))))))
 
-
-===============================================================================
+================================================================================
 with one key and value
-===============================================================================
+================================================================================
 
 #r{ hello = world }
 
----
+--------------------------------------------------------------------------------
 
-    (source_file (expression (term (record (atom (unquoted_atom)) (record_field (term (atom (unquoted_atom))) (expression (term (atom (unquoted_atom)))))))))
+(source_file
+  (expression
+    (term
+      (record
+        (atom
+          (unquoted_atom))
+        (record_field
+          (term
+            (atom
+              (unquoted_atom)))
+          (expression
+            (term
+              (atom
+                (unquoted_atom)))))))))
 
-
-===============================================================================
+================================================================================
 with many keys and values
-===============================================================================
+================================================================================
 
 #r{ hello = world
   , goodbye = moe
 }
 
----
+--------------------------------------------------------------------------------
 
-    (source_file (expression (term (record (atom (unquoted_atom)) (record_field (term (atom (unquoted_atom))) (expression (term (atom (unquoted_atom))))) (record_field (term (atom (unquoted_atom))) (expression (term (atom (unquoted_atom)))))))))
-
+(source_file
+  (expression
+    (term
+      (record
+        (atom
+          (unquoted_atom))
+        (record_field
+          (term
+            (atom
+              (unquoted_atom)))
+          (expression
+            (term
+              (atom
+                (unquoted_atom)))))
+        (record_field
+          (term
+            (atom
+              (unquoted_atom)))
+          (expression
+            (term
+              (atom
+                (unquoted_atom)))))))))

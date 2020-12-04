@@ -26,6 +26,18 @@ const SLASH = "/";
 
 ///////////////////////////////////////////////////////////////////////////////
 //
+// Precedences
+//
+///////////////////////////////////////////////////////////////////////////////
+const PREC = {
+  PATTERN: 3,
+  FUNCTION_CLAUSE: 2,
+  MACRO_APPLICATION: 1,
+  MATCH: -1, // prefer other expressions to matches
+};
+
+///////////////////////////////////////////////////////////////////////////////
+//
 // Combinators
 //
 ///////////////////////////////////////////////////////////////////////////////
@@ -90,7 +102,7 @@ module.exports = grammar({
     function_declaration: ($) => seq(sepBy(SEMI, $.function_clause), DOT),
 
     function_clause: ($) =>
-      prec(10, seq(field("name", $.atom), $.lambda_clause)),
+      prec(PREC.FUNCTION_CLAUSE, seq(field("name", $.atom), $.lambda_clause)),
 
     comment: ($) => /%.*\n/,
 
@@ -101,10 +113,10 @@ module.exports = grammar({
     ////////////////////////////////////////////////////////////////////////////
 
     pattern: ($) =>
-      prec(10, choice($.term, $.variable, $.pat_list, $.pat_tuple)),
+      prec(PREC.PATTERN, choice($.term, $.variable, $.pat_list, $.pat_tuple)),
 
-    pat_list: ($) => prec(10, list($.pattern)),
-    pat_tuple: ($) => prec(10, tuple($.pattern)),
+    pat_list: ($) => prec(PREC.PATTERN, list($.pattern)),
+    pat_tuple: ($) => prec(PREC.PATTERN, tuple($.pattern)),
 
     ////////////////////////////////////////////////////////////////////////////
     //
@@ -133,7 +145,8 @@ module.exports = grammar({
         field("body", sepBy(COMMA, $.expression))
       ),
 
-    match: ($) => prec.right(seq($.expression, EQUAL, $.expression)),
+    match: ($) =>
+      prec.right(PREC.MATCH, seq($.expression, EQUAL, $.expression)),
 
     lambda: ($) => seq("fun", sepBy(SEMI, $.lambda_clause), "end"),
 
@@ -145,18 +158,25 @@ module.exports = grammar({
       ),
 
     function_call: ($) =>
-      choice(
-        seq(field("name", $.expression), args($.expression)),
-        seq(
-          $.expression,
-          COLON,
-          field("name", choice($.variable, $.atom, parens($.expression))),
-          args($.expression)
-        )
+      seq(field("name", $._function_name), args($.expression)),
+
+    _function_name: ($) =>
+      choice($.computed_function_name, $.qualified_function_name),
+
+    qualified_function_name: ($) =>
+      seq(
+        field("module_name", $.expression),
+        COLON,
+        field("function_name", choice($.variable, $.atom, parens($.expression)))
       ),
 
+    computed_function_name: ($) => $.expression,
+
     macro_application: ($) =>
-      prec.right(11, seq(QUESTION, $._macro_name, opt(args($.expression)))),
+      prec.right(
+        PREC.MACRO_APPLICATION,
+        seq(QUESTION, $._macro_name, opt(args($.expression)))
+      ),
 
     _macro_name: ($) => choice($.variable, $.atom),
 

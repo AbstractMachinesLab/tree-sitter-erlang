@@ -1,39 +1,91 @@
-===============================================================================
+================================================================================
 simple
-===============================================================================
+================================================================================
 
 case A of
  [] -> ok
 end
 
----
+--------------------------------------------------------------------------------
 
-(source_file (expression (case (expression (variable)) (case_clause (pattern (pat_list)) (expression (term (atom (unquoted_atom))))))))
+(source_file
+  (expression
+    (case
+      (expression
+        (variable))
+      (case_clause
+        (pattern
+          (pat_list))
+        (expression
+          (term
+            (atom
+              (unquoted_atom))))))))
 
-===============================================================================
+================================================================================
 multi branch
-===============================================================================
+================================================================================
 
 case f(A) of
  [] -> ok;
  _ -> error
 end
 
----
+--------------------------------------------------------------------------------
 
-(source_file (expression (case (expression (function_call (expression (term (atom (unquoted_atom)))) (expression (variable)))) (case_clause (pattern (pat_list)) (expression (term (atom (unquoted_atom))))) (case_clause (pattern (variable)) (expression (term (atom (unquoted_atom))))))))
+(source_file
+  (expression
+    (case
+      (expression
+        (function_call
+          (computed_function_name
+            (expression
+              (term
+                (atom
+                  (unquoted_atom)))))
+          (expression
+            (variable))))
+      (case_clause
+        (pattern
+          (pat_list))
+        (expression
+          (term
+            (atom
+              (unquoted_atom)))))
+      (case_clause
+        (pattern
+          (variable))
+        (expression
+          (term
+            (atom
+              (unquoted_atom))))))))
 
-
-===============================================================================
+================================================================================
 multi branch ignoring
-===============================================================================
+================================================================================
 
 case Acc1 of
   none -> ok;
   _ -> Acc1
 end
 
----
+--------------------------------------------------------------------------------
 
-(source_file (expression (case (expression (variable)) (case_clause (pattern (term (atom (unquoted_atom)))) (expression (term (atom (unquoted_atom))))) (case_clause (pattern (variable)) (expression (variable))))))
-
+(source_file
+  (expression
+    (case
+      (expression
+        (variable))
+      (case_clause
+        (pattern
+          (term
+            (atom
+              (unquoted_atom))))
+        (expression
+          (term
+            (atom
+              (unquoted_atom)))))
+      (case_clause
+        (pattern
+          (variable))
+        (expression
+          (variable))))))

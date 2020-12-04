@@ -1,42 +1,92 @@
-===============================================================================
+================================================================================
 single clause function
-===============================================================================
+================================================================================
 
 main() -> ok.
 
----
+--------------------------------------------------------------------------------
 
-(source_file (function_declaration (function_clause (atom (unquoted_atom)) (lambda_clause (expression (term (atom (unquoted_atom))))))))
+(source_file
+  (function_declaration
+    (function_clause
+      (atom
+        (unquoted_atom))
+      (lambda_clause
+        (expression
+          (term
+            (atom
+              (unquoted_atom))))))))
 
-
-===============================================================================
+================================================================================
 single clause function with one arg
-===============================================================================
+================================================================================
 
 main(A) -> ok.
 
----
+--------------------------------------------------------------------------------
 
-(source_file (function_declaration (function_clause (atom (unquoted_atom)) (lambda_clause (pattern (variable)) (expression (term (atom (unquoted_atom))))))))
+(source_file
+  (function_declaration
+    (function_clause
+      (atom
+        (unquoted_atom))
+      (lambda_clause
+        (pattern
+          (variable))
+        (expression
+          (term
+            (atom
+              (unquoted_atom))))))))
 
-===============================================================================
+================================================================================
 single clause function with one ignored arg
-===============================================================================
+================================================================================
 
 main(_) -> ok.
 
----
+--------------------------------------------------------------------------------
 
-(source_file (function_declaration (function_clause (atom (unquoted_atom)) (lambda_clause (pattern (variable)) (expression (term (atom (unquoted_atom))))))))
+(source_file
+  (function_declaration
+    (function_clause
+      (atom
+        (unquoted_atom))
+      (lambda_clause
+        (pattern
+          (variable))
+        (expression
+          (term
+            (atom
+              (unquoted_atom))))))))
 
-===============================================================================
+================================================================================
 multi clause function
-===============================================================================
+================================================================================
 
 main([]) -> ok;
 main(Args) -> ok.
 
----
+--------------------------------------------------------------------------------
 
-(source_file (function_declaration (function_clause (atom (unquoted_atom)) (lambda_clause (pattern (pat_list)) (expression (term (atom (unquoted_atom)))))) (function_clause (atom (unquoted_atom)) (lambda_clause (pattern (variable)) (expression (term (atom (unquoted_atom))))))))
-
+(source_file
+  (function_declaration
+    (function_clause
+      (atom
+        (unquoted_atom))
+      (lambda_clause
+        (pattern
+          (pat_list))
+        (expression
+          (term
+            (atom
+              (unquoted_atom))))))
+    (function_clause
+      (atom
+        (unquoted_atom))
+      (lambda_clause
+        (pattern
+          (variable))
+        (expression
+          (term
+            (atom
+              (unquoted_atom))))))))

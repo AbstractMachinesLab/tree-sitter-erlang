@@ -1,4 +1,4 @@
-TREE_SITTER=./node_modules/.bin/tree-sitter
+TREE_SITTER=tree-sitter
 
 all: fmt gen test
 

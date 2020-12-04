@@ -1,21 +1,57 @@
-===============================================================================
+================================================================================
 macro usage
-===============================================================================
+================================================================================
 
 ?MY_MACRO
 
----
+--------------------------------------------------------------------------------
 
-(source_file (expression (macro_application (variable))))
+(source_file
+  (expression
+    (macro_application
+      (variable))))
 
-===============================================================================
+================================================================================
 macro application
-===============================================================================
+================================================================================
 
 ?MY_MACRO(2)
 ?MY_MACRO(2, [1])
 ?MY_MACRO(2, [1], ?MY_MACRO_EXTRA)
 
----
+--------------------------------------------------------------------------------
 
-(source_file (expression (macro_application (variable) (expression (term (integer))))) (expression (macro_application (variable) (expression (term (integer))) (expression (term (list (expression (term (integer)))))))) (expression (macro_application (variable) (expression (term (integer))) (expression (term (list (expression (term (integer)))))) (expression (macro_application (variable))))))
+(source_file
+  (expression
+    (macro_application
+      (variable)
+      (expression
+        (term
+          (integer)))))
+  (expression
+    (macro_application
+      (variable)
+      (expression
+        (term
+          (integer)))
+      (expression
+        (term
+          (list
+            (expression
+              (term
+                (integer))))))))
+  (expression
+    (macro_application
+      (variable)
+      (expression
+        (term
+          (integer)))
+      (expression
+        (term
+          (list
+            (expression
+              (term
+                (integer))))))
+      (expression
+        (macro_application
+          (variable))))))
