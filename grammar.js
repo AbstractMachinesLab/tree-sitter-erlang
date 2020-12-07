@@ -176,6 +176,7 @@ module.exports = grammar({
 
     _expression: ($) =>
       choice(
+        $.expr_begin_block,
         $.expr_list_comprehension,
         $.expr_operator,
         $.expr_receive,
@@ -191,6 +192,8 @@ module.exports = grammar({
         $.lambda,
         $.match
       ),
+
+    expr_begin_block: ($) => seq("begin", sepBy(COMMA, $.expression), "end"),
 
     expr_list_comprehension: ($) =>
       seq(

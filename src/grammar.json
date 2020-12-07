@@ -507,6 +507,10 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "expr_begin_block"
+        },
+        {
+          "type": "SYMBOL",
           "name": "expr_list_comprehension"
         },
         {
@@ -560,6 +564,44 @@
         {
           "type": "SYMBOL",
           "name": "match"
+        }
+      ]
+    },
+    "expr_begin_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "begin"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "expression"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": ","
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "expression"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "end"
         }
       ]
     },

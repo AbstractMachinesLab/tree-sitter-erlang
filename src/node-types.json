@@ -192,6 +192,21 @@
     }
   },
   {
+    "type": "expr_begin_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "expr_bitstring_comprehension",
     "named": true,
     "fields": {},
@@ -628,6 +643,10 @@
       "types": [
         {
           "type": "case",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
           "named": true
         },
         {
@@ -1508,6 +1527,10 @@
     "named": false
   },
   {
+    "type": "begin",
+    "named": false
+  },
+  {
     "type": "big",
     "named": false
   },
@@ -1573,11 +1596,11 @@
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "fun",
