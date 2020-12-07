@@ -192,6 +192,44 @@
     }
   },
   {
+    "type": "expr_bitstring_comprehension",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expr_bitstring_generator",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "term",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expr_bitstring_generator",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "expr_if",
     "named": true,
     "fields": {},
@@ -522,6 +560,10 @@
       "types": [
         {
           "type": "case",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
           "named": true
         },
         {
@@ -1318,6 +1360,10 @@
     "named": false
   },
   {
+    "type": "<=",
+    "named": false
+  },
+  {
     "type": "=",
     "named": false
   },
@@ -1547,6 +1593,10 @@
   },
   {
     "type": "|",
+    "named": false
+  },
+  {
+    "type": "||",
     "named": false
   },
   {

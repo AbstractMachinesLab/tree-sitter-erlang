@@ -18,10 +18,12 @@ const DASH = "-";
 const DOT = ".";
 const EQUAL = "=";
 const FAT_ARROW = "=>";
+const REV_FAT_ARROW = "<=";
 const HASH = "#";
 const PARENS_LEFT = "(";
 const PARENS_RIGHT = ")";
 const PIPE = "|";
+const DOUBLE_PIPE = "||";
 const QUESTION = "?";
 const SEMI = ";";
 const SLASH = "/";
@@ -178,6 +180,7 @@ module.exports = grammar({
         $.expr_send,
         $.expr_if,
         $.expr_list,
+        $.expr_bitstring_comprehension,
         $.case,
         $.variable,
         $.term,
@@ -186,6 +189,19 @@ module.exports = grammar({
         $.lambda,
         $.match
       ),
+
+    expr_bitstring_comprehension: ($) =>
+      seq(
+        BINARY_LEFT,
+        $.term,
+        DOUBLE_PIPE,
+        $.expr_bitstring_generator,
+        opt(seq(COMMA, sepBy(COMMA, $.expression))),
+        BINARY_RIGHT
+      ),
+
+    expr_bitstring_generator: ($) =>
+      seq(BINARY_LEFT, $.expression, BINARY_RIGHT, REV_FAT_ARROW, $.expression),
 
     expr_operator: ($) => choice($.expr_operator_unary, $.expr_operator_binary),
 
