@@ -4,6 +4,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 const ARROW = "->";
+const BANG = "!";
 const BINARY_LEFT = "<<";
 const BINARY_RIGHT = ">>";
 const BRACE_LEFT = "{";
@@ -130,6 +131,7 @@ module.exports = grammar({
       prec(
         PREC.EXPRESSION,
         choice(
+          $.expr_send,
           $.expr_if,
           $.expr_list,
           $.case,
@@ -141,6 +143,8 @@ module.exports = grammar({
           $.match
         )
       ),
+
+    expr_send: ($) => prec.right(seq($.expression, BANG, $.expression)),
 
     expr_if: ($) => seq("if", sepBy(SEMI, $.if_clause), "end"),
 

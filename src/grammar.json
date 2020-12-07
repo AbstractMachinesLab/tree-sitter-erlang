@@ -472,6 +472,10 @@
         "members": [
           {
             "type": "SYMBOL",
+            "name": "expr_send"
+          },
+          {
+            "type": "SYMBOL",
             "name": "expr_if"
           },
           {
@@ -505,6 +509,27 @@
           {
             "type": "SYMBOL",
             "name": "match"
+          }
+        ]
+      }
+    },
+    "expr_send": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          },
+          {
+            "type": "STRING",
+            "value": "!"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "expression"
           }
         ]
       }

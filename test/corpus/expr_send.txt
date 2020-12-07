@@ -2,6 +2,44 @@
 send
 ================================================================================
 
+a ! b
+
 --------------------------------------------------------------------------------
 
-(source_file)
+(source_file
+  (expression
+    (expr_send
+      (expression
+        (term
+          (atom
+            (unquoted_atom))))
+      (expression
+        (term
+          (atom
+            (unquoted_atom)))))))
+
+================================================================================
+associativity
+================================================================================
+
+a ! b ! c
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (expr_send
+      (expression
+        (term
+          (atom
+            (unquoted_atom))))
+      (expression
+        (expr_send
+          (expression
+            (term
+              (atom
+                (unquoted_atom))))
+          (expression
+            (term
+              (atom
+                (unquoted_atom)))))))))

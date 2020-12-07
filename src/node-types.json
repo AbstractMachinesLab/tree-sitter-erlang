@@ -256,6 +256,21 @@
     }
   },
   {
+    "type": "expr_send",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "expression",
     "named": true,
     "fields": {},
@@ -273,6 +288,10 @@
         },
         {
           "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_send",
           "named": true
         },
         {
@@ -959,6 +978,10 @@
         }
       ]
     }
+  },
+  {
+    "type": "!",
+    "named": false
   },
   {
     "type": "\"",
