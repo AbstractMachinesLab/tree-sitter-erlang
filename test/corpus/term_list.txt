@@ -8,8 +8,7 @@ empty
 
 (source_file
   (expression
-    (term
-      (list))))
+    (expr_list)))
 
 ================================================================================
 list of size 1
@@ -21,11 +20,10 @@ list of size 1
 
 (source_file
   (expression
-    (term
-      (list
-        (expression
-          (term
-            (integer)))))))
+    (expr_list
+      (expression
+        (term
+          (integer))))))
 
 ================================================================================
 pair
@@ -37,15 +35,14 @@ pair
 
 (source_file
   (expression
-    (term
-      (list
-        (expression
-          (term
-            (integer)))
-        (expression
-          (term
-            (atom
-              (unquoted_atom))))))))
+    (expr_list
+      (expression
+        (term
+          (integer)))
+      (expression
+        (term
+          (atom
+            (unquoted_atom)))))))
 
 ================================================================================
 nested lists
@@ -57,21 +54,18 @@ nested lists
 
 (source_file
   (expression
-    (term
-      (list
-        (expression
-          (term
-            (atom
-              (unquoted_atom))))
-        (expression
-          (term
-            (list
-              (expression
-                (term
-                  (integer)))
-              (expression
-                (term
-                  (list))))))))))
+    (expr_list
+      (expression
+        (term
+          (atom
+            (unquoted_atom))))
+      (expression
+        (expr_list
+          (expression
+            (term
+              (integer)))
+          (expression
+            (expr_list)))))))
 
 ================================================================================
 lists consing
@@ -83,18 +77,17 @@ lists consing
 
 (source_file
   (expression
-    (term
-      (list
+    (expr_list
+      (expr_list_cons
         (expression
           (term
             (atom
               (unquoted_atom))))
         (expression
-          (term
-            (list
+          (expr_list
+            (expr_list_cons
               (expression
                 (term
                   (integer)))
               (expression
-                (term
-                  (list))))))))))
+                (expr_list)))))))))

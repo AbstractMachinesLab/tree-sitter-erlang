@@ -38,10 +38,8 @@ end
       (expression
         (function_call
           (computed_function_name
-            (expression
-              (term
-                (atom
-                  (unquoted_atom)))))
+            (atom
+              (unquoted_atom)))
           (expression
             (variable))))
       (case_clause
@@ -89,3 +87,66 @@ end
           (variable))
         (expression
           (variable))))))
+
+================================================================================
+simple with guards
+================================================================================
+
+case A of
+ [] when B -> ok
+end
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (case
+      (expression
+        (variable))
+      (case_clause
+        (pattern
+          (pat_list))
+        (guard_clause
+          (guard_seq
+            (guard
+              (expression
+                (variable)))))
+        (expression
+          (term
+            (atom
+              (unquoted_atom))))))))
+
+================================================================================
+simple with multiple guards
+================================================================================
+
+case A of
+ [] when B, C; D, E -> ok
+end
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (case
+      (expression
+        (variable))
+      (case_clause
+        (pattern
+          (pat_list))
+        (guard_clause
+          (guard_seq
+            (guard
+              (expression
+                (variable))
+              (expression
+                (variable)))
+            (guard
+              (expression
+                (variable))
+              (expression
+                (variable)))))
+        (expression
+          (term
+            (atom
+              (unquoted_atom))))))))

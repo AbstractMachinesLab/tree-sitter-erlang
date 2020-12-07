@@ -35,11 +35,10 @@ macro application
         (term
           (integer)))
       (expression
-        (term
-          (list
-            (expression
-              (term
-                (integer))))))))
+        (expr_list
+          (expression
+            (term
+              (integer)))))))
   (expression
     (macro_application
       (variable)
@@ -47,11 +46,10 @@ macro application
         (term
           (integer)))
       (expression
-        (term
-          (list
-            (expression
-              (term
-                (integer))))))
+        (expr_list
+          (expression
+            (term
+              (integer)))))
       (expression
         (macro_application
           (variable))))))

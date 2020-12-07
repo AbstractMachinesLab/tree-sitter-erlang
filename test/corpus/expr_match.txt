@@ -1,0 +1,151 @@
+================================================================================
+binding
+================================================================================
+
+A = 1
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (match
+      (expression
+        (variable))
+      (expression
+        (term
+          (integer))))))
+
+================================================================================
+matching on constants
+================================================================================
+
+1 = A
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (match
+      (expression
+        (term
+          (integer)))
+      (expression
+        (variable)))))
+
+================================================================================
+matching on tuples
+================================================================================
+
+{A, 1} = B
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (match
+      (expression
+        (term
+          (tuple
+            (expression
+              (variable))
+            (expression
+              (term
+                (integer))))))
+      (expression
+        (variable)))))
+
+================================================================================
+matching on maps
+================================================================================
+
+#{ a := A } = B
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (match
+      (expression
+        (term
+          (map
+            (map_entry
+              (term
+                (atom
+                  (unquoted_atom)))
+              (expression
+                (variable))))))
+      (expression
+        (variable)))))
+
+================================================================================
+matching on lists
+================================================================================
+
+[] = L
+[1|_] = L2
+[1, B] = L3
+[1, B | T ] = L4
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (match
+      (expression
+        (expr_list))
+      (expression
+        (variable))))
+  (expression
+    (match
+      (expression
+        (expr_list
+          (expr_list_cons
+            (expression
+              (term
+                (integer)))
+            (expression
+              (variable)))))
+      (expression
+        (variable))))
+  (expression
+    (match
+      (expression
+        (expr_list
+          (expression
+            (term
+              (integer)))
+          (expression
+            (variable))))
+      (expression
+        (variable))))
+  (expression
+    (match
+      (expression
+        (expr_list
+          (expr_list_cons
+            (expression
+              (term
+                (integer)))
+            (expression
+              (variable))
+            (expression
+              (variable)))))
+      (expression
+        (variable)))))
+
+================================================================================
+ignoring match
+================================================================================
+
+_ = 1
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (match
+      (expression
+        (variable))
+      (expression
+        (term
+          (integer))))))

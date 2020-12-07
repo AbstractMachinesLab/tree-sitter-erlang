@@ -10,8 +10,7 @@ Lambda()
   (expression
     (function_call
       (computed_function_name
-        (expression
-          (variable))))))
+        (variable)))))
 
 ================================================================================
 apply lambda with args
@@ -26,16 +25,14 @@ Lambda(1,2,3)
   (expression
     (function_call
       (computed_function_name
-        (expression
-          (variable)))
+        (variable))
       (expression
         (term
           (integer)))))
   (expression
     (function_call
       (computed_function_name
-        (expression
-          (variable)))
+        (variable))
       (expression
         (term
           (integer)))
@@ -58,16 +55,14 @@ Op(1, Lambda(1,2,3))
   (expression
     (function_call
       (computed_function_name
-        (expression
-          (variable)))
+        (variable))
       (expression
         (term
           (integer)))
       (expression
         (function_call
           (computed_function_name
-            (expression
-              (variable)))
+            (variable))
           (expression
             (term
               (integer)))
@@ -90,10 +85,8 @@ local:function()
   (expression
     (function_call
       (qualified_function_name
-        (expression
-          (term
-            (atom
-              (unquoted_atom))))
+        (atom
+          (unquoted_atom))
         (atom
           (unquoted_atom))))))
 
@@ -110,10 +103,8 @@ local:function(1,2,3)
   (expression
     (function_call
       (qualified_function_name
-        (expression
-          (term
-            (atom
-              (unquoted_atom))))
+        (atom
+          (unquoted_atom))
         (atom
           (unquoted_atom)))
       (expression
@@ -122,10 +113,8 @@ local:function(1,2,3)
   (expression
     (function_call
       (qualified_function_name
-        (expression
-          (term
-            (atom
-              (unquoted_atom))))
+        (atom
+          (unquoted_atom))
         (atom
           (unquoted_atom)))
       (expression
@@ -150,10 +139,8 @@ local:op(1, local:function(1,2,3))
   (expression
     (function_call
       (qualified_function_name
-        (expression
-          (term
-            (atom
-              (unquoted_atom))))
+        (atom
+          (unquoted_atom))
         (atom
           (unquoted_atom)))
       (expression
@@ -162,10 +149,8 @@ local:op(1, local:function(1,2,3))
       (expression
         (function_call
           (qualified_function_name
-            (expression
-              (term
-                (atom
-                  (unquoted_atom))))
+            (atom
+              (unquoted_atom))
             (atom
               (unquoted_atom)))
           (expression
@@ -182,7 +167,7 @@ local:op(1, local:function(1,2,3))
 local function call without args
 ================================================================================
 
-local_function
+local_function().
 
 --------------------------------------------------------------------------------
 
@@ -190,41 +175,66 @@ local_function
   (expression
     (term
       (atom
-        (unquoted_atom)))))
+        (unquoted_atom))))
+  (ERROR))
 
 ================================================================================
 local function call with args
 ================================================================================
 
-local_function1
+A = local_function(1)
 
 --------------------------------------------------------------------------------
 
 (source_file
   (expression
-    (term
-      (atom
-        (unquoted_atom)))))
+    (match
+      (expression
+        (variable))
+      (expression
+        (function_call
+          (computed_function_name
+            (atom
+              (unquoted_atom)))
+          (expression
+            (term
+              (integer))))))))
 
 ================================================================================
 nested local function calls
 ================================================================================
 
-local_op1
+A = local_op(1, local_function(1))
 
 --------------------------------------------------------------------------------
 
 (source_file
   (expression
-    (term
-      (atom
-        (unquoted_atom)))))
+    (match
+      (expression
+        (variable))
+      (expression
+        (function_call
+          (computed_function_name
+            (atom
+              (unquoted_atom)))
+          (expression
+            (term
+              (integer)))
+          (expression
+            (function_call
+              (computed_function_name
+                (atom
+                  (unquoted_atom)))
+              (expression
+                (term
+                  (integer))))))))))
 
 ================================================================================
 mixed function calls
 ================================================================================
 
-module:function(Lambda(1, local_function(1,2,3)))
+module:function(Lambda(1, 'local$function'(1,2,3)))
 
 --------------------------------------------------------------------------------
 
@@ -232,27 +242,22 @@ module:function(Lambda(1, local_function(1,2,3)))
   (expression
     (function_call
       (qualified_function_name
-        (expression
-          (term
-            (atom
-              (unquoted_atom))))
+        (atom
+          (unquoted_atom))
         (atom
           (unquoted_atom)))
       (expression
         (function_call
           (computed_function_name
-            (expression
-              (variable)))
+            (variable))
           (expression
             (term
               (integer)))
           (expression
             (function_call
               (computed_function_name
-                (expression
-                  (term
-                    (atom
-                      (unquoted_atom)))))
+                (atom
+                  (quoted_atom)))
               (expression
                 (term
                   (integer)))

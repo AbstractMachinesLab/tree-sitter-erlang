@@ -11,6 +11,7 @@ const BRACE_RIGHT = "}";
 const BRACKET_LEFT = "[";
 const BRACKET_RIGHT = "]";
 const COLON = ":";
+const COLON_EQUAL = ":=";
 const COMMA = ",";
 const DASH = "-";
 const DOT = ".";
@@ -30,8 +31,11 @@ const SLASH = "/";
 //
 ///////////////////////////////////////////////////////////////////////////////
 const PREC = {
+  FUNCTION_CLAUSE: 7,
+  FUNCTION_NAME: 5,
+  EXPR_LIST_CONS: 5,
+  EXPRESSION: 4,
   PATTERN: 3,
-  FUNCTION_CLAUSE: 2,
   MACRO_APPLICATION: 1,
   MATCH: -1, // prefer other expressions to matches
 };
@@ -46,12 +50,7 @@ const sepBy = (sep, x) => seq(x, repeat(seq(sep, x)));
 const delim = (open, x, close) => seq(open, x, close);
 
 const tuple = (x) => delim(BRACE_LEFT, opt(sepBy(COMMA, x)), BRACE_RIGHT);
-const list = (x) =>
-  delim(
-    BRACKET_LEFT,
-    opt(choice(sepBy(COMMA, x), sepBy(PIPE, x))),
-    BRACKET_RIGHT
-  );
+const list = (x) => delim(BRACKET_LEFT, opt(sepBy(COMMA, x)), BRACKET_RIGHT);
 const parens = (x) => delim(PARENS_LEFT, x, PARENS_RIGHT);
 const args = (x) => field("arguments", parens(opt(sepBy(COMMA, x))));
 
@@ -117,6 +116,9 @@ module.exports = grammar({
 
     pat_list: ($) => prec(PREC.PATTERN, list($.pattern)),
     pat_tuple: ($) => prec(PREC.PATTERN, tuple($.pattern)),
+    pat_map: ($) =>
+      seq(HASH, BRACE_LEFT, opt(sepBy(COMMA, $.pat_map_entry)), BRACE_RIGHT),
+    pat_map_entry: ($) => seq($.term, COLON_EQUAL, $.pattern),
 
     ////////////////////////////////////////////////////////////////////////////
     //
@@ -125,14 +127,42 @@ module.exports = grammar({
     ////////////////////////////////////////////////////////////////////////////
 
     expression: ($) =>
-      choice(
-        $.case,
-        $.variable,
-        $.term,
-        $.macro_application,
-        $.function_call,
-        $.lambda,
-        $.match
+      prec(
+        PREC.EXPRESSION,
+        choice(
+          $.expr_if,
+          $.expr_list,
+          $.case,
+          $.variable,
+          $.term,
+          $.macro_application,
+          $.function_call,
+          $.lambda,
+          $.match
+        )
+      ),
+
+    expr_if: ($) => seq("if", sepBy(SEMI, $.if_clause), "end"),
+
+    if_clause: ($) =>
+      seq(
+        field("condition", $.guard_seq),
+        ARROW,
+        field("body", sepBy(COMMA, $.expression))
+      ),
+
+    expr_list: ($) =>
+      prec(PREC.EXPR_LIST_CONS, choice(list($.expression), $.expr_list_cons)),
+
+    expr_list_cons: ($) =>
+      delim(
+        BRACKET_LEFT,
+        seq(
+          field("init", sepBy(COMMA, $.expression)),
+          PIPE,
+          field("tail", $.expression)
+        ),
+        BRACKET_RIGHT
       ),
 
     case: ($) =>
@@ -141,9 +171,14 @@ module.exports = grammar({
     case_clause: ($) =>
       seq(
         field("pattern", $.pattern),
+        opt($.guard_clause),
         ARROW,
         field("body", sepBy(COMMA, $.expression))
       ),
+
+    guard_clause: ($) => seq("when", $.guard_seq),
+    guard_seq: ($) => sepBy(SEMI, $.guard),
+    guard: ($) => sepBy(COMMA, $.expression),
 
     match: ($) =>
       prec.right(PREC.MATCH, seq($.expression, EQUAL, $.expression)),
@@ -161,16 +196,23 @@ module.exports = grammar({
       seq(field("name", $._function_name), args($.expression)),
 
     _function_name: ($) =>
-      choice($.computed_function_name, $.qualified_function_name),
+      prec(
+        PREC.FUNCTION_NAME,
+        choice($.computed_function_name, $.qualified_function_name)
+      ),
 
     qualified_function_name: ($) =>
       seq(
-        field("module_name", $.expression),
+        field("module_name", choice($.variable, $.atom, parens($.expression))),
         COLON,
         field("function_name", choice($.variable, $.atom, parens($.expression)))
       ),
 
-    computed_function_name: ($) => $.expression,
+    computed_function_name: ($) =>
+      prec(
+        PREC.FUNCTION_NAME,
+        choice($.variable, $.atom, parens($.expression))
+      ),
 
     macro_application: ($) =>
       prec.right(
@@ -273,7 +315,7 @@ module.exports = grammar({
 
     map: ($) =>
       seq(HASH, BRACE_LEFT, opt(sepBy(COMMA, $.map_entry)), BRACE_RIGHT),
-    map_entry: ($) => seq($.term, FAT_ARROW, $.expression),
+    map_entry: ($) => seq($.term, choice(FAT_ARROW, COLON_EQUAL), $.expression),
 
     record: ($) =>
       seq(

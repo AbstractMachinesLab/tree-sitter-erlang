@@ -1,0 +1,150 @@
+================================================================================
+if with a single clause
+================================================================================
+
+if Exp -> true end
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (expr_if
+      (if_clause
+        (guard_seq
+          (guard
+            (expression
+              (variable))))
+        (expression
+          (term
+            (atom
+              (unquoted_atom))))))))
+
+================================================================================
+if with many clauses
+================================================================================
+
+if
+  A -> B;
+  C -> D
+end
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (expr_if
+      (if_clause
+        (guard_seq
+          (guard
+            (expression
+              (variable))))
+        (expression
+          (variable)))
+      (if_clause
+        (guard_seq
+          (guard
+            (expression
+              (variable))))
+        (expression
+          (variable))))))
+
+================================================================================
+if with default branch
+================================================================================
+
+if
+  A -> B;
+  true -> D
+end
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (expr_if
+      (if_clause
+        (guard_seq
+          (guard
+            (expression
+              (variable))))
+        (expression
+          (variable)))
+      (if_clause
+        (guard_seq
+          (guard
+            (expression
+              (term
+                (atom
+                  (unquoted_atom))))))
+        (expression
+          (variable))))))
+
+================================================================================
+if with guard sequence
+================================================================================
+
+if
+  A, B; C -> D;
+  true -> E
+end
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (expr_if
+      (if_clause
+        (guard_seq
+          (guard
+            (expression
+              (variable))
+            (expression
+              (variable)))
+          (guard
+            (expression
+              (variable))))
+        (expression
+          (variable)))
+      (if_clause
+        (guard_seq
+          (guard
+            (expression
+              (term
+                (atom
+                  (unquoted_atom))))))
+        (expression
+          (variable))))))
+
+================================================================================
+if with guard
+================================================================================
+
+if
+  A when B -> C;
+  true -> D
+end
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (expr_if
+      (ERROR
+        (expression
+          (variable)))
+      (if_clause
+        (guard_seq
+          (guard
+            (expression
+              (variable))))
+        (expression
+          (variable)))
+      (if_clause
+        (guard_seq
+          (guard
+            (expression
+              (term
+                (atom
+                  (unquoted_atom))))))
+        (expression
+          (variable))))))
