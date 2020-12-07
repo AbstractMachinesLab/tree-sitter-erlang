@@ -476,6 +476,25 @@
     }
   },
   {
+    "type": "expr_map_update",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "expr_operator",
     "named": true,
     "fields": {},
@@ -838,6 +857,10 @@
         },
         {
           "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
           "named": true
         },
         {
@@ -1783,11 +1806,11 @@
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "fun",

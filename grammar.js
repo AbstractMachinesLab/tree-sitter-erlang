@@ -69,6 +69,7 @@ const PREC = {
   MODULE_DECLARATION: 8,
   FUNCTION_CLAUSE: 7,
   FUNCTION_NAME: 5,
+  EXPR_MAP_UPDATE: 9,
   PARENTHESIZED_EXPRESSION: 6,
   EXPR_LIST_CONS: 5,
   EXPRESSION: 4,
@@ -176,6 +177,7 @@ module.exports = grammar({
 
     _expression: ($) =>
       choice(
+        $.expr_map_update,
         $.expr_try,
         $.expr_catch,
         $.expr_throw,
@@ -195,6 +197,9 @@ module.exports = grammar({
         $.lambda,
         $.match
       ),
+
+    expr_map_update: ($) =>
+      prec.left(PREC.EXPR_MAP_UPDATE, seq($.expression, $.map)),
 
     expr_try: ($) =>
       seq(

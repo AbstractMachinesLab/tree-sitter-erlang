@@ -507,6 +507,10 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "expr_map_update"
+        },
+        {
+          "type": "SYMBOL",
           "name": "expr_try"
         },
         {
@@ -578,6 +582,23 @@
           "name": "match"
         }
       ]
+    },
+    "expr_map_update": {
+      "type": "PREC_LEFT",
+      "value": 9,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "map"
+          }
+        ]
+      }
     },
     "expr_try": {
       "type": "SEQ",

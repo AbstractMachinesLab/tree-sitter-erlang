@@ -1,0 +1,34 @@
+================================================================================
+updates
+================================================================================
+
+M#{ 1 => V }
+(f())#{ k := V }
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (expr_map_update
+      (expression
+        (variable))
+      (map
+        (map_entry
+          (term
+            (integer))
+          (expression
+            (variable))))))
+  (expression
+    (expr_map_update
+      (expression
+        (function_call
+          (computed_function_name
+            (atom
+              (unquoted_atom)))))
+      (map
+        (map_entry
+          (term
+            (atom
+              (unquoted_atom)))
+          (expression
+            (variable)))))))
