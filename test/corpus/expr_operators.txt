@@ -1,0 +1,543 @@
+================================================================================
+unary ops
+================================================================================
+
++A
+-A
+bnot A
+not A
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (expr_operator
+            (expr_operator_unary
+              (expression
+                (variable)))))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_unary
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_unary
+        (expression
+          (variable))))))
+
+================================================================================
+op left associativity
+================================================================================
+
+A * 1 * none
+A / 1 / none
+A and 1 and none
+A band 1 band none
+A div 1 div none
+A rem 1 rem none
+A + 1 + none
+A - 1 - none
+A bor 1 bor none
+A bsl 1 bsl none
+A bsr 1 bsr none
+A bxor 1 bxor none
+A or 1 or none
+A xor 1 xor none
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (expr_operator
+            (expr_operator_binary
+              (expression
+                (variable))
+              (expression
+                (term
+                  (integer))))))
+        (expression
+          (term
+            (atom
+              (unquoted_atom)))))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (expr_operator
+            (expr_operator_binary
+              (expression
+                (variable))
+              (expression
+                (term
+                  (integer))))))
+        (expression
+          (term
+            (atom
+              (unquoted_atom)))))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (expr_operator
+            (expr_operator_binary
+              (expression
+                (variable))
+              (expression
+                (term
+                  (integer))))))
+        (expression
+          (term
+            (atom
+              (unquoted_atom)))))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (expr_operator
+            (expr_operator_binary
+              (expression
+                (variable))
+              (expression
+                (term
+                  (integer))))))
+        (expression
+          (term
+            (atom
+              (unquoted_atom)))))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (expr_operator
+            (expr_operator_binary
+              (expression
+                (variable))
+              (expression
+                (term
+                  (integer))))))
+        (expression
+          (term
+            (atom
+              (unquoted_atom)))))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (expr_operator
+            (expr_operator_binary
+              (expression
+                (variable))
+              (expression
+                (term
+                  (integer))))))
+        (expression
+          (term
+            (atom
+              (unquoted_atom)))))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (expr_operator
+            (expr_operator_binary
+              (expression
+                (variable))
+              (expression
+                (term
+                  (integer))))))
+        (expression
+          (term
+            (atom
+              (unquoted_atom)))))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (expr_operator
+            (expr_operator_binary
+              (expression
+                (variable))
+              (expression
+                (term
+                  (integer))))))
+        (expression
+          (term
+            (atom
+              (unquoted_atom)))))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (expr_operator
+            (expr_operator_binary
+              (expression
+                (variable))
+              (expression
+                (term
+                  (integer))))))
+        (expression
+          (term
+            (atom
+              (unquoted_atom)))))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (expr_operator
+            (expr_operator_binary
+              (expression
+                (variable))
+              (expression
+                (term
+                  (integer))))))
+        (expression
+          (term
+            (atom
+              (unquoted_atom)))))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (expr_operator
+            (expr_operator_binary
+              (expression
+                (variable))
+              (expression
+                (term
+                  (integer))))))
+        (expression
+          (term
+            (atom
+              (unquoted_atom)))))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (expr_operator
+            (expr_operator_binary
+              (expression
+                (variable))
+              (expression
+                (term
+                  (integer))))))
+        (expression
+          (term
+            (atom
+              (unquoted_atom)))))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (expr_operator
+            (expr_operator_binary
+              (expression
+                (variable))
+              (expression
+                (term
+                  (integer))))))
+        (expression
+          (term
+            (atom
+              (unquoted_atom)))))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (expr_operator
+            (expr_operator_binary
+              (expression
+                (variable))
+              (expression
+                (term
+                  (integer))))))
+        (expression
+          (term
+            (atom
+              (unquoted_atom))))))))
+
+================================================================================
+op right associativity
+================================================================================
+
+A ++ B ++ C
+A -- B -- C
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (expr_operator
+            (expr_operator_binary
+              (expression
+                (variable))
+              (expression
+                (variable))))))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (expr_operator
+            (expr_operator_binary
+              (expression
+                (variable))
+              (expression
+                (variable)))))))))
+
+================================================================================
+op precedence: + -
+================================================================================
+
+1 - - - 2
+1 + - + 2
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (term
+            (integer)))
+        (expression
+          (expr_operator
+            (expr_operator_unary
+              (expression
+                (expr_operator
+                  (expr_operator_unary
+                    (expression
+                      (term
+                        (integer))))))))))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (term
+            (integer)))
+        (expression
+          (expr_operator
+            (expr_operator_unary
+              (expression
+                (expr_operator
+                  (expr_operator_unary
+                    (expression
+                      (term
+                        (integer)))))))))))))
+
+================================================================================
+binary ops
+================================================================================
+
+A - B
+A + B
+
+A * B
+A ++ B
+A -- B
+A / B
+A /= B
+A < B
+A =/= B
+A =:= B
+A =< B
+A == B
+A > B
+A >= B
+A and B
+A band B
+A bor B
+A bsl B
+A bsr B
+A bxor B
+A div B
+A or B
+A rem B
+A xor B
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (variable))
+        (expression
+          (variable))))))

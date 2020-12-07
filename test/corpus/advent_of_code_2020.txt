@@ -52,12 +52,11 @@ end} | []],
         (unquoted_atom))
       (lambda_clause
         (pattern
-          (term
-            (tuple
-              (expression
-                (variable))
-              (expression
-                (variable)))))
+          (pat_tuple
+            (pattern
+              (variable))
+            (pattern
+              (variable))))
         (expression
           (function_call
             (qualified_function_name

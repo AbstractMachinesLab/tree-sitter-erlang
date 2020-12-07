@@ -26,14 +26,47 @@ const QUESTION = "?";
 const SEMI = ";";
 const SLASH = "/";
 
+const OP1 = ["+", "-", "bnot", "not"];
+const OP2_LEFT_ASSOC = [
+  "*",
+  "+",
+  "-",
+  "/",
+  "/=",
+  "<",
+  "=/=",
+  "=:=",
+  "=<",
+  "==",
+  ">",
+  ">=",
+  "and",
+  "andalso",
+  "band",
+  "bor",
+  "bsl",
+  "bsr",
+  "bxor",
+  "div",
+  "or",
+  "orelse",
+  "rem",
+  "xor",
+];
+const OP2_RIGHT_ASSOC = ["=!", "++", "--"];
+
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Precedences
 //
 ///////////////////////////////////////////////////////////////////////////////
 const PREC = {
+  UNARY_OP: 10,
+  BINARY_OP: 9,
+  MODULE_DECLARATION: 8,
   FUNCTION_CLAUSE: 7,
   FUNCTION_NAME: 5,
+  PARENTHESIZED_EXPRESSION: 6,
   EXPR_LIST_CONS: 5,
   EXPRESSION: 4,
   PATTERN: 3,
@@ -55,6 +88,8 @@ const list = (x) => delim(BRACKET_LEFT, opt(sepBy(COMMA, x)), BRACKET_RIGHT);
 const parens = (x) => delim(PARENS_LEFT, x, PARENS_RIGHT);
 const args = (x) => field("arguments", parens(opt(sepBy(COMMA, x))));
 
+const oneOf = (x) => choice.apply(null, x);
+
 ///////////////////////////////////////////////////////////////////////////////
 //
 // Grammar
@@ -71,12 +106,15 @@ module.exports = grammar({
     source_file: ($) => repeat($._structure_item),
 
     _structure_item: ($) =>
-      choice(
-        $.expression,
-        $.module_attribute,
-        $.module_name,
-        $.module_export,
-        $.function_declaration
+      prec(
+        PREC.MODULE_DECLARATION,
+        choice(
+          $.expression,
+          $.function_declaration,
+          $.module_attribute,
+          $.module_name,
+          $.module_export
+        )
       ),
 
     ////////////////////////////////////////////////////////////////////////////
@@ -128,23 +166,66 @@ module.exports = grammar({
     ////////////////////////////////////////////////////////////////////////////
 
     expression: ($) =>
+      choice(
+        prec(PREC.PARENTHESIZED_EXPRESSION, parens($._expression)),
+        prec(PREC.EXPRESSION, $._expression)
+      ),
+
+    _expression: ($) =>
+      choice(
+        $.expr_operator,
+        $.expr_receive,
+        $.expr_send,
+        $.expr_if,
+        $.expr_list,
+        $.case,
+        $.variable,
+        $.term,
+        $.macro_application,
+        $.function_call,
+        $.lambda,
+        $.match
+      ),
+
+    expr_operator: ($) => choice($.expr_operator_unary, $.expr_operator_binary),
+
+    expr_operator_unary: ($) =>
       prec(
-        PREC.EXPRESSION,
-        choice(
-          $.expr_send,
-          $.expr_if,
-          $.expr_list,
-          $.case,
-          $.variable,
-          $.term,
-          $.macro_application,
-          $.function_call,
-          $.lambda,
-          $.match
+        PREC.UNARY_OP,
+        seq(field("operator", oneOf(OP1)), field("operand", $.expression))
+      ),
+
+    expr_operator_binary: ($) =>
+      choice(
+        prec.left(
+          PREC.BINARY_OP,
+          seq(
+            field("lhs", $.expression),
+            field("operator", oneOf(OP2_LEFT_ASSOC)),
+            field("rhs", $.expression)
+          )
+        ),
+        prec.right(
+          PREC.BINARY_OP,
+          seq(
+            field("lhs", $.expression),
+            field("operator", oneOf(OP2_RIGHT_ASSOC)),
+            field("rhs", $.expression)
+          )
         )
       ),
 
     expr_send: ($) => prec.right(seq($.expression, BANG, $.expression)),
+
+    expr_receive: ($) =>
+      seq(
+        "receive",
+        field("branches", opt(sepBy(SEMI, $.case_clause))),
+        opt($.expr_receive_after),
+        "end"
+      ),
+
+    expr_receive_after: ($) => seq("after", $.case_clause),
 
     expr_if: ($) => seq("if", sepBy(SEMI, $.if_clause), "end"),
 

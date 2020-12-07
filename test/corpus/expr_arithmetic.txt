@@ -1,0 +1,46 @@
+================================================================================
+reference examples
+================================================================================
+
+2#10 band 2#01
+
+2#10 bor 2#01
+
+1 bsl (1 bsl 64)
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (term
+            (integer)))
+        (expression
+          (term
+            (integer))))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (term
+            (integer)))
+        (expression
+          (term
+            (integer))))))
+  (expression
+    (expr_operator
+      (expr_operator_binary
+        (expression
+          (term
+            (integer)))
+        (expression
+          (expr_operator
+            (expr_operator_binary
+              (expression
+                (term
+                  (integer)))
+              (expression
+                (term
+                  (integer))))))))))
