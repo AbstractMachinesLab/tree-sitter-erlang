@@ -200,15 +200,30 @@
       "required": true,
       "types": [
         {
+          "type": "expr_bitstring_filter",
+          "named": true
+        },
+        {
           "type": "expr_bitstring_generator",
           "named": true
         },
         {
-          "type": "expression",
-          "named": true
-        },
-        {
           "type": "term",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expr_bitstring_filter",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
           "named": true
         }
       ]
@@ -264,6 +279,29 @@
     }
   },
   {
+    "type": "expr_list_comprehension",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expr_list_filter",
+          "named": true
+        },
+        {
+          "type": "expr_list_generator",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "expr_list_cons",
     "named": true,
     "fields": {
@@ -291,6 +329,36 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "expr_list_filter",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expr_list_generator",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -572,6 +640,10 @@
         },
         {
           "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
           "named": true
         },
         {
@@ -1356,6 +1428,10 @@
     "named": false
   },
   {
+    "type": "<-",
+    "named": false
+  },
+  {
     "type": "<<",
     "named": false
   },
@@ -1497,11 +1573,11 @@
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "fun",

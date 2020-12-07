@@ -4,6 +4,7 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 const ARROW = "->";
+const REV_ARROW = "<-";
 const BANG = "!";
 const BINARY_LEFT = "<<";
 const BINARY_RIGHT = ">>";
@@ -175,6 +176,7 @@ module.exports = grammar({
 
     _expression: ($) =>
       choice(
+        $.expr_list_comprehension,
         $.expr_operator,
         $.expr_receive,
         $.expr_send,
@@ -190,18 +192,32 @@ module.exports = grammar({
         $.match
       ),
 
+    expr_list_comprehension: ($) =>
+      seq(
+        BRACKET_LEFT,
+        $.expression,
+        DOUBLE_PIPE,
+        $.expr_list_generator,
+        opt(seq(COMMA, $.expr_list_filter)),
+        BRACKET_RIGHT
+      ),
+
+    expr_list_generator: ($) => seq($.expression, REV_ARROW, $.expression),
+    expr_list_filter: ($) => sepBy(COMMA, $.expression),
+
     expr_bitstring_comprehension: ($) =>
       seq(
         BINARY_LEFT,
         $.term,
         DOUBLE_PIPE,
         $.expr_bitstring_generator,
-        opt(seq(COMMA, sepBy(COMMA, $.expression))),
+        opt(seq(COMMA, $.expr_bitstring_filter)),
         BINARY_RIGHT
       ),
 
     expr_bitstring_generator: ($) =>
       seq(BINARY_LEFT, $.expression, BINARY_RIGHT, REV_FAT_ARROW, $.expression),
+    expr_bitstring_filter: ($) => sepBy(COMMA, $.expression),
 
     expr_operator: ($) => choice($.expr_operator_unary, $.expr_operator_binary),
 

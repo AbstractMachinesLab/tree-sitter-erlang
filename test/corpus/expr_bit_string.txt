@@ -32,10 +32,11 @@ comprehensions
                 (integer))
               (bin_part
                 (integer))))))
-      (expression
-        (function_call
-          (computed_function_name
-            (atom
-              (unquoted_atom)))
-          (expression
-            (variable)))))))
+      (expr_bitstring_filter
+        (expression
+          (function_call
+            (computed_function_name
+              (atom
+                (unquoted_atom)))
+            (expression
+              (variable))))))))

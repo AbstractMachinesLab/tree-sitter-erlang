@@ -1,0 +1,42 @@
+================================================================================
+comprehensions
+================================================================================
+
+[ (X*2) || X <- [ 1,2,3 ], X > 2 ]
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (expr_list_comprehension
+      (expression
+        (expr_operator
+          (expr_operator_binary
+            (expression
+              (variable))
+            (expression
+              (term
+                (integer))))))
+      (expr_list_generator
+        (expression
+          (variable))
+        (expression
+          (expr_list
+            (expression
+              (term
+                (integer)))
+            (expression
+              (term
+                (integer)))
+            (expression
+              (term
+                (integer))))))
+      (expr_list_filter
+        (expression
+          (expr_operator
+            (expr_operator_binary
+              (expression
+                (variable))
+              (expression
+                (term
+                  (integer))))))))))
