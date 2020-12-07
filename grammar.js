@@ -178,6 +178,7 @@ module.exports = grammar({
     _expression: ($) =>
       choice(
         $.expr_map_update,
+        $.expr_record_update,
         $.expr_try,
         $.expr_catch,
         $.expr_throw,
@@ -200,6 +201,9 @@ module.exports = grammar({
 
     expr_map_update: ($) =>
       prec.left(PREC.EXPR_MAP_UPDATE, seq($.expression, $.map)),
+
+    expr_record_update: ($) =>
+      prec.left(PREC.EXPR_MAP_UPDATE, seq($.expression, $.record)),
 
     expr_try: ($) =>
       seq(

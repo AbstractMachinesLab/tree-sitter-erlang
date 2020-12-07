@@ -511,6 +511,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "expr_record_update"
+        },
+        {
+          "type": "SYMBOL",
           "name": "expr_try"
         },
         {
@@ -596,6 +600,23 @@
           {
             "type": "SYMBOL",
             "name": "map"
+          }
+        ]
+      }
+    },
+    "expr_record_update": {
+      "type": "PREC_LEFT",
+      "value": 9,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "record"
           }
         ]
       }

@@ -737,6 +737,25 @@
     }
   },
   {
+    "type": "expr_record_update",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "expr_send",
     "named": true,
     "fields": {},
@@ -869,6 +888,10 @@
         },
         {
           "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
           "named": true
         },
         {
@@ -1806,11 +1829,11 @@
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "fun",
