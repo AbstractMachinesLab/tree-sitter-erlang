@@ -737,6 +737,25 @@
     }
   },
   {
+    "type": "expr_record_access",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "expr_record_update",
     "named": true,
     "fields": {},
@@ -888,6 +907,10 @@
         },
         {
           "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
           "named": true
         },
         {

@@ -515,6 +515,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "expr_record_access"
+        },
+        {
+          "type": "SYMBOL",
           "name": "expr_try"
         },
         {
@@ -600,6 +604,35 @@
           {
             "type": "SYMBOL",
             "name": "map"
+          }
+        ]
+      }
+    },
+    "expr_record_access": {
+      "type": "PREC_LEFT",
+      "value": 9,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "expression"
+          },
+          {
+            "type": "STRING",
+            "value": "#"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "atom"
+          },
+          {
+            "type": "STRING",
+            "value": "."
+          },
+          {
+            "type": "SYMBOL",
+            "name": "atom"
           }
         ]
       }

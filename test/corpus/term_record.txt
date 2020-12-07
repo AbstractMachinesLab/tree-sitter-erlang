@@ -14,6 +14,24 @@ empty
           (unquoted_atom))))))
 
 ================================================================================
+record access
+================================================================================
+
+A#r.a
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (expr_record_access
+      (expression
+        (variable))
+      (atom
+        (unquoted_atom))
+      (atom
+        (unquoted_atom)))))
+
+================================================================================
 with one key and value
 ================================================================================
 
@@ -107,3 +125,39 @@ M#r{ 1 = V }
               (unquoted_atom)))
           (expression
             (variable)))))))
+
+================================================================================
+nested record updates
+================================================================================
+
+N2#nrec2.nrec1#nrec1.nrec0#nrec0{name = "nested0a"}
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression
+    (expr_record_update
+      (expression
+        (expr_record_access
+          (expression
+            (expr_record_access
+              (expression
+                (variable))
+              (atom
+                (unquoted_atom))
+              (atom
+                (unquoted_atom))))
+          (atom
+            (unquoted_atom))
+          (atom
+            (unquoted_atom))))
+      (record
+        (atom
+          (unquoted_atom))
+        (record_field
+          (term
+            (atom
+              (unquoted_atom)))
+          (expression
+            (term
+              (string))))))))
