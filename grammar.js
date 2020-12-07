@@ -205,7 +205,10 @@ module.exports = grammar({
     type_atom: ($) => $.atom,
 
     type_application: ($) =>
-      prec.right(PREC.MACRO_APPLICATION, seq($.atom, args($.type_expression))),
+      prec.right(
+        PREC.MACRO_APPLICATION,
+        seq(opt(seq($.atom, COLON)), $.atom, args($.type_expression))
+      ),
 
     type_bitstring: ($) =>
       seq(

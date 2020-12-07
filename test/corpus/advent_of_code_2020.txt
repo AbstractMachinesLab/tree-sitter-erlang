@@ -13,12 +13,12 @@ run_one({N, Day}) ->
   io:format(<<"Running day #~p...">>, [N | []]),
   io:format(<<"~p\n">>, [Day() | []]).
 
-% -spec run_days(list({any(), fun(() -> any())})) -> ok.
+-spec run_days(list({any(), fun(() -> any())})) -> ok.
 run_days(Days) -> lists:foreach(fun
   (Day) -> run_one(Day)
 end, Days).
 
-% -spec main(any()) -> ok.
+-spec main(any()) -> ok.
 main(_) ->
   io:format(<<"==# Advent Of Code 2020! #==\n\n">>, []),
   Days = [{1, fun
@@ -97,7 +97,29 @@ end} | []],
                         (variable))))
                   (expression
                     (expr_list))))))))))
-  (comment)
+  (function_spec
+    (atom
+      (unquoted_atom))
+    (type_expression
+      (type_application
+        (atom
+          (unquoted_atom))
+        (type_expression
+          (type_tuple
+            (type_expression
+              (type_application
+                (atom
+                  (unquoted_atom))))
+            (type_expression
+              (type_fun
+                (type_expression
+                  (type_application
+                    (atom
+                      (unquoted_atom))))))))))
+    (type_expression
+      (type_atom
+        (atom
+          (unquoted_atom)))))
   (function_declaration
     (function_clause
       (atom
@@ -126,7 +148,17 @@ end} | []],
                         (variable)))))))
             (expression
               (variable)))))))
-  (comment)
+  (function_spec
+    (atom
+      (unquoted_atom))
+    (type_expression
+      (type_application
+        (atom
+          (unquoted_atom))))
+    (type_expression
+      (type_atom
+        (atom
+          (unquoted_atom)))))
   (function_declaration
     (function_clause
       (atom
@@ -206,7 +238,7 @@ day 1
 -export([find_entry_triplet/2]).
 -export([run/0]).
 
-% -spec find_entry_triplet(integer(), list(integer())) -> option:t(integer()).
+-spec find_entry_triplet(integer(), list(integer())) -> option:t(integer()).
 find_entry_triplet(Number, Entries) -> lists:foldl(fun
   (E1, Acc1) ->
   case Acc1 of
@@ -230,7 +262,7 @@ end, none, Entries);
   end
 end, none, Entries).
 
-% -spec find_entry_pair(integer(), list(integer())) -> option:t(integer()).
+-spec find_entry_pair(integer(), list(integer())) -> option:t(integer()).
 find_entry_pair(Number, Entries) -> lists:foldl(fun
   (E1, Acc1) ->
   case Acc1 of
@@ -248,7 +280,7 @@ end, none, Entries);
   end
 end, none, Entries).
 
-% -spec run() -> list(option:t(integer())).
+-spec run() -> list(option:t(integer())).
 run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020, [0 | [0 | [0 | []]]]) | []]].
 
 --------------------------------------------------------------------------------
@@ -270,7 +302,31 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
     (atom
       (unquoted_atom))
     (integer))
-  (comment)
+  (function_spec
+    (atom
+      (unquoted_atom))
+    (type_expression
+      (type_application
+        (atom
+          (unquoted_atom))))
+    (type_expression
+      (type_application
+        (atom
+          (unquoted_atom))
+        (type_expression
+          (type_application
+            (atom
+              (unquoted_atom))))))
+    (type_expression
+      (type_application
+        (atom
+          (unquoted_atom))
+        (atom
+          (unquoted_atom))
+        (type_expression
+          (type_application
+            (atom
+              (unquoted_atom)))))))
   (function_declaration
     (function_clause
       (atom
@@ -454,7 +510,31 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
                   (unquoted_atom))))
             (expression
               (variable)))))))
-  (comment)
+  (function_spec
+    (atom
+      (unquoted_atom))
+    (type_expression
+      (type_application
+        (atom
+          (unquoted_atom))))
+    (type_expression
+      (type_application
+        (atom
+          (unquoted_atom))
+        (type_expression
+          (type_application
+            (atom
+              (unquoted_atom))))))
+    (type_expression
+      (type_application
+        (atom
+          (unquoted_atom))
+        (atom
+          (unquoted_atom))
+        (type_expression
+          (type_application
+            (atom
+              (unquoted_atom)))))))
   (function_declaration
     (function_clause
       (atom
@@ -586,7 +666,23 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
                   (unquoted_atom))))
             (expression
               (variable)))))))
-  (comment)
+  (function_spec
+    (atom
+      (unquoted_atom))
+    (type_expression
+      (type_application
+        (atom
+          (unquoted_atom))
+        (type_expression
+          (type_application
+            (atom
+              (unquoted_atom))
+            (atom
+              (unquoted_atom))
+            (type_expression
+              (type_application
+                (atom
+                  (unquoted_atom)))))))))
   (function_declaration
     (function_clause
       (atom
