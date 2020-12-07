@@ -164,6 +164,90 @@
     }
   },
   {
+    "type": "catch_clause",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      },
+      "pattern": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "catch_pattern",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "guard_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "catch_pattern",
+    "named": true,
+    "fields": {
+      "class": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "pattern",
+            "named": true
+          }
+        ]
+      },
+      "exception": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "pattern",
+            "named": true
+          }
+        ]
+      },
+      "stacktrace": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "char",
     "named": true,
     "fields": {}
@@ -250,6 +334,21 @@
     "fields": {},
     "children": {
       "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expr_catch",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -634,6 +733,78 @@
     }
   },
   {
+    "type": "expr_throw",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expr_try",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "case_clause",
+          "named": true
+        },
+        {
+          "type": "expr_try_after",
+          "named": true
+        },
+        {
+          "type": "expr_try_catch",
+          "named": true
+        },
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expr_try_after",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "expr_try_catch",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "catch_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "expression",
     "named": true,
     "fields": {},
@@ -651,6 +822,10 @@
         },
         {
           "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
           "named": true
         },
         {
@@ -675,6 +850,14 @@
         },
         {
           "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
           "named": true
         },
         {
@@ -1575,6 +1758,10 @@
     "named": false
   },
   {
+    "type": "catch",
+    "named": false
+  },
+  {
     "type": "comment",
     "named": true
   },
@@ -1596,11 +1783,11 @@
   },
   {
     "type": "float",
-    "named": true
+    "named": false
   },
   {
     "type": "float",
-    "named": false
+    "named": true
   },
   {
     "type": "fun",
@@ -1652,6 +1839,14 @@
   },
   {
     "type": "signed",
+    "named": false
+  },
+  {
+    "type": "throw",
+    "named": false
+  },
+  {
+    "type": "try",
     "named": false
   },
   {

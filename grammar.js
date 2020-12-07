@@ -176,6 +176,9 @@ module.exports = grammar({
 
     _expression: ($) =>
       choice(
+        $.expr_try,
+        $.expr_catch,
+        $.expr_throw,
         $.expr_begin_block,
         $.expr_list_comprehension,
         $.expr_operator,
@@ -192,6 +195,35 @@ module.exports = grammar({
         $.lambda,
         $.match
       ),
+
+    expr_try: ($) =>
+      seq(
+        "try",
+        $.expression,
+        opt(seq("of", sepBy(SEMI, $.case_clause))),
+        choice($.expr_try_catch, $.expr_try_after, $._expr_try_catch_after),
+        "end"
+      ),
+
+    expr_try_catch: ($) => seq("catch", sepBy(SEMI, $.catch_clause)),
+    expr_try_after: ($) => seq("after", $.expression),
+    _expr_try_catch_after: ($) => seq($.expr_try_catch, $.expr_try_after),
+    catch_clause: ($) =>
+      seq(
+        field("pattern", $.catch_pattern),
+        opt($.guard_clause),
+        ARROW,
+        field("body", sepBy(COMMA, $.expression))
+      ),
+    catch_pattern: ($) =>
+      seq(
+        field("class", $.pattern),
+        field("exception", opt(seq(COLON, $.pattern))),
+        field("stacktrace", opt(seq(COLON, $.variable)))
+      ),
+
+    expr_catch: ($) => prec.left(seq("catch", $.expression)),
+    expr_throw: ($) => prec.left(seq("throw", $.expression)),
 
     expr_begin_block: ($) => seq("begin", sepBy(COMMA, $.expression), "end"),
 
