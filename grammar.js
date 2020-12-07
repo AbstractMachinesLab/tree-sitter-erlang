@@ -13,10 +13,13 @@ const BRACE_RIGHT = "}";
 const BRACKET_LEFT = "[";
 const BRACKET_RIGHT = "]";
 const COLON = ":";
+const DOUBLE_COLON = "::";
 const COLON_EQUAL = ":=";
 const COMMA = ",";
 const DASH = "-";
 const DOT = ".";
+const DOT_DOT = "..";
+const DOT_DOT_DOT = "...";
 const EQUAL = "=";
 const FAT_ARROW = "=>";
 const REV_FAT_ARROW = "<=";
@@ -28,10 +31,12 @@ const DOUBLE_PIPE = "||";
 const QUESTION = "?";
 const SEMI = ";";
 const SLASH = "/";
+const UNDERSCORE = "_";
+const STAR = "*";
 
 const OP1 = ["+", "-", "bnot", "not"];
 const OP2_LEFT_ASSOC = [
-  "*",
+  STAR,
   "+",
   "-",
   "/",
@@ -113,11 +118,13 @@ module.exports = grammar({
       prec(
         PREC.MODULE_DECLARATION,
         choice(
-          $.expression,
+          $.type_declaration,
+          $.function_spec,
           $.function_declaration,
           $.module_attribute,
           $.module_name,
-          $.module_export
+          $.module_export,
+          $.expression
         )
       ),
 
@@ -147,6 +154,121 @@ module.exports = grammar({
       prec(PREC.FUNCTION_CLAUSE, seq(field("name", $.atom), $.lambda_clause)),
 
     comment: ($) => /%.*\n/,
+
+    ////////////////////////////////////////////////////////////////////////////
+    //
+    // Types
+    //
+    ////////////////////////////////////////////////////////////////////////////
+
+    type_declaration: ($) =>
+      seq(
+        DASH,
+        choice("type", "opaque"),
+        field("name", $.atom),
+        args($.variable),
+        DOUBLE_COLON,
+        field("def", $.type_expression),
+        DOT
+      ),
+
+    function_spec: ($) =>
+      seq(
+        DASH,
+        choice("spec", "callback"),
+        field("name", $.atom),
+        args($.type_expression),
+        ARROW,
+        field("def", $.type_expression),
+        DOT
+      ),
+
+    type_expression: ($) =>
+      sepBy(
+        PIPE,
+        choice(
+          $.type_atom,
+          $.type_application,
+          $.type_bitstring,
+          $.type_fun,
+          $.type_integer,
+          $.type_map,
+          $.type_record,
+          $.type_tuple,
+          $.type_variable,
+          $._type_list
+        )
+      ),
+
+    type_variable: ($) => $.variable,
+
+    type_atom: ($) => $.atom,
+
+    type_application: ($) =>
+      prec.right(PREC.MACRO_APPLICATION, seq($.atom, args($.type_expression))),
+
+    type_bitstring: ($) =>
+      seq(
+        BINARY_LEFT,
+        choice(
+          seq(UNDERSCORE, COLON, $.variable),
+          seq(UNDERSCORE, COLON, UNDERSCORE, STAR, $.variable),
+          seq(
+            UNDERSCORE,
+            COLON,
+            $.variable,
+            UNDERSCORE,
+            COLON,
+            UNDERSCORE,
+            STAR,
+            $.variable
+          ),
+          BINARY_RIGHT
+        )
+      ),
+
+    type_fun: ($) =>
+      seq(
+        "fun",
+        parens(
+          opt(
+            choice(
+              seq(parens(DOT_DOT_DOT), ARROW, $.type_expression),
+              seq(args($.type_expression), ARROW, $.type_expression)
+            )
+          )
+        )
+      ),
+    type_integer: ($) => choice($.integer, seq($.integer, DOT_DOT, $.integer)),
+
+    _type_list: ($) => choice($.type_list, $.type_nonempty_list),
+
+    type_list: ($) => delim(BRACKET_LEFT, $.type_expression, BRACKET_RIGHT),
+
+    type_nonempty_list: ($) =>
+      delim(
+        BRACKET_LEFT,
+        seq($.type_expression, COMMA, DOT_DOT_DOT),
+        BRACKET_RIGHT
+      ),
+
+    type_tuple: ($) => tuple($.type_expression),
+
+    type_map: ($) =>
+      seq(HASH, BRACE_LEFT, opt(sepBy(COMMA, $.type_map_entry)), BRACE_RIGHT),
+    type_map_entry: ($) =>
+      seq($.type_expression, choice(FAT_ARROW, COLON_EQUAL), $.type_expression),
+
+    type_record: ($) =>
+      seq(
+        HASH,
+        $.atom,
+        BRACE_LEFT,
+        opt(sepBy(COMMA, $.type_record_field)),
+        BRACE_RIGHT
+      ),
+    type_record_field: ($) =>
+      seq($.type_expression, DOUBLE_COLON, $.type_expression),
 
     ////////////////////////////////////////////////////////////////////////////
     //

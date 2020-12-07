@@ -1,23 +1,177 @@
--module(types).
+================================================================================
+type application
+================================================================================
 
 -type alias() :: int().
 
 -opaque opaque_alias() :: reference().
 
+--------------------------------------------------------------------------------
+
+(source_file
+  (type_declaration
+    (atom
+      (unquoted_atom))
+    (type_expression
+      (type_application
+        (atom
+          (unquoted_atom)))))
+  (type_declaration
+    (atom
+      (unquoted_atom))
+    (type_expression
+      (type_application
+        (atom
+          (unquoted_atom))))))
+
+================================================================================
+lists
+================================================================================
+
 -type a_list() :: [alias()].
+
 -type b_list() :: [alias(), ...].
 
+--------------------------------------------------------------------------------
+
+(source_file
+  (type_declaration
+    (atom
+      (unquoted_atom))
+    (type_expression
+      (type_list
+        (type_expression
+          (type_application
+            (atom
+              (unquoted_atom)))))))
+  (type_declaration
+    (atom
+      (unquoted_atom))
+    (type_expression
+      (type_nonempty_list
+        (type_expression
+          (type_application
+            (atom
+              (unquoted_atom))))))))
+
+================================================================================
+unions
+================================================================================
 -type union() :: a | b | c.
 
 -type nested_union() :: a | {b | c}.
 
+--------------------------------------------------------------------------------
+
+(source_file
+  (type_declaration
+    (atom
+      (unquoted_atom))
+    (type_expression
+      (type_atom
+        (atom
+          (unquoted_atom)))
+      (type_atom
+        (atom
+          (unquoted_atom)))
+      (type_atom
+        (atom
+          (unquoted_atom)))))
+  (type_declaration
+    (atom
+      (unquoted_atom))
+    (type_expression
+      (type_atom
+        (atom
+          (unquoted_atom)))
+      (type_tuple
+        (type_expression
+          (type_atom
+            (atom
+              (unquoted_atom)))
+          (type_atom
+            (atom
+              (unquoted_atom))))))))
+
+================================================================================
+maps and records
+================================================================================
+
 -type empty_map() :: #{}.
 
--record(r, {}).
 -type record() :: #r{}.
 
--spec fn() :: unit.
+--------------------------------------------------------------------------------
 
--callback cb(a()) :: union().
+(source_file
+  (type_declaration
+    (atom
+      (unquoted_atom))
+    (type_expression
+      (type_map)))
+  (type_declaration
+    (atom
+      (unquoted_atom))
+    (type_expression
+      (type_record
+        (atom
+          (unquoted_atom))))))
+
+================================================================================
+function types
+================================================================================
+
+-spec fn() -> unit.
+
+-callback cb(a()) -> some() | type.
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (function_spec
+    (atom
+      (unquoted_atom))
+    (type_expression
+      (type_atom
+        (atom
+          (unquoted_atom)))))
+  (function_spec
+    (atom
+      (unquoted_atom))
+    (type_expression
+      (type_application
+        (atom
+          (unquoted_atom))))
+    (type_expression
+      (type_application
+        (atom
+          (unquoted_atom)))
+      (type_atom
+        (atom
+          (unquoted_atom))))))
+
+================================================================================
+ADTs
+================================================================================
 
 -type option(A) :: {some, A} | none.
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (type_declaration
+    (atom
+      (unquoted_atom))
+    (variable)
+    (type_expression
+      (type_tuple
+        (type_expression
+          (type_atom
+            (atom
+              (unquoted_atom))))
+        (type_expression
+          (type_variable
+            (variable))))
+      (type_atom
+        (atom
+          (unquoted_atom))))))
