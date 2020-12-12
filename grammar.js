@@ -149,17 +149,15 @@ module.exports = grammar({
         $.module_export
       ),
 
-    module_attribute: ($) =>
-      seq(DASH, $.atom, delim(PARENS_LEFT, $.expression, PARENS_RIGHT), DOT),
+    module_attribute: ($) => seq(DASH, $.atom, parens($.expression), DOT),
 
-    module_name: ($) =>
-      seq(DASH, "module", delim(PARENS_LEFT, $.atom, PARENS_RIGHT), DOT),
+    module_name: ($) => seq(DASH, "module", parens($.atom), DOT),
 
     module_export: ($) =>
       seq(
         DASH,
         choice("export", "export_type"),
-        delim(PARENS_LEFT, list(seq($.atom, SLASH, $.integer)), PARENS_RIGHT),
+        parens(list(seq($.atom, SLASH, $.integer))),
         DOT
       ),
 
@@ -593,13 +591,7 @@ module.exports = grammar({
           opt($.bin_sized),
           opt($.bin_type_list)
         ),
-        seq(
-          PARENS_LEFT,
-          $.expression,
-          PARENS_RIGHT,
-          opt($.bin_sized),
-          opt($.bin_type_list)
-        )
+        seq(parens($.expression), opt($.bin_sized), opt($.bin_type_list))
       ),
     bin_sized: ($) => seq(/:/, $.integer),
     bin_type_list: ($) => seq(/\//, sepBy(DASH, $.bin_type)),
