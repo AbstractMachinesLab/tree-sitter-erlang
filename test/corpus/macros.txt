@@ -7,9 +7,8 @@ macro usage
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_macro_application
-      (variable))))
+  (expr_macro_application
+    (variable)))
 
 ================================================================================
 macro application
@@ -22,29 +21,18 @@ macro application
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
+  (expr_macro_application
+    (variable)
+    (integer))
+  (expr_macro_application
+    (variable)
+    (integer)
+    (expr_list
+      (integer)))
+  (expr_macro_application
+    (variable)
+    (integer)
+    (expr_list
+      (integer))
     (expr_macro_application
-      (variable)
-      (expression
-        (integer))))
-  (expression
-    (expr_macro_application
-      (variable)
-      (expression
-        (integer))
-      (expression
-        (expr_list
-          (expression
-            (integer))))))
-  (expression
-    (expr_macro_application
-      (variable)
-      (expression
-        (integer))
-      (expression
-        (expr_list
-          (expression
-            (integer))))
-      (expression
-        (expr_macro_application
-          (variable))))))
+      (variable))))

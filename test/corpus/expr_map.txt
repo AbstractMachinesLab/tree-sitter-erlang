@@ -8,23 +8,17 @@ M#{ 1 => V }
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_map_update
-      (expression
-        (variable))
-      (map
-        (map_entry
-          (integer)
-          (expression
-            (variable))))))
-  (expression
-    (expr_map_update
-      (expression
-        (expr_function_call
-          (computed_function_name
-            (atom))))
-      (map
-        (map_entry
-          (atom)
-          (expression
-            (variable)))))))
+  (expr_map_update
+    (variable)
+    (map
+      (map_entry
+        (integer)
+        (variable))))
+  (expr_map_update
+    (expr_function_call
+      (computed_function_name
+        (atom)))
+    (map
+      (map_entry
+        (atom)
+        (variable)))))

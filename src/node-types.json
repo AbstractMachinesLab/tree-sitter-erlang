@@ -21,8 +21,12 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
+        {
+          "type": "atom",
+          "named": true
+        },
         {
           "type": "bin_sized",
           "named": true
@@ -32,7 +36,87 @@
           "named": true
         },
         {
-          "type": "expression",
+          "type": "binary_string",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
           "named": true
         },
         {
@@ -44,7 +128,27 @@
           "named": true
         },
         {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        },
+        {
           "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -109,11 +213,135 @@
         "required": true,
         "types": [
           {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
             "type": ",",
             "named": false
           },
           {
-            "type": "expression",
+            "type": "atom",
+            "named": true
+          },
+          {
+            "type": "binary_string",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "expr_begin_block",
+            "named": true
+          },
+          {
+            "type": "expr_bitstring_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_case",
+            "named": true
+          },
+          {
+            "type": "expr_catch",
+            "named": true
+          },
+          {
+            "type": "expr_function_call",
+            "named": true
+          },
+          {
+            "type": "expr_if",
+            "named": true
+          },
+          {
+            "type": "expr_lambda",
+            "named": true
+          },
+          {
+            "type": "expr_list",
+            "named": true
+          },
+          {
+            "type": "expr_list_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_macro_application",
+            "named": true
+          },
+          {
+            "type": "expr_map_update",
+            "named": true
+          },
+          {
+            "type": "expr_match",
+            "named": true
+          },
+          {
+            "type": "expr_op",
+            "named": true
+          },
+          {
+            "type": "expr_receive",
+            "named": true
+          },
+          {
+            "type": "expr_record_access",
+            "named": true
+          },
+          {
+            "type": "expr_record_update",
+            "named": true
+          },
+          {
+            "type": "expr_send",
+            "named": true
+          },
+          {
+            "type": "expr_throw",
+            "named": true
+          },
+          {
+            "type": "expr_try",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "record",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "tuple",
+            "named": true
+          },
+          {
+            "type": "variable",
             "named": true
           }
         ]
@@ -149,11 +377,135 @@
         "required": true,
         "types": [
           {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
             "type": ",",
             "named": false
           },
           {
-            "type": "expression",
+            "type": "atom",
+            "named": true
+          },
+          {
+            "type": "binary_string",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "expr_begin_block",
+            "named": true
+          },
+          {
+            "type": "expr_bitstring_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_case",
+            "named": true
+          },
+          {
+            "type": "expr_catch",
+            "named": true
+          },
+          {
+            "type": "expr_function_call",
+            "named": true
+          },
+          {
+            "type": "expr_if",
+            "named": true
+          },
+          {
+            "type": "expr_lambda",
+            "named": true
+          },
+          {
+            "type": "expr_list",
+            "named": true
+          },
+          {
+            "type": "expr_list_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_macro_application",
+            "named": true
+          },
+          {
+            "type": "expr_map_update",
+            "named": true
+          },
+          {
+            "type": "expr_match",
+            "named": true
+          },
+          {
+            "type": "expr_op",
+            "named": true
+          },
+          {
+            "type": "expr_receive",
+            "named": true
+          },
+          {
+            "type": "expr_record_access",
+            "named": true
+          },
+          {
+            "type": "expr_record_update",
+            "named": true
+          },
+          {
+            "type": "expr_send",
+            "named": true
+          },
+          {
+            "type": "expr_throw",
+            "named": true
+          },
+          {
+            "type": "expr_try",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "record",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "tuple",
+            "named": true
+          },
+          {
+            "type": "variable",
             "named": true
           }
         ]
@@ -235,14 +587,122 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "atom",
           "named": true
         },
         {
-          "type": "expression",
+          "type": "binary_string",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
           "named": true
         },
         {
@@ -258,10 +718,126 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
-          "type": "expression",
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "binary_string",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -332,10 +908,126 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
-          "type": "expression",
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "binary_string",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -347,10 +1039,126 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
-          "type": "expression",
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "binary_string",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -365,11 +1173,127 @@
       "required": true,
       "types": [
         {
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "binary_string",
+          "named": true
+        },
+        {
           "type": "case_clause",
           "named": true
         },
         {
-          "type": "expression",
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -381,10 +1305,126 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
-          "type": "expression",
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "binary_string",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -411,7 +1451,123 @@
             "named": false
           },
           {
-            "type": "expression",
+            "type": "atom",
+            "named": true
+          },
+          {
+            "type": "binary_string",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "expr_begin_block",
+            "named": true
+          },
+          {
+            "type": "expr_bitstring_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_case",
+            "named": true
+          },
+          {
+            "type": "expr_catch",
+            "named": true
+          },
+          {
+            "type": "expr_function_call",
+            "named": true
+          },
+          {
+            "type": "expr_if",
+            "named": true
+          },
+          {
+            "type": "expr_lambda",
+            "named": true
+          },
+          {
+            "type": "expr_list",
+            "named": true
+          },
+          {
+            "type": "expr_list_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_macro_application",
+            "named": true
+          },
+          {
+            "type": "expr_map_update",
+            "named": true
+          },
+          {
+            "type": "expr_match",
+            "named": true
+          },
+          {
+            "type": "expr_op",
+            "named": true
+          },
+          {
+            "type": "expr_receive",
+            "named": true
+          },
+          {
+            "type": "expr_record_access",
+            "named": true
+          },
+          {
+            "type": "expr_record_update",
+            "named": true
+          },
+          {
+            "type": "expr_send",
+            "named": true
+          },
+          {
+            "type": "expr_throw",
+            "named": true
+          },
+          {
+            "type": "expr_try",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "record",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "tuple",
+            "named": true
+          },
+          {
+            "type": "variable",
             "named": true
           }
         ]
@@ -471,11 +1627,127 @@
       "required": false,
       "types": [
         {
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "binary_string",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
           "type": "expr_list_cons",
           "named": true
         },
         {
-          "type": "expression",
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -490,6 +1762,54 @@
       "required": true,
       "types": [
         {
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "binary_string",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
           "type": "expr_list_filter",
           "named": true
         },
@@ -498,7 +1818,75 @@
           "named": true
         },
         {
-          "type": "expression",
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -513,21 +1901,269 @@
         "required": true,
         "types": [
           {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
             "type": ",",
             "named": false
           },
           {
-            "type": "expression",
+            "type": "atom",
+            "named": true
+          },
+          {
+            "type": "binary_string",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "expr_begin_block",
+            "named": true
+          },
+          {
+            "type": "expr_bitstring_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_case",
+            "named": true
+          },
+          {
+            "type": "expr_catch",
+            "named": true
+          },
+          {
+            "type": "expr_function_call",
+            "named": true
+          },
+          {
+            "type": "expr_if",
+            "named": true
+          },
+          {
+            "type": "expr_lambda",
+            "named": true
+          },
+          {
+            "type": "expr_list",
+            "named": true
+          },
+          {
+            "type": "expr_list_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_macro_application",
+            "named": true
+          },
+          {
+            "type": "expr_map_update",
+            "named": true
+          },
+          {
+            "type": "expr_match",
+            "named": true
+          },
+          {
+            "type": "expr_op",
+            "named": true
+          },
+          {
+            "type": "expr_receive",
+            "named": true
+          },
+          {
+            "type": "expr_record_access",
+            "named": true
+          },
+          {
+            "type": "expr_record_update",
+            "named": true
+          },
+          {
+            "type": "expr_send",
+            "named": true
+          },
+          {
+            "type": "expr_throw",
+            "named": true
+          },
+          {
+            "type": "expr_try",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "record",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "tuple",
+            "named": true
+          },
+          {
+            "type": "variable",
             "named": true
           }
         ]
       },
       "tail": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
           {
-            "type": "expression",
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "atom",
+            "named": true
+          },
+          {
+            "type": "binary_string",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "expr_begin_block",
+            "named": true
+          },
+          {
+            "type": "expr_bitstring_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_case",
+            "named": true
+          },
+          {
+            "type": "expr_catch",
+            "named": true
+          },
+          {
+            "type": "expr_function_call",
+            "named": true
+          },
+          {
+            "type": "expr_if",
+            "named": true
+          },
+          {
+            "type": "expr_lambda",
+            "named": true
+          },
+          {
+            "type": "expr_list",
+            "named": true
+          },
+          {
+            "type": "expr_list_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_macro_application",
+            "named": true
+          },
+          {
+            "type": "expr_map_update",
+            "named": true
+          },
+          {
+            "type": "expr_match",
+            "named": true
+          },
+          {
+            "type": "expr_op",
+            "named": true
+          },
+          {
+            "type": "expr_receive",
+            "named": true
+          },
+          {
+            "type": "expr_record_access",
+            "named": true
+          },
+          {
+            "type": "expr_record_update",
+            "named": true
+          },
+          {
+            "type": "expr_send",
+            "named": true
+          },
+          {
+            "type": "expr_throw",
+            "named": true
+          },
+          {
+            "type": "expr_try",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "record",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "tuple",
+            "named": true
+          },
+          {
+            "type": "variable",
             "named": true
           }
         ]
@@ -540,10 +2176,126 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
-          "type": "expression",
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "binary_string",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -555,10 +2307,126 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
-          "type": "expression",
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "binary_string",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -585,7 +2453,123 @@
             "named": false
           },
           {
-            "type": "expression",
+            "type": "atom",
+            "named": true
+          },
+          {
+            "type": "binary_string",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "expr_begin_block",
+            "named": true
+          },
+          {
+            "type": "expr_bitstring_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_case",
+            "named": true
+          },
+          {
+            "type": "expr_catch",
+            "named": true
+          },
+          {
+            "type": "expr_function_call",
+            "named": true
+          },
+          {
+            "type": "expr_if",
+            "named": true
+          },
+          {
+            "type": "expr_lambda",
+            "named": true
+          },
+          {
+            "type": "expr_list",
+            "named": true
+          },
+          {
+            "type": "expr_list_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_macro_application",
+            "named": true
+          },
+          {
+            "type": "expr_map_update",
+            "named": true
+          },
+          {
+            "type": "expr_match",
+            "named": true
+          },
+          {
+            "type": "expr_op",
+            "named": true
+          },
+          {
+            "type": "expr_receive",
+            "named": true
+          },
+          {
+            "type": "expr_record_access",
+            "named": true
+          },
+          {
+            "type": "expr_record_update",
+            "named": true
+          },
+          {
+            "type": "expr_send",
+            "named": true
+          },
+          {
+            "type": "expr_throw",
+            "named": true
+          },
+          {
+            "type": "expr_try",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "record",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "tuple",
+            "named": true
+          },
+          {
+            "type": "variable",
             "named": true
           }
         ]
@@ -615,11 +2599,123 @@
       "required": true,
       "types": [
         {
-          "type": "expression",
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "binary_string",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
           "named": true
         },
         {
           "type": "map",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -634,7 +2730,123 @@
       "required": true,
       "types": [
         {
-          "type": "expression",
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "binary_string",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -664,11 +2876,135 @@
     "named": true,
     "fields": {
       "lhs": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
           {
-            "type": "expression",
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "atom",
+            "named": true
+          },
+          {
+            "type": "binary_string",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "expr_begin_block",
+            "named": true
+          },
+          {
+            "type": "expr_bitstring_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_case",
+            "named": true
+          },
+          {
+            "type": "expr_catch",
+            "named": true
+          },
+          {
+            "type": "expr_function_call",
+            "named": true
+          },
+          {
+            "type": "expr_if",
+            "named": true
+          },
+          {
+            "type": "expr_lambda",
+            "named": true
+          },
+          {
+            "type": "expr_list",
+            "named": true
+          },
+          {
+            "type": "expr_list_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_macro_application",
+            "named": true
+          },
+          {
+            "type": "expr_map_update",
+            "named": true
+          },
+          {
+            "type": "expr_match",
+            "named": true
+          },
+          {
+            "type": "expr_op",
+            "named": true
+          },
+          {
+            "type": "expr_receive",
+            "named": true
+          },
+          {
+            "type": "expr_record_access",
+            "named": true
+          },
+          {
+            "type": "expr_record_update",
+            "named": true
+          },
+          {
+            "type": "expr_send",
+            "named": true
+          },
+          {
+            "type": "expr_throw",
+            "named": true
+          },
+          {
+            "type": "expr_try",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "record",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "tuple",
+            "named": true
+          },
+          {
+            "type": "variable",
             "named": true
           }
         ]
@@ -788,11 +3124,135 @@
         ]
       },
       "rhs": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
           {
-            "type": "expression",
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "atom",
+            "named": true
+          },
+          {
+            "type": "binary_string",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "expr_begin_block",
+            "named": true
+          },
+          {
+            "type": "expr_bitstring_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_case",
+            "named": true
+          },
+          {
+            "type": "expr_catch",
+            "named": true
+          },
+          {
+            "type": "expr_function_call",
+            "named": true
+          },
+          {
+            "type": "expr_if",
+            "named": true
+          },
+          {
+            "type": "expr_lambda",
+            "named": true
+          },
+          {
+            "type": "expr_list",
+            "named": true
+          },
+          {
+            "type": "expr_list_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_macro_application",
+            "named": true
+          },
+          {
+            "type": "expr_map_update",
+            "named": true
+          },
+          {
+            "type": "expr_match",
+            "named": true
+          },
+          {
+            "type": "expr_op",
+            "named": true
+          },
+          {
+            "type": "expr_receive",
+            "named": true
+          },
+          {
+            "type": "expr_record_access",
+            "named": true
+          },
+          {
+            "type": "expr_record_update",
+            "named": true
+          },
+          {
+            "type": "expr_send",
+            "named": true
+          },
+          {
+            "type": "expr_throw",
+            "named": true
+          },
+          {
+            "type": "expr_try",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "record",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "tuple",
+            "named": true
+          },
+          {
+            "type": "variable",
             "named": true
           }
         ]
@@ -804,11 +3264,135 @@
     "named": true,
     "fields": {
       "operand": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
           {
-            "type": "expression",
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "atom",
+            "named": true
+          },
+          {
+            "type": "binary_string",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "expr_begin_block",
+            "named": true
+          },
+          {
+            "type": "expr_bitstring_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_case",
+            "named": true
+          },
+          {
+            "type": "expr_catch",
+            "named": true
+          },
+          {
+            "type": "expr_function_call",
+            "named": true
+          },
+          {
+            "type": "expr_if",
+            "named": true
+          },
+          {
+            "type": "expr_lambda",
+            "named": true
+          },
+          {
+            "type": "expr_list",
+            "named": true
+          },
+          {
+            "type": "expr_list_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_macro_application",
+            "named": true
+          },
+          {
+            "type": "expr_map_update",
+            "named": true
+          },
+          {
+            "type": "expr_match",
+            "named": true
+          },
+          {
+            "type": "expr_op",
+            "named": true
+          },
+          {
+            "type": "expr_receive",
+            "named": true
+          },
+          {
+            "type": "expr_record_access",
+            "named": true
+          },
+          {
+            "type": "expr_record_update",
+            "named": true
+          },
+          {
+            "type": "expr_send",
+            "named": true
+          },
+          {
+            "type": "expr_throw",
+            "named": true
+          },
+          {
+            "type": "expr_try",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "record",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "tuple",
+            "named": true
+          },
+          {
+            "type": "variable",
             "named": true
           }
         ]
@@ -895,7 +3479,119 @@
           "named": true
         },
         {
-          "type": "expression",
+          "type": "binary_string",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -910,11 +3606,123 @@
       "required": true,
       "types": [
         {
-          "type": "expression",
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "binary_string",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
           "named": true
         },
         {
           "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -929,7 +3737,123 @@
       "required": true,
       "types": [
         {
-          "type": "expression",
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "binary_string",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -941,10 +3865,126 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
-          "type": "expression",
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "binary_string",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -959,7 +3999,95 @@
       "required": true,
       "types": [
         {
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "binary_string",
+          "named": true
+        },
+        {
           "type": "case_clause",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
           "named": true
         },
         {
@@ -971,7 +4099,35 @@
           "named": true
         },
         {
-          "type": "expression",
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -979,36 +4135,6 @@
   },
   {
     "type": "expr_try_after",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "expr_try_catch",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "catch_clause",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "expression",
     "named": true,
     "fields": {},
     "children": {
@@ -1139,6 +4265,21 @@
     }
   },
   {
+    "type": "expr_try_catch",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "catch_clause",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "function_clause",
     "named": true,
     "fields": {
@@ -1233,10 +4374,126 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
-          "type": "expression",
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "binary_string",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -1281,11 +4538,135 @@
         "required": true,
         "types": [
           {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
             "type": ",",
             "named": false
           },
           {
-            "type": "expression",
+            "type": "atom",
+            "named": true
+          },
+          {
+            "type": "binary_string",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "expr_begin_block",
+            "named": true
+          },
+          {
+            "type": "expr_bitstring_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_case",
+            "named": true
+          },
+          {
+            "type": "expr_catch",
+            "named": true
+          },
+          {
+            "type": "expr_function_call",
+            "named": true
+          },
+          {
+            "type": "expr_if",
+            "named": true
+          },
+          {
+            "type": "expr_lambda",
+            "named": true
+          },
+          {
+            "type": "expr_list",
+            "named": true
+          },
+          {
+            "type": "expr_list_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_macro_application",
+            "named": true
+          },
+          {
+            "type": "expr_map_update",
+            "named": true
+          },
+          {
+            "type": "expr_match",
+            "named": true
+          },
+          {
+            "type": "expr_op",
+            "named": true
+          },
+          {
+            "type": "expr_receive",
+            "named": true
+          },
+          {
+            "type": "expr_record_access",
+            "named": true
+          },
+          {
+            "type": "expr_record_update",
+            "named": true
+          },
+          {
+            "type": "expr_send",
+            "named": true
+          },
+          {
+            "type": "expr_throw",
+            "named": true
+          },
+          {
+            "type": "expr_try",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "record",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "tuple",
+            "named": true
+          },
+          {
+            "type": "variable",
             "named": true
           }
         ]
@@ -1338,11 +4719,135 @@
         "required": true,
         "types": [
           {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
             "type": ",",
             "named": false
           },
           {
-            "type": "expression",
+            "type": "atom",
+            "named": true
+          },
+          {
+            "type": "binary_string",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "expr_begin_block",
+            "named": true
+          },
+          {
+            "type": "expr_bitstring_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_case",
+            "named": true
+          },
+          {
+            "type": "expr_catch",
+            "named": true
+          },
+          {
+            "type": "expr_function_call",
+            "named": true
+          },
+          {
+            "type": "expr_if",
+            "named": true
+          },
+          {
+            "type": "expr_lambda",
+            "named": true
+          },
+          {
+            "type": "expr_list",
+            "named": true
+          },
+          {
+            "type": "expr_list_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_macro_application",
+            "named": true
+          },
+          {
+            "type": "expr_map_update",
+            "named": true
+          },
+          {
+            "type": "expr_match",
+            "named": true
+          },
+          {
+            "type": "expr_op",
+            "named": true
+          },
+          {
+            "type": "expr_receive",
+            "named": true
+          },
+          {
+            "type": "expr_record_access",
+            "named": true
+          },
+          {
+            "type": "expr_record_update",
+            "named": true
+          },
+          {
+            "type": "expr_send",
+            "named": true
+          },
+          {
+            "type": "expr_throw",
+            "named": true
+          },
+          {
+            "type": "expr_try",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "record",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "tuple",
+            "named": true
+          },
+          {
+            "type": "variable",
             "named": true
           }
         ]
@@ -1358,7 +4863,123 @@
       "required": false,
       "types": [
         {
-          "type": "expression",
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "binary_string",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -1400,7 +5021,79 @@
           "named": true
         },
         {
-          "type": "expression",
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
           "named": true
         },
         {
@@ -1430,6 +5123,10 @@
         {
           "type": "tuple",
           "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
         }
       ]
     }
@@ -1447,7 +5144,119 @@
           "named": true
         },
         {
-          "type": "expression",
+          "type": "binary_string",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -1656,7 +5465,115 @@
             "named": true
           },
           {
-            "type": "expression",
+            "type": "binary_string",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "expr_begin_block",
+            "named": true
+          },
+          {
+            "type": "expr_bitstring_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_case",
+            "named": true
+          },
+          {
+            "type": "expr_catch",
+            "named": true
+          },
+          {
+            "type": "expr_function_call",
+            "named": true
+          },
+          {
+            "type": "expr_if",
+            "named": true
+          },
+          {
+            "type": "expr_lambda",
+            "named": true
+          },
+          {
+            "type": "expr_list",
+            "named": true
+          },
+          {
+            "type": "expr_list_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_macro_application",
+            "named": true
+          },
+          {
+            "type": "expr_map_update",
+            "named": true
+          },
+          {
+            "type": "expr_match",
+            "named": true
+          },
+          {
+            "type": "expr_op",
+            "named": true
+          },
+          {
+            "type": "expr_receive",
+            "named": true
+          },
+          {
+            "type": "expr_record_access",
+            "named": true
+          },
+          {
+            "type": "expr_record_update",
+            "named": true
+          },
+          {
+            "type": "expr_send",
+            "named": true
+          },
+          {
+            "type": "expr_throw",
+            "named": true
+          },
+          {
+            "type": "expr_try",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "record",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "tuple",
             "named": true
           },
           {
@@ -1682,7 +5599,115 @@
             "named": true
           },
           {
-            "type": "expression",
+            "type": "binary_string",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "expr_begin_block",
+            "named": true
+          },
+          {
+            "type": "expr_bitstring_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_case",
+            "named": true
+          },
+          {
+            "type": "expr_catch",
+            "named": true
+          },
+          {
+            "type": "expr_function_call",
+            "named": true
+          },
+          {
+            "type": "expr_if",
+            "named": true
+          },
+          {
+            "type": "expr_lambda",
+            "named": true
+          },
+          {
+            "type": "expr_list",
+            "named": true
+          },
+          {
+            "type": "expr_list_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_macro_application",
+            "named": true
+          },
+          {
+            "type": "expr_map_update",
+            "named": true
+          },
+          {
+            "type": "expr_match",
+            "named": true
+          },
+          {
+            "type": "expr_op",
+            "named": true
+          },
+          {
+            "type": "expr_receive",
+            "named": true
+          },
+          {
+            "type": "expr_record_access",
+            "named": true
+          },
+          {
+            "type": "expr_record_update",
+            "named": true
+          },
+          {
+            "type": "expr_send",
+            "named": true
+          },
+          {
+            "type": "expr_throw",
+            "named": true
+          },
+          {
+            "type": "expr_try",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "record",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "tuple",
             "named": true
           },
           {
@@ -1733,7 +5758,79 @@
           "named": true
         },
         {
-          "type": "expression",
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
           "named": true
         },
         {
@@ -1763,6 +5860,10 @@
         {
           "type": "tuple",
           "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
         }
       ]
     }
@@ -1776,7 +5877,95 @@
       "required": false,
       "types": [
         {
-          "type": "expression",
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "binary_string",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
+          "named": true
+        },
+        {
+          "type": "float",
           "named": true
         },
         {
@@ -1785,6 +5974,18 @@
         },
         {
           "type": "function_spec",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
           "named": true
         },
         {
@@ -1800,7 +6001,23 @@
           "named": true
         },
         {
+          "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
           "type": "type_declaration",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -1820,7 +6037,123 @@
       "required": false,
       "types": [
         {
-          "type": "expression",
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "binary_string",
+          "named": true
+        },
+        {
+          "type": "char",
+          "named": true
+        },
+        {
+          "type": "expr_begin_block",
+          "named": true
+        },
+        {
+          "type": "expr_bitstring_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_case",
+          "named": true
+        },
+        {
+          "type": "expr_catch",
+          "named": true
+        },
+        {
+          "type": "expr_function_call",
+          "named": true
+        },
+        {
+          "type": "expr_if",
+          "named": true
+        },
+        {
+          "type": "expr_lambda",
+          "named": true
+        },
+        {
+          "type": "expr_list",
+          "named": true
+        },
+        {
+          "type": "expr_list_comprehension",
+          "named": true
+        },
+        {
+          "type": "expr_macro_application",
+          "named": true
+        },
+        {
+          "type": "expr_map_update",
+          "named": true
+        },
+        {
+          "type": "expr_match",
+          "named": true
+        },
+        {
+          "type": "expr_op",
+          "named": true
+        },
+        {
+          "type": "expr_receive",
+          "named": true
+        },
+        {
+          "type": "expr_record_access",
+          "named": true
+        },
+        {
+          "type": "expr_record_update",
+          "named": true
+        },
+        {
+          "type": "expr_send",
+          "named": true
+        },
+        {
+          "type": "expr_throw",
+          "named": true
+        },
+        {
+          "type": "expr_try",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "integer",
+          "named": true
+        },
+        {
+          "type": "list",
+          "named": true
+        },
+        {
+          "type": "map",
+          "named": true
+        },
+        {
+          "type": "record",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "tuple",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]

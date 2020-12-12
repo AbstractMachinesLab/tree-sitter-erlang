@@ -7,8 +7,7 @@ empty
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (map)))
+  (map))
 
 ================================================================================
 with one key and value
@@ -19,12 +18,10 @@ with one key and value
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (map
-      (map_entry
-        (atom)
-        (expression
-          (atom))))))
+  (map
+    (map_entry
+      (atom)
+      (atom))))
 
 ================================================================================
 with many keys and values
@@ -38,13 +35,10 @@ with many keys and values
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (map
-      (map_entry
-        (atom)
-        (expression
-          (atom)))
-      (map_entry
-        (atom)
-        (expression
-          (atom))))))
+  (map
+    (map_entry
+      (atom)
+      (atom))
+    (map_entry
+      (atom)
+      (atom))))

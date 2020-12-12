@@ -31,8 +31,7 @@ hello
 
 (source_file
   (comment)
-  (expression
-    (atom)))
+  (atom))
 
 ================================================================================
 many consecutive lines
@@ -48,8 +47,7 @@ hello
 (source_file
   (comment)
   (comment)
-  (expression
-    (atom))
+  (atom)
   (comment))
 
 ================================================================================
@@ -64,15 +62,10 @@ nested
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_list
-      (expression
-        (integer))
+  (expr_list
+    (integer)
+    (comment)
+    (tuple
+      (integer)
       (comment)
-      (expression
-        (tuple
-          (expression
-            (integer))
-          (comment)
-          (expression
-            (integer)))))))
+      (integer))))

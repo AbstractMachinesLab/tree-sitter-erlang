@@ -7,11 +7,9 @@ fun () -> ok end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_lambda
-      (lambda_clause
-        (expression
-          (atom))))))
+  (expr_lambda
+    (lambda_clause
+      (atom))))
 
 ================================================================================
 identity function
@@ -22,13 +20,11 @@ fun (X) -> X end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_lambda
-      (lambda_clause
-        (pattern
-          (variable))
-        (expression
-          (variable))))))
+  (expr_lambda
+    (lambda_clause
+      (pattern
+        (variable))
+      (variable))))
 
 ================================================================================
 multiple clauses
@@ -42,15 +38,12 @@ end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_lambda
-      (lambda_clause
-        (pattern
-          (pat_list))
-        (expression
-          (atom)))
-      (lambda_clause
-        (pattern
-          (variable))
-        (expression
-          (variable))))))
+  (expr_lambda
+    (lambda_clause
+      (pattern
+        (pat_list))
+      (atom))
+    (lambda_clause
+      (pattern
+        (variable))
+      (variable))))

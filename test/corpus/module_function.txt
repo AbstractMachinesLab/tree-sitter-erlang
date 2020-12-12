@@ -11,8 +11,7 @@ main() -> ok.
     (function_clause
       (atom)
       (lambda_clause
-        (expression
-          (atom))))))
+        (atom)))))
 
 ================================================================================
 single clause function with one arg
@@ -29,8 +28,7 @@ main(A) -> ok.
       (lambda_clause
         (pattern
           (variable))
-        (expression
-          (atom))))))
+        (atom)))))
 
 ================================================================================
 single clause function with one ignored arg
@@ -47,8 +45,7 @@ main(_) -> ok.
       (lambda_clause
         (pattern
           (variable))
-        (expression
-          (atom))))))
+        (atom)))))
 
 ================================================================================
 multi clause function
@@ -66,12 +63,10 @@ main(Args) -> ok.
       (lambda_clause
         (pattern
           (pat_list))
-        (expression
-          (atom))))
+        (atom)))
     (function_clause
       (atom)
       (lambda_clause
         (pattern
           (variable))
-        (expression
-          (atom))))))
+        (atom)))))

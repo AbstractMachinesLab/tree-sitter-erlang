@@ -7,9 +7,8 @@ empty
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (record
-      (atom))))
+  (record
+    (atom)))
 
 ================================================================================
 record access
@@ -20,12 +19,10 @@ A#r.a
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_record_access
-      (expression
-        (variable))
-      (atom)
-      (atom))))
+  (expr_record_access
+    (variable)
+    (atom)
+    (atom)))
 
 ================================================================================
 with one key and value
@@ -36,13 +33,11 @@ with one key and value
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (record
+  (record
+    (atom)
+    (record_field
       (atom)
-      (record_field
-        (atom)
-        (expression
-          (atom))))))
+      (atom))))
 
 ================================================================================
 with many keys and values
@@ -55,17 +50,14 @@ with many keys and values
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (record
+  (record
+    (atom)
+    (record_field
       (atom)
-      (record_field
-        (atom)
-        (expression
-          (atom)))
-      (record_field
-        (atom)
-        (expression
-          (atom))))))
+      (atom))
+    (record_field
+      (atom)
+      (atom))))
 
 ================================================================================
 updates
@@ -77,28 +69,22 @@ M#r{ 1 = V }
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_record_update
-      (expression
-        (variable))
-      (record
+  (expr_record_update
+    (variable)
+    (record
+      (atom)
+      (record_field
+        (integer)
+        (variable))))
+  (expr_record_update
+    (expr_function_call
+      (computed_function_name
+        (atom)))
+    (record
+      (atom)
+      (record_field
         (atom)
-        (record_field
-          (integer)
-          (expression
-            (variable))))))
-  (expression
-    (expr_record_update
-      (expression
-        (expr_function_call
-          (computed_function_name
-            (atom))))
-      (record
-        (atom)
-        (record_field
-          (atom)
-          (expression
-            (variable)))))))
+        (variable)))))
 
 ================================================================================
 nested record updates
@@ -109,21 +95,16 @@ N2#nrec2.nrec1#nrec1.nrec0#nrec0{name = "nested0a"}
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_record_update
-      (expression
-        (expr_record_access
-          (expression
-            (expr_record_access
-              (expression
-                (variable))
-              (atom)
-              (atom)))
-          (atom)
-          (atom)))
-      (record
+  (expr_record_update
+    (expr_record_access
+      (expr_record_access
+        (variable)
         (atom)
-        (record_field
-          (atom)
-          (expression
-            (string)))))))
+        (atom))
+      (atom)
+      (atom))
+    (record
+      (atom)
+      (record_field
+        (atom)
+        (string)))))

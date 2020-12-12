@@ -7,8 +7,7 @@ empty
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (tuple)))
+  (tuple))
 
 ================================================================================
 tuple of size 1
@@ -19,10 +18,8 @@ tuple of size 1
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (tuple
-      (expression
-        (integer)))))
+  (tuple
+    (integer)))
 
 ================================================================================
 pair
@@ -33,12 +30,9 @@ pair
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (tuple
-      (expression
-        (integer))
-      (expression
-        (atom)))))
+  (tuple
+    (integer)
+    (atom)))
 
 ================================================================================
 triplet
@@ -49,16 +43,12 @@ triplet
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (tuple
-      (expression
-        (integer))
-      (expression
-        (atom))
-      (expression
-        (binary_string
-          (bin_part
-            (string)))))))
+  (tuple
+    (integer)
+    (atom)
+    (binary_string
+      (bin_part
+        (string)))))
 
 ================================================================================
 quad
@@ -69,18 +59,13 @@ quad
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (tuple
-      (expression
-        (integer))
-      (expression
-        (atom))
-      (expression
-        (binary_string
-          (bin_part
-            (string))))
-      (expression
-        (char)))))
+  (tuple
+    (integer)
+    (atom)
+    (binary_string
+      (bin_part
+        (string)))
+    (char)))
 
 ================================================================================
 nested tuples
@@ -91,13 +76,8 @@ nested tuples
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
+  (tuple
+    (atom)
     (tuple
-      (expression
-        (atom))
-      (expression
-        (tuple
-          (expression
-            (integer))
-          (expression
-            (tuple)))))))
+      (integer)
+      (tuple))))

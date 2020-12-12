@@ -7,15 +7,12 @@ if Exp -> true end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_if
-      (if_clause
-        (guard_seq
-          (guard
-            (expression
-              (variable))))
-        (expression
-          (atom))))))
+  (expr_if
+    (if_clause
+      (guard_seq
+        (guard
+          (variable)))
+      (atom))))
 
 ================================================================================
 if with many clauses
@@ -29,22 +26,17 @@ end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_if
-      (if_clause
-        (guard_seq
-          (guard
-            (expression
-              (variable))))
-        (expression
+  (expr_if
+    (if_clause
+      (guard_seq
+        (guard
           (variable)))
-      (if_clause
-        (guard_seq
-          (guard
-            (expression
-              (variable))))
-        (expression
-          (variable))))))
+      (variable))
+    (if_clause
+      (guard_seq
+        (guard
+          (variable)))
+      (variable))))
 
 ================================================================================
 if with default branch
@@ -58,22 +50,17 @@ end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_if
-      (if_clause
-        (guard_seq
-          (guard
-            (expression
-              (variable))))
-        (expression
+  (expr_if
+    (if_clause
+      (guard_seq
+        (guard
           (variable)))
-      (if_clause
-        (guard_seq
-          (guard
-            (expression
-              (atom))))
-        (expression
-          (variable))))))
+      (variable))
+    (if_clause
+      (guard_seq
+        (guard
+          (atom)))
+      (variable))))
 
 ================================================================================
 if with guard sequence
@@ -87,24 +74,17 @@ end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_if
-      (if_clause
-        (guard_seq
-          (guard
-            (expression
-              (variable))
-            (expression
-              (variable)))
-          (guard
-            (expression
-              (variable))))
-        (expression
+  (expr_if
+    (if_clause
+      (guard_seq
+        (guard
+          (variable)
+          (variable))
+        (guard
           (variable)))
-      (if_clause
-        (guard_seq
-          (guard
-            (expression
-              (atom))))
-        (expression
-          (variable))))))
+      (variable))
+    (if_clause
+      (guard_seq
+        (guard
+          (atom)))
+      (variable))))

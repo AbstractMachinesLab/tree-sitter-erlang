@@ -11,29 +11,18 @@ reference examples
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_op
-      (expr_operator_binary
-        (expression
-          (integer))
-        (expression
-          (integer)))))
-  (expression
-    (expr_op
-      (expr_operator_binary
-        (expression
-          (integer))
-        (expression
-          (integer)))))
-  (expression
-    (expr_op
-      (expr_operator_binary
-        (expression
-          (integer))
-        (expression
-          (expr_op
-            (expr_operator_binary
-              (expression
-                (integer))
-              (expression
-                (integer)))))))))
+  (expr_op
+    (expr_operator_binary
+      (integer)
+      (integer)))
+  (expr_op
+    (expr_operator_binary
+      (integer)
+      (integer)))
+  (expr_op
+    (expr_operator_binary
+      (integer)
+      (expr_op
+        (expr_operator_binary
+          (integer)
+          (integer))))))

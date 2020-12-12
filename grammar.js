@@ -112,9 +112,17 @@ module.exports = grammar({
 
   extras: ($) => [/[\x00-\x20\x80-\xA0]/, $.comment],
 
-  inline: ($) => [$.term],
+  inline: ($) => [$.term, $.expression],
 
-  conflicts: ($) => [],
+  conflicts: ($) => [
+    [$._structure_item, $.expr_operator_binary],
+    [
+      $._structure_item,
+      $.expr_map_update,
+      $.expr_record_access,
+      $.expr_record_update,
+    ],
+  ],
 
   rules: {
     source_file: ($) => repeat($._structure_item),
@@ -405,7 +413,7 @@ module.exports = grammar({
     expr_op: ($) => choice($.expr_operator_unary, $.expr_operator_binary),
 
     expr_operator_unary: ($) =>
-      prec(
+      prec.right(
         PREC.UNARY_OP,
         seq(field("operator", oneOf(OP1)), field("operand", $.expression))
       ),

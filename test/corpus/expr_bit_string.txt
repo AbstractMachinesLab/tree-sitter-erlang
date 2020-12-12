@@ -7,32 +7,24 @@ comprehensions
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_bitstring_comprehension
+  (expr_bitstring_comprehension
+    (binary_string
+      (bin_part
+        (expr_op
+          (expr_operator_binary
+            (variable)
+            (integer)))))
+    (expr_bitstring_generator
+      (variable)
       (binary_string
         (bin_part
-          (expression
-            (expr_op
-              (expr_operator_binary
-                (expression
-                  (variable))
-                (expression
-                  (integer)))))))
-      (expr_bitstring_generator
-        (expression
-          (variable))
-        (expression
-          (binary_string
-            (bin_part
-              (integer))
-            (bin_part
-              (integer))
-            (bin_part
-              (integer)))))
-      (expr_bitstring_filter
-        (expression
-          (expr_function_call
-            (computed_function_name
-              (atom))
-            (expression
-              (variable))))))))
+          (integer))
+        (bin_part
+          (integer))
+        (bin_part
+          (integer))))
+    (expr_bitstring_filter
+      (expr_function_call
+        (computed_function_name
+          (atom))
+        (variable)))))

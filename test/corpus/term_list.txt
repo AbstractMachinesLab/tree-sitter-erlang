@@ -7,8 +7,7 @@ empty
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_list)))
+  (expr_list))
 
 ================================================================================
 list of size 1
@@ -19,10 +18,8 @@ list of size 1
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_list
-      (expression
-        (integer)))))
+  (expr_list
+    (integer)))
 
 ================================================================================
 pair
@@ -33,12 +30,9 @@ pair
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_list
-      (expression
-        (integer))
-      (expression
-        (atom)))))
+  (expr_list
+    (integer)
+    (atom)))
 
 ================================================================================
 nested lists
@@ -49,16 +43,11 @@ nested lists
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
+  (expr_list
+    (atom)
     (expr_list
-      (expression
-        (atom))
-      (expression
-        (expr_list
-          (expression
-            (integer))
-          (expression
-            (expr_list)))))))
+      (integer)
+      (expr_list))))
 
 ================================================================================
 lists consing
@@ -69,15 +58,10 @@ lists consing
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_list
-      (expr_list_cons
-        (expression
-          (atom))
-        (expression
-          (expr_list
-            (expr_list_cons
-              (expression
-                (integer))
-              (expression
-                (expr_list)))))))))
+  (expr_list
+    (expr_list_cons
+      (atom)
+      (expr_list
+        (expr_list_cons
+          (integer)
+          (expr_list))))))

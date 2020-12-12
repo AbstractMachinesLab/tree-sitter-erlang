@@ -7,12 +7,9 @@ a ! b
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_send
-      (expression
-        (atom))
-      (expression
-        (atom)))))
+  (expr_send
+    (atom)
+    (atom)))
 
 ================================================================================
 associativity
@@ -23,13 +20,8 @@ a ! b ! c
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
+  (expr_send
+    (atom)
     (expr_send
-      (expression
-        (atom))
-      (expression
-        (expr_send
-          (expression
-            (atom))
-          (expression
-            (atom)))))))
+      (atom)
+      (atom))))

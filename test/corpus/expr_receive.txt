@@ -7,13 +7,11 @@ receive _ -> ok end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_receive
-      (case_clause
-        (pattern
-          (variable))
-        (expression
-          (atom))))))
+  (expr_receive
+    (case_clause
+      (pattern
+        (variable))
+      (atom))))
 
 ================================================================================
 receive with branches
@@ -27,18 +25,15 @@ end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_receive
-      (case_clause
-        (pattern
-          (atom))
-        (expression
-          (atom)))
-      (case_clause
-        (pattern
-          (atom))
-        (expression
-          (atom))))))
+  (expr_receive
+    (case_clause
+      (pattern
+        (atom))
+      (atom))
+    (case_clause
+      (pattern
+        (atom))
+      (atom))))
 
 ================================================================================
 receive with branches with guards
@@ -52,27 +47,22 @@ end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_receive
-      (case_clause
-        (pattern
-          (variable))
-        (guard_clause
-          (guard_seq
-            (guard
-              (expression
-                (expr_function_call
-                  (computed_function_name
-                    (atom))
-                  (expression
-                    (variable)))))))
-        (expression
-          (atom)))
-      (case_clause
-        (pattern
-          (atom))
-        (expression
-          (atom))))))
+  (expr_receive
+    (case_clause
+      (pattern
+        (variable))
+      (guard_clause
+        (guard_seq
+          (guard
+            (expr_function_call
+              (computed_function_name
+                (atom))
+              (variable)))))
+      (atom))
+    (case_clause
+      (pattern
+        (atom))
+      (atom))))
 
 ================================================================================
 receive with timeout
@@ -87,19 +77,16 @@ end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_receive
+  (expr_receive
+    (case_clause
+      (pattern
+        (variable))
+      (atom))
+    (expr_receive_after
       (case_clause
         (pattern
-          (variable))
-        (expression
-          (atom)))
-      (expr_receive_after
-        (case_clause
-          (pattern
-            (atom))
-          (expression
-            (atom)))))))
+          (atom))
+        (atom)))))
 
 ================================================================================
 receive without branches
@@ -112,11 +99,9 @@ end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_receive
-      (expr_receive_after
-        (case_clause
-          (pattern
-            (atom))
-          (expression
-            (atom)))))))
+  (expr_receive
+    (expr_receive_after
+      (case_clause
+        (pattern
+          (atom))
+        (atom)))))

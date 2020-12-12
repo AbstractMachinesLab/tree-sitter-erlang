@@ -9,10 +9,8 @@ end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_begin_block
-      (expression
-        (variable)))))
+  (expr_begin_block
+    (variable)))
 
 ================================================================================
 multiple expressions
@@ -26,9 +24,6 @@ end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_begin_block
-      (expression
-        (variable))
-      (expression
-        (variable)))))
+  (expr_begin_block
+    (variable)
+    (variable)))

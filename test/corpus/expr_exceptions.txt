@@ -7,15 +7,11 @@ catch 1+2
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_catch
-      (expression
-        (expr_op
-          (expr_operator_binary
-            (expression
-              (integer))
-            (expression
-              (integer))))))))
+  (expr_op
+    (expr_operator_binary
+      (expr_catch
+        (integer))
+      (integer))))
 
 ================================================================================
 catch must be parenthesized
@@ -27,32 +23,20 @@ A = (catch 1+2)
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_match
-      (expression
-        (variable))
-      (expression
+  (expr_match
+    (variable)
+    (expr_op
+      (expr_operator_binary
         (expr_catch
-          (expression
-            (expr_op
-              (expr_operator_binary
-                (expression
-                  (integer))
-                (expression
-                  (integer)))))))))
-  (expression
-    (expr_match
-      (expression
-        (variable))
-      (expression
+          (integer))
+        (integer))))
+  (expr_match
+    (variable)
+    (expr_op
+      (expr_operator_binary
         (expr_catch
-          (expression
-            (expr_op
-              (expr_operator_binary
-                (expression
-                  (integer))
-                (expression
-                  (integer))))))))))
+          (integer))
+        (integer)))))
 
 ================================================================================
 catch throw
@@ -63,12 +47,9 @@ catch (throw hello)
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_catch
-      (expression
-        (expr_throw
-          (expression
-            (atom)))))))
+  (expr_catch
+    (expr_throw
+      (atom))))
 
 ================================================================================
 try with single catch branch ignoring exception
@@ -82,17 +63,14 @@ end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_try
-      (expression
-        (variable))
-      (expr_try_catch
-        (catch_clause
-          (catch_pattern
-            (pattern
-              (variable)))
-          (expression
-            (atom)))))))
+  (expr_try
+    (variable)
+    (expr_try_catch
+      (catch_clause
+        (catch_pattern
+          (pattern
+            (variable)))
+        (atom)))))
 
 ================================================================================
 try with multiple catch branches
@@ -107,25 +85,21 @@ end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_try
-      (expression
-        (variable))
-      (expr_try_catch
-        (catch_clause
-          (catch_pattern
-            (pattern
-              (variable))
-            (pattern
-              (variable)))
-          (expression
-            (atom)))
-        (catch_clause
-          (catch_pattern
-            (pattern
-              (variable)))
-          (expression
-            (atom)))))))
+  (expr_try
+    (variable)
+    (expr_try_catch
+      (catch_clause
+        (catch_pattern
+          (pattern
+            (variable))
+          (pattern
+            (variable)))
+        (atom))
+      (catch_clause
+        (catch_pattern
+          (pattern
+            (variable)))
+        (atom)))))
 
 ================================================================================
 try with catch capturing stacktrace
@@ -139,20 +113,17 @@ end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_try
-      (expression
-        (variable))
-      (expr_try_catch
-        (catch_clause
-          (catch_pattern
-            (pattern
-              (variable))
-            (pattern
-              (variable))
+  (expr_try
+    (variable)
+    (expr_try_catch
+      (catch_clause
+        (catch_pattern
+          (pattern
             (variable))
-          (expression
-            (atom)))))))
+          (pattern
+            (variable))
+          (variable))
+        (atom)))))
 
 ================================================================================
 try with catch capturing stacktrace with guard
@@ -166,29 +137,24 @@ end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_try
-      (expression
-        (variable))
-      (expr_try_catch
-        (catch_clause
-          (catch_pattern
-            (pattern
-              (variable))
-            (pattern
-              (variable))
+  (expr_try
+    (variable)
+    (expr_try_catch
+      (catch_clause
+        (catch_pattern
+          (pattern
             (variable))
-          (guard_clause
-            (guard_seq
-              (guard
-                (expression
-                  (expr_function_call
-                    (computed_function_name
-                      (atom))
-                    (expression
-                      (variable)))))))
-          (expression
-            (atom)))))))
+          (pattern
+            (variable))
+          (variable))
+        (guard_clause
+          (guard_seq
+            (guard
+              (expr_function_call
+                (computed_function_name
+                  (atom))
+                (variable)))))
+        (atom)))))
 
 ================================================================================
 try with of patterns
@@ -203,43 +169,35 @@ end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_try
-      (expression
+  (expr_try
+    (variable)
+    (case_clause
+      (pattern
         (variable))
-      (case_clause
-        (pattern
+      (guard_clause
+        (guard_seq
+          (guard
+            (expr_function_call
+              (computed_function_name
+                (atom))
+              (variable)))))
+      (atom))
+    (expr_try_catch
+      (catch_clause
+        (catch_pattern
+          (pattern
+            (variable))
+          (pattern
+            (variable))
           (variable))
         (guard_clause
           (guard_seq
             (guard
-              (expression
-                (expr_function_call
-                  (computed_function_name
-                    (atom))
-                  (expression
-                    (variable)))))))
-        (expression
-          (atom)))
-      (expr_try_catch
-        (catch_clause
-          (catch_pattern
-            (pattern
-              (variable))
-            (pattern
-              (variable))
-            (variable))
-          (guard_clause
-            (guard_seq
-              (guard
-                (expression
-                  (expr_function_call
-                    (computed_function_name
-                      (atom))
-                    (expression
-                      (variable)))))))
-          (expression
-            (atom)))))))
+              (expr_function_call
+                (computed_function_name
+                  (atom))
+                (variable)))))
+        (atom)))))
 
 ================================================================================
 try with after
@@ -250,13 +208,10 @@ try A after 1 end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_try
-      (expression
-        (variable))
-      (expr_try_after
-        (expression
-          (integer))))))
+  (expr_try
+    (variable)
+    (expr_try_after
+      (integer))))
 
 ================================================================================
 try with of patterns, after value, and multiple catch branches
@@ -275,49 +230,39 @@ end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_try
-      (expression
+  (expr_try
+    (variable)
+    (case_clause
+      (pattern
         (variable))
-      (case_clause
-        (pattern
+      (guard_clause
+        (guard_seq
+          (guard
+            (expr_function_call
+              (computed_function_name
+                (atom))
+              (variable)))))
+      (atom))
+    (expr_try_catch
+      (catch_clause
+        (catch_pattern
+          (pattern
+            (variable))
+          (pattern
+            (variable))
           (variable))
         (guard_clause
           (guard_seq
             (guard
-              (expression
-                (expr_function_call
-                  (computed_function_name
-                    (atom))
-                  (expression
-                    (variable)))))))
-        (expression
-          (atom)))
-      (expr_try_catch
-        (catch_clause
-          (catch_pattern
-            (pattern
-              (variable))
-            (pattern
-              (variable))
-            (variable))
-          (guard_clause
-            (guard_seq
-              (guard
-                (expression
-                  (expr_function_call
-                    (computed_function_name
-                      (atom))
-                    (expression
-                      (variable)))))))
-          (expression
-            (atom)))
-        (catch_clause
-          (catch_pattern
-            (pattern
-              (variable)))
-          (expression
-            (atom))))
-      (expr_try_after
-        (expression
-          (atom))))))
+              (expr_function_call
+                (computed_function_name
+                  (atom))
+                (variable)))))
+        (atom))
+      (catch_clause
+        (catch_pattern
+          (pattern
+            (variable)))
+        (atom)))
+    (expr_try_after
+      (atom))))

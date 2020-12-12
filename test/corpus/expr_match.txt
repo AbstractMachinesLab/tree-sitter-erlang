@@ -7,12 +7,9 @@ A = 1
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_match
-      (expression
-        (variable))
-      (expression
-        (integer)))))
+  (expr_match
+    (variable)
+    (integer)))
 
 ================================================================================
 matching on constants
@@ -23,12 +20,9 @@ matching on constants
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_match
-      (expression
-        (integer))
-      (expression
-        (variable)))))
+  (expr_match
+    (integer)
+    (variable)))
 
 ================================================================================
 matching on tuples
@@ -39,16 +33,11 @@ matching on tuples
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_match
-      (expression
-        (tuple
-          (expression
-            (variable))
-          (expression
-            (integer))))
-      (expression
-        (variable)))))
+  (expr_match
+    (tuple
+      (variable)
+      (integer))
+    (variable)))
 
 ================================================================================
 matching on maps
@@ -59,16 +48,12 @@ matching on maps
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_match
-      (expression
-        (map
-          (map_entry
-            (atom)
-            (expression
-              (variable)))))
-      (expression
-        (variable)))))
+  (expr_match
+    (map
+      (map_entry
+        (atom)
+        (variable)))
+    (variable)))
 
 ================================================================================
 matching on lists
@@ -82,46 +67,27 @@ matching on lists
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_match
-      (expression
-        (expr_list))
-      (expression
-        (variable))))
-  (expression
-    (expr_match
-      (expression
-        (expr_list
-          (expr_list_cons
-            (expression
-              (integer))
-            (expression
-              (variable)))))
-      (expression
-        (variable))))
-  (expression
-    (expr_match
-      (expression
-        (expr_list
-          (expression
-            (integer))
-          (expression
-            (variable))))
-      (expression
-        (variable))))
-  (expression
-    (expr_match
-      (expression
-        (expr_list
-          (expr_list_cons
-            (expression
-              (integer))
-            (expression
-              (variable))
-            (expression
-              (variable)))))
-      (expression
-        (variable)))))
+  (expr_match
+    (expr_list)
+    (variable))
+  (expr_match
+    (expr_list
+      (expr_list_cons
+        (integer)
+        (variable)))
+    (variable))
+  (expr_match
+    (expr_list
+      (integer)
+      (variable))
+    (variable))
+  (expr_match
+    (expr_list
+      (expr_list_cons
+        (integer)
+        (variable)
+        (variable)))
+    (variable)))
 
 ================================================================================
 ignoring match
@@ -132,9 +98,6 @@ _ = 1
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_match
-      (expression
-        (variable))
-      (expression
-        (integer)))))
+  (expr_match
+    (variable)
+    (integer)))

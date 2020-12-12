@@ -9,15 +9,12 @@ end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_case
-      (expression
-        (variable))
-      (case_clause
-        (pattern
-          (pat_list))
-        (expression
-          (atom))))))
+  (expr_case
+    (variable)
+    (case_clause
+      (pattern
+        (pat_list))
+      (atom))))
 
 ================================================================================
 multi branch
@@ -31,24 +28,19 @@ end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_case
-      (expression
-        (expr_function_call
-          (computed_function_name
-            (atom))
-          (expression
-            (variable))))
-      (case_clause
-        (pattern
-          (pat_list))
-        (expression
-          (atom)))
-      (case_clause
-        (pattern
-          (variable))
-        (expression
-          (atom))))))
+  (expr_case
+    (expr_function_call
+      (computed_function_name
+        (atom))
+      (variable))
+    (case_clause
+      (pattern
+        (pat_list))
+      (atom))
+    (case_clause
+      (pattern
+        (variable))
+      (atom))))
 
 ================================================================================
 multi branch ignoring
@@ -62,20 +54,16 @@ end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_case
-      (expression
+  (expr_case
+    (variable)
+    (case_clause
+      (pattern
+        (atom))
+      (atom))
+    (case_clause
+      (pattern
         (variable))
-      (case_clause
-        (pattern
-          (atom))
-        (expression
-          (atom)))
-      (case_clause
-        (pattern
-          (variable))
-        (expression
-          (variable))))))
+      (variable))))
 
 ================================================================================
 simple with guards
@@ -88,20 +76,16 @@ end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_case
-      (expression
-        (variable))
-      (case_clause
-        (pattern
-          (pat_list))
-        (guard_clause
-          (guard_seq
-            (guard
-              (expression
-                (variable)))))
-        (expression
-          (atom))))))
+  (expr_case
+    (variable)
+    (case_clause
+      (pattern
+        (pat_list))
+      (guard_clause
+        (guard_seq
+          (guard
+            (variable))))
+      (atom))))
 
 ================================================================================
 simple with multiple guards
@@ -114,24 +98,17 @@ end
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_case
-      (expression
-        (variable))
-      (case_clause
-        (pattern
-          (pat_list))
-        (guard_clause
-          (guard_seq
-            (guard
-              (expression
-                (variable))
-              (expression
-                (variable)))
-            (guard
-              (expression
-                (variable))
-              (expression
-                (variable)))))
-        (expression
-          (atom))))))
+  (expr_case
+    (variable)
+    (case_clause
+      (pattern
+        (pat_list))
+      (guard_clause
+        (guard_seq
+          (guard
+            (variable)
+            (variable))
+          (guard
+            (variable)
+            (variable))))
+      (atom))))

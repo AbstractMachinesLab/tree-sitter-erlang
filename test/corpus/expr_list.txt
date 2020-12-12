@@ -7,31 +7,19 @@ comprehensions
 --------------------------------------------------------------------------------
 
 (source_file
-  (expression
-    (expr_list_comprehension
-      (expression
-        (expr_op
-          (expr_operator_binary
-            (expression
-              (variable))
-            (expression
-              (integer)))))
-      (expr_list_generator
-        (expression
-          (variable))
-        (expression
-          (expr_list
-            (expression
-              (integer))
-            (expression
-              (integer))
-            (expression
-              (integer)))))
-      (expr_list_filter
-        (expression
-          (expr_op
-            (expr_operator_binary
-              (expression
-                (variable))
-              (expression
-                (integer)))))))))
+  (expr_list_comprehension
+    (expr_op
+      (expr_operator_binary
+        (variable)
+        (integer)))
+    (expr_list_generator
+      (variable)
+      (expr_list
+        (integer)
+        (integer)
+        (integer)))
+    (expr_list_filter
+      (expr_op
+        (expr_operator_binary
+          (variable)
+          (integer))))))

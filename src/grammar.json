@@ -2097,7 +2097,7 @@
       ]
     },
     "expr_operator_unary": {
-      "type": "PREC",
+      "type": "PREC_RIGHT",
       "value": 10,
       "content": {
         "type": "SEQ",
@@ -3918,10 +3918,22 @@
       "name": "comment"
     }
   ],
-  "conflicts": [],
+  "conflicts": [
+    [
+      "_structure_item",
+      "expr_operator_binary"
+    ],
+    [
+      "_structure_item",
+      "expr_map_update",
+      "expr_record_access",
+      "expr_record_update"
+    ]
+  ],
   "externals": [],
   "inline": [
-    "term"
+    "term",
+    "expression"
   ],
   "supertypes": []
 }
