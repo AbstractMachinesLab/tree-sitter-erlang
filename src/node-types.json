@@ -4,16 +4,12 @@
     "named": true,
     "fields": {
       "value": {
-        "multiple": false,
+        "multiple": true,
         "required": true,
         "types": [
           {
-            "type": "quoted_atom",
-            "named": true
-          },
-          {
-            "type": "unquoted_atom",
-            "named": true
+            "type": "'",
+            "named": false
           }
         ]
       }
@@ -1698,11 +1694,6 @@
     }
   },
   {
-    "type": "quoted_atom",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "record",
     "named": true,
     "fields": {},
@@ -2518,10 +2509,6 @@
   {
     "type": "type",
     "named": false
-  },
-  {
-    "type": "unquoted_atom",
-    "named": true
   },
   {
     "type": "unsigned",

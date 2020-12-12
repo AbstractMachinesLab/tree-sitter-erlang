@@ -108,7 +108,7 @@ const oneOf = (x) => choice.apply(null, x);
 module.exports = grammar({
   name: "erlang",
 
-  word: ($) => $.unquoted_atom,
+  word: ($) => $._unquoted_atom,
 
   extras: ($) => [/[\x00-\x20\x80-\xA0]/, $.comment],
 
@@ -542,10 +542,10 @@ module.exports = grammar({
     list: ($) => list($.expression),
     tuple: ($) => tuple($.expression),
 
-    atom: ($) => field("value", choice($.unquoted_atom, $.quoted_atom)),
-    unquoted_atom: ($) =>
+    atom: ($) => field("value", choice($._unquoted_atom, $._quoted_atom)),
+    _unquoted_atom: ($) =>
       /[a-z\xDF-\xF6\xF8-\xFF][_@a-zA-Z0-9\xC0-\xD6\xD8-\xDE\xDF-\xF6\xF8-\xFF]*/,
-    quoted_atom: ($) => seq("'", repeat(choice(/[^'\\]+/, $._escape)), "'"),
+    _quoted_atom: ($) => seq("'", repeat(choice(/[^'\\]+/, $._escape)), "'"),
 
     integer: ($) =>
       choice(

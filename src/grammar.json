@@ -1,6 +1,6 @@
 {
   "name": "erlang",
-  "word": "unquoted_atom",
+  "word": "_unquoted_atom",
   "rules": {
     "source_file": {
       "type": "REPEAT",
@@ -3363,20 +3363,20 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "unquoted_atom"
+            "name": "_unquoted_atom"
           },
           {
             "type": "SYMBOL",
-            "name": "quoted_atom"
+            "name": "_quoted_atom"
           }
         ]
       }
     },
-    "unquoted_atom": {
+    "_unquoted_atom": {
       "type": "PATTERN",
       "value": "[a-z\\xDF-\\xF6\\xF8-\\xFF][_@a-zA-Z0-9\\xC0-\\xD6\\xD8-\\xDE\\xDF-\\xF6\\xF8-\\xFF]*"
     },
-    "quoted_atom": {
+    "_quoted_atom": {
       "type": "SEQ",
       "members": [
         {

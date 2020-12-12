@@ -64,8 +64,7 @@ matching on maps
       (expression
         (map
           (map_entry
-            (atom
-              (unquoted_atom))
+            (atom)
             (expression
               (variable)))))
       (expression

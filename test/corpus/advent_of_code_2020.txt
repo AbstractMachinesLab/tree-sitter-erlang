@@ -32,24 +32,19 @@ end} | []],
 (source_file
   (comment)
   (module_name
-    (atom
-      (unquoted_atom)))
+    (atom))
   (module_export
-    (atom
-      (unquoted_atom))
+    (atom)
     (integer))
   (module_export
-    (atom
-      (unquoted_atom))
+    (atom)
     (integer))
   (module_export
-    (atom
-      (unquoted_atom))
+    (atom)
     (integer))
   (function_declaration
     (function_clause
-      (atom
-        (unquoted_atom))
+      (atom)
       (lambda_clause
         (pattern
           (pat_tuple
@@ -60,10 +55,8 @@ end} | []],
         (expression
           (function_call
             (qualified_function_name
-              (atom
-                (unquoted_atom))
-              (atom
-                (unquoted_atom)))
+              (atom)
+              (atom))
             (expression
               (binary_string
                 (bin_part
@@ -78,10 +71,8 @@ end} | []],
         (expression
           (function_call
             (qualified_function_name
-              (atom
-                (unquoted_atom))
-              (atom
-                (unquoted_atom)))
+              (atom)
+              (atom))
             (expression
               (binary_string
                 (bin_part
@@ -96,42 +87,34 @@ end} | []],
                   (expression
                     (expr_list))))))))))
   (function_spec
-    (atom
-      (unquoted_atom))
+    (atom)
     (type_expression
       (type_application
-        (atom
-          (unquoted_atom))
+        (atom)
         (type_expression
           (type_tuple
             (type_expression
               (type_application
-                (atom
-                  (unquoted_atom))))
+                (atom)))
             (type_expression
               (type_fun
                 (type_expression
                   (type_application
-                    (atom
-                      (unquoted_atom))))))))))
+                    (atom)))))))))
     (type_expression
       (type_atom
-        (atom
-          (unquoted_atom)))))
+        (atom))))
   (function_declaration
     (function_clause
-      (atom
-        (unquoted_atom))
+      (atom)
       (lambda_clause
         (pattern
           (variable))
         (expression
           (function_call
             (qualified_function_name
-              (atom
-                (unquoted_atom))
-              (atom
-                (unquoted_atom)))
+              (atom)
+              (atom))
             (expression
               (lambda
                 (lambda_clause
@@ -140,37 +123,30 @@ end} | []],
                   (expression
                     (function_call
                       (computed_function_name
-                        (atom
-                          (unquoted_atom)))
+                        (atom))
                       (expression
                         (variable)))))))
             (expression
               (variable)))))))
   (function_spec
-    (atom
-      (unquoted_atom))
+    (atom)
     (type_expression
       (type_application
-        (atom
-          (unquoted_atom))))
+        (atom)))
     (type_expression
       (type_atom
-        (atom
-          (unquoted_atom)))))
+        (atom))))
   (function_declaration
     (function_clause
-      (atom
-        (unquoted_atom))
+      (atom)
       (lambda_clause
         (pattern
           (variable))
         (expression
           (function_call
             (qualified_function_name
-              (atom
-                (unquoted_atom))
-              (atom
-                (unquoted_atom)))
+              (atom)
+              (atom))
             (expression
               (binary_string
                 (bin_part
@@ -194,26 +170,21 @@ end} | []],
                             (expression
                               (function_call
                                 (qualified_function_name
-                                  (atom
-                                    (unquoted_atom))
-                                  (atom
-                                    (unquoted_atom))))))))))
+                                  (atom)
+                                  (atom)))))))))
                   (expression
                     (expr_list)))))))
         (expression
           (function_call
             (computed_function_name
-              (atom
-                (unquoted_atom)))
+              (atom))
             (expression
               (variable))))
         (expression
           (function_call
             (qualified_function_name
-              (atom
-                (unquoted_atom))
-              (atom
-                (unquoted_atom)))
+              (atom)
+              (atom))
             (expression
               (binary_string
                 (bin_part
@@ -282,49 +253,37 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
 (source_file
   (comment)
   (module_name
-    (atom
-      (unquoted_atom)))
+    (atom))
   (module_export
-    (atom
-      (unquoted_atom))
+    (atom)
     (integer))
   (module_export
-    (atom
-      (unquoted_atom))
+    (atom)
     (integer))
   (module_export
-    (atom
-      (unquoted_atom))
+    (atom)
     (integer))
   (function_spec
-    (atom
-      (unquoted_atom))
+    (atom)
     (type_expression
       (type_application
-        (atom
-          (unquoted_atom))))
+        (atom)))
     (type_expression
       (type_application
-        (atom
-          (unquoted_atom))
+        (atom)
         (type_expression
           (type_application
-            (atom
-              (unquoted_atom))))))
+            (atom)))))
     (type_expression
       (type_application
-        (atom
-          (unquoted_atom))
-        (atom
-          (unquoted_atom))
+        (atom)
+        (atom)
         (type_expression
           (type_application
-            (atom
-              (unquoted_atom)))))))
+            (atom))))))
   (function_declaration
     (function_clause
-      (atom
-        (unquoted_atom))
+      (atom)
       (lambda_clause
         (pattern
           (variable))
@@ -333,10 +292,8 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
         (expression
           (function_call
             (qualified_function_name
-              (atom
-                (unquoted_atom))
-              (atom
-                (unquoted_atom)))
+              (atom)
+              (atom))
             (expression
               (lambda
                 (lambda_clause
@@ -350,15 +307,12 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
                         (variable))
                       (case_clause
                         (pattern
-                          (atom
-                            (unquoted_atom)))
+                          (atom))
                         (expression
                           (function_call
                             (qualified_function_name
-                              (atom
-                                (unquoted_atom))
-                              (atom
-                                (unquoted_atom)))
+                              (atom)
+                              (atom))
                             (expression
                               (lambda
                                 (lambda_clause
@@ -372,15 +326,12 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
                                         (variable))
                                       (case_clause
                                         (pattern
-                                          (atom
-                                            (unquoted_atom)))
+                                          (atom))
                                         (expression
                                           (function_call
                                             (qualified_function_name
-                                              (atom
-                                                (unquoted_atom))
-                                              (atom
-                                                (unquoted_atom)))
+                                              (atom)
+                                              (atom))
                                             (expression
                                               (lambda
                                                 (lambda_clause
@@ -394,33 +345,26 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
                                                         (variable))
                                                       (case_clause
                                                         (pattern
-                                                          (atom
-                                                            (unquoted_atom)))
+                                                          (atom))
                                                         (expression
                                                           (case
                                                             (expression
                                                               (function_call
                                                                 (qualified_function_name
-                                                                  (atom
-                                                                    (unquoted_atom))
-                                                                  (atom
-                                                                    (quoted_atom)))
+                                                                  (atom)
+                                                                  (atom))
                                                                 (expression
                                                                   (variable))
                                                                 (expression
                                                                   (function_call
                                                                     (qualified_function_name
-                                                                      (atom
-                                                                        (unquoted_atom))
-                                                                      (atom
-                                                                        (quoted_atom)))
+                                                                      (atom)
+                                                                      (atom))
                                                                     (expression
                                                                       (function_call
                                                                         (qualified_function_name
-                                                                          (atom
-                                                                            (unquoted_atom))
-                                                                          (atom
-                                                                            (quoted_atom)))
+                                                                          (atom)
+                                                                          (atom))
                                                                         (expression
                                                                           (variable))
                                                                         (expression
@@ -429,27 +373,21 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
                                                                       (variable))))))
                                                             (case_clause
                                                               (pattern
-                                                                (atom
-                                                                  (unquoted_atom)))
+                                                                (atom))
                                                               (expression
                                                                 (tuple
                                                                   (expression
-                                                                    (atom
-                                                                      (unquoted_atom)))
+                                                                    (atom))
                                                                   (expression
                                                                     (function_call
                                                                       (qualified_function_name
-                                                                        (atom
-                                                                          (unquoted_atom))
-                                                                        (atom
-                                                                          (quoted_atom)))
+                                                                        (atom)
+                                                                        (atom))
                                                                       (expression
                                                                         (function_call
                                                                           (qualified_function_name
-                                                                            (atom
-                                                                              (unquoted_atom))
-                                                                            (atom
-                                                                              (quoted_atom)))
+                                                                            (atom)
+                                                                            (atom))
                                                                           (expression
                                                                             (variable))
                                                                           (expression
@@ -458,19 +396,16 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
                                                                         (variable)))))))
                                                             (case_clause
                                                               (pattern
-                                                                (atom
-                                                                  (unquoted_atom)))
+                                                                (atom))
                                                               (expression
-                                                                (atom
-                                                                  (unquoted_atom)))))))
+                                                                (atom))))))
                                                       (case_clause
                                                         (pattern
                                                           (variable))
                                                         (expression
                                                           (variable))))))))
                                             (expression
-                                              (atom
-                                                (unquoted_atom)))
+                                              (atom))
                                             (expression
                                               (variable)))))
                                       (case_clause
@@ -479,8 +414,7 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
                                         (expression
                                           (variable))))))))
                             (expression
-                              (atom
-                                (unquoted_atom)))
+                              (atom))
                             (expression
                               (variable)))))
                       (case_clause
@@ -489,39 +423,30 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
                         (expression
                           (variable))))))))
             (expression
-              (atom
-                (unquoted_atom)))
+              (atom))
             (expression
               (variable)))))))
   (function_spec
-    (atom
-      (unquoted_atom))
+    (atom)
     (type_expression
       (type_application
-        (atom
-          (unquoted_atom))))
+        (atom)))
     (type_expression
       (type_application
-        (atom
-          (unquoted_atom))
+        (atom)
         (type_expression
           (type_application
-            (atom
-              (unquoted_atom))))))
+            (atom)))))
     (type_expression
       (type_application
-        (atom
-          (unquoted_atom))
-        (atom
-          (unquoted_atom))
+        (atom)
+        (atom)
         (type_expression
           (type_application
-            (atom
-              (unquoted_atom)))))))
+            (atom))))))
   (function_declaration
     (function_clause
-      (atom
-        (unquoted_atom))
+      (atom)
       (lambda_clause
         (pattern
           (variable))
@@ -530,10 +455,8 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
         (expression
           (function_call
             (qualified_function_name
-              (atom
-                (unquoted_atom))
-              (atom
-                (unquoted_atom)))
+              (atom)
+              (atom))
             (expression
               (lambda
                 (lambda_clause
@@ -547,15 +470,12 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
                         (variable))
                       (case_clause
                         (pattern
-                          (atom
-                            (unquoted_atom)))
+                          (atom))
                         (expression
                           (function_call
                             (qualified_function_name
-                              (atom
-                                (unquoted_atom))
-                              (atom
-                                (unquoted_atom)))
+                              (atom)
+                              (atom))
                             (expression
                               (lambda
                                 (lambda_clause
@@ -569,65 +489,53 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
                                         (variable))
                                       (case_clause
                                         (pattern
-                                          (atom
-                                            (unquoted_atom)))
+                                          (atom))
                                         (expression
                                           (case
                                             (expression
                                               (function_call
                                                 (qualified_function_name
-                                                  (atom
-                                                    (unquoted_atom))
-                                                  (atom
-                                                    (quoted_atom)))
+                                                  (atom)
+                                                  (atom))
                                                 (expression
                                                   (variable))
                                                 (expression
                                                   (function_call
                                                     (qualified_function_name
-                                                      (atom
-                                                        (unquoted_atom))
-                                                      (atom
-                                                        (quoted_atom)))
+                                                      (atom)
+                                                      (atom))
                                                     (expression
                                                       (variable))
                                                     (expression
                                                       (variable))))))
                                             (case_clause
                                               (pattern
-                                                (atom
-                                                  (unquoted_atom)))
+                                                (atom))
                                               (expression
                                                 (tuple
                                                   (expression
-                                                    (atom
-                                                      (unquoted_atom)))
+                                                    (atom))
                                                   (expression
                                                     (function_call
                                                       (qualified_function_name
-                                                        (atom
-                                                          (unquoted_atom))
-                                                        (atom
-                                                          (quoted_atom)))
+                                                        (atom)
+                                                        (atom))
                                                       (expression
                                                         (variable))
                                                       (expression
                                                         (variable)))))))
                                             (case_clause
                                               (pattern
-                                                (atom
-                                                  (unquoted_atom)))
+                                                (atom))
                                               (expression
-                                                (atom
-                                                  (unquoted_atom)))))))
+                                                (atom))))))
                                       (case_clause
                                         (pattern
                                           (variable))
                                         (expression
                                           (variable))))))))
                             (expression
-                              (atom
-                                (unquoted_atom)))
+                              (atom))
                             (expression
                               (variable)))))
                       (case_clause
@@ -636,31 +544,24 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
                         (expression
                           (variable))))))))
             (expression
-              (atom
-                (unquoted_atom)))
+              (atom))
             (expression
               (variable)))))))
   (function_spec
-    (atom
-      (unquoted_atom))
+    (atom)
     (type_expression
       (type_application
-        (atom
-          (unquoted_atom))
+        (atom)
         (type_expression
           (type_application
-            (atom
-              (unquoted_atom))
-            (atom
-              (unquoted_atom))
+            (atom)
+            (atom)
             (type_expression
               (type_application
-                (atom
-                  (unquoted_atom)))))))))
+                (atom))))))))
   (function_declaration
     (function_clause
-      (atom
-        (unquoted_atom))
+      (atom)
       (lambda_clause
         (expression
           (expr_list
@@ -668,8 +569,7 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
               (expression
                 (function_call
                   (computed_function_name
-                    (atom
-                      (unquoted_atom)))
+                    (atom))
                   (expression
                     (integer))
                   (expression
@@ -695,8 +595,7 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
                     (expression
                       (function_call
                         (computed_function_name
-                          (atom
-                            (unquoted_atom)))
+                          (atom))
                         (expression
                           (integer))
                         (expression

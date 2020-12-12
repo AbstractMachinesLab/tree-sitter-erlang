@@ -33,7 +33,6 @@ comprehensions
         (expression
           (function_call
             (computed_function_name
-              (atom
-                (unquoted_atom)))
+              (atom))
             (expression
               (variable))))))))

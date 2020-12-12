@@ -15,8 +15,7 @@ if Exp -> true end
             (expression
               (variable))))
         (expression
-          (atom
-            (unquoted_atom)))))))
+          (atom))))))
 
 ================================================================================
 if with many clauses
@@ -72,8 +71,7 @@ end
         (guard_seq
           (guard
             (expression
-              (atom
-                (unquoted_atom)))))
+              (atom))))
         (expression
           (variable))))))
 
@@ -107,7 +105,6 @@ end
         (guard_seq
           (guard
             (expression
-              (atom
-                (unquoted_atom)))))
+              (atom))))
         (expression
           (variable))))))

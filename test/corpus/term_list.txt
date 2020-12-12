@@ -38,8 +38,7 @@ pair
       (expression
         (integer))
       (expression
-        (atom
-          (unquoted_atom))))))
+        (atom)))))
 
 ================================================================================
 nested lists
@@ -53,8 +52,7 @@ nested lists
   (expression
     (expr_list
       (expression
-        (atom
-          (unquoted_atom)))
+        (atom))
       (expression
         (expr_list
           (expression
@@ -75,8 +73,7 @@ lists consing
     (expr_list
       (expr_list_cons
         (expression
-          (atom
-            (unquoted_atom)))
+          (atom))
         (expression
           (expr_list
             (expr_list_cons

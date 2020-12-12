@@ -64,8 +64,7 @@ A xor 1 xor none
               (expression
                 (integer)))))
         (expression
-          (atom
-            (unquoted_atom))))))
+          (atom)))))
   (expression
     (expr_operator
       (expr_operator_binary
@@ -77,8 +76,7 @@ A xor 1 xor none
               (expression
                 (integer)))))
         (expression
-          (atom
-            (unquoted_atom))))))
+          (atom)))))
   (expression
     (expr_operator
       (expr_operator_binary
@@ -90,8 +88,7 @@ A xor 1 xor none
               (expression
                 (integer)))))
         (expression
-          (atom
-            (unquoted_atom))))))
+          (atom)))))
   (expression
     (expr_operator
       (expr_operator_binary
@@ -103,8 +100,7 @@ A xor 1 xor none
               (expression
                 (integer)))))
         (expression
-          (atom
-            (unquoted_atom))))))
+          (atom)))))
   (expression
     (expr_operator
       (expr_operator_binary
@@ -116,8 +112,7 @@ A xor 1 xor none
               (expression
                 (integer)))))
         (expression
-          (atom
-            (unquoted_atom))))))
+          (atom)))))
   (expression
     (expr_operator
       (expr_operator_binary
@@ -129,8 +124,7 @@ A xor 1 xor none
               (expression
                 (integer)))))
         (expression
-          (atom
-            (unquoted_atom))))))
+          (atom)))))
   (expression
     (variable))
   (expression
@@ -142,8 +136,7 @@ A xor 1 xor none
     (expr_operator
       (expr_operator_unary
         (expression
-          (atom
-            (unquoted_atom))))))
+          (atom)))))
   (expression
     (variable))
   (expression
@@ -155,8 +148,7 @@ A xor 1 xor none
     (expr_operator
       (expr_operator_unary
         (expression
-          (atom
-            (unquoted_atom))))))
+          (atom)))))
   (expression
     (expr_operator
       (expr_operator_binary
@@ -168,8 +160,7 @@ A xor 1 xor none
               (expression
                 (integer)))))
         (expression
-          (atom
-            (unquoted_atom))))))
+          (atom)))))
   (expression
     (expr_operator
       (expr_operator_binary
@@ -181,8 +172,7 @@ A xor 1 xor none
               (expression
                 (integer)))))
         (expression
-          (atom
-            (unquoted_atom))))))
+          (atom)))))
   (expression
     (expr_operator
       (expr_operator_binary
@@ -194,8 +184,7 @@ A xor 1 xor none
               (expression
                 (integer)))))
         (expression
-          (atom
-            (unquoted_atom))))))
+          (atom)))))
   (expression
     (expr_operator
       (expr_operator_binary
@@ -207,8 +196,7 @@ A xor 1 xor none
               (expression
                 (integer)))))
         (expression
-          (atom
-            (unquoted_atom))))))
+          (atom)))))
   (expression
     (expr_operator
       (expr_operator_binary
@@ -220,8 +208,7 @@ A xor 1 xor none
               (expression
                 (integer)))))
         (expression
-          (atom
-            (unquoted_atom))))))
+          (atom)))))
   (expression
     (expr_operator
       (expr_operator_binary
@@ -233,8 +220,7 @@ A xor 1 xor none
               (expression
                 (integer)))))
         (expression
-          (atom
-            (unquoted_atom)))))))
+          (atom))))))
 
 ================================================================================
 op right associativity

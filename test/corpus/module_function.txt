@@ -9,12 +9,10 @@ main() -> ok.
 (source_file
   (function_declaration
     (function_clause
-      (atom
-        (unquoted_atom))
+      (atom)
       (lambda_clause
         (expression
-          (atom
-            (unquoted_atom)))))))
+          (atom))))))
 
 ================================================================================
 single clause function with one arg
@@ -27,14 +25,12 @@ main(A) -> ok.
 (source_file
   (function_declaration
     (function_clause
-      (atom
-        (unquoted_atom))
+      (atom)
       (lambda_clause
         (pattern
           (variable))
         (expression
-          (atom
-            (unquoted_atom)))))))
+          (atom))))))
 
 ================================================================================
 single clause function with one ignored arg
@@ -47,14 +43,12 @@ main(_) -> ok.
 (source_file
   (function_declaration
     (function_clause
-      (atom
-        (unquoted_atom))
+      (atom)
       (lambda_clause
         (pattern
           (variable))
         (expression
-          (atom
-            (unquoted_atom)))))))
+          (atom))))))
 
 ================================================================================
 multi clause function
@@ -68,20 +62,16 @@ main(Args) -> ok.
 (source_file
   (function_declaration
     (function_clause
-      (atom
-        (unquoted_atom))
+      (atom)
       (lambda_clause
         (pattern
           (pat_list))
         (expression
-          (atom
-            (unquoted_atom)))))
+          (atom))))
     (function_clause
-      (atom
-        (unquoted_atom))
+      (atom)
       (lambda_clause
         (pattern
           (variable))
         (expression
-          (atom
-            (unquoted_atom)))))))
+          (atom))))))

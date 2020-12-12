@@ -77,10 +77,8 @@ local:function()
   (expression
     (function_call
       (qualified_function_name
-        (atom
-          (unquoted_atom))
-        (atom
-          (unquoted_atom))))))
+        (atom)
+        (atom)))))
 
 ================================================================================
 qualified function call with args
@@ -95,19 +93,15 @@ local:function(1,2,3)
   (expression
     (function_call
       (qualified_function_name
-        (atom
-          (unquoted_atom))
-        (atom
-          (unquoted_atom)))
+        (atom)
+        (atom))
       (expression
         (integer))))
   (expression
     (function_call
       (qualified_function_name
-        (atom
-          (unquoted_atom))
-        (atom
-          (unquoted_atom)))
+        (atom)
+        (atom))
       (expression
         (integer))
       (expression
@@ -127,19 +121,15 @@ local:op(1, local:function(1,2,3))
   (expression
     (function_call
       (qualified_function_name
-        (atom
-          (unquoted_atom))
-        (atom
-          (unquoted_atom)))
+        (atom)
+        (atom))
       (expression
         (integer))
       (expression
         (function_call
           (qualified_function_name
-            (atom
-              (unquoted_atom))
-            (atom
-              (unquoted_atom)))
+            (atom)
+            (atom))
           (expression
             (integer))
           (expression
@@ -157,8 +147,7 @@ local_function().
 
 (source_file
   (expression
-    (atom
-      (unquoted_atom)))
+    (atom))
   (ERROR))
 
 ================================================================================
@@ -177,8 +166,7 @@ A = local_function(1)
       (expression
         (function_call
           (computed_function_name
-            (atom
-              (unquoted_atom)))
+            (atom))
           (expression
             (integer)))))))
 
@@ -198,15 +186,13 @@ A = local_op(1, local_function(1))
       (expression
         (function_call
           (computed_function_name
-            (atom
-              (unquoted_atom)))
+            (atom))
           (expression
             (integer))
           (expression
             (function_call
               (computed_function_name
-                (atom
-                  (unquoted_atom)))
+                (atom))
               (expression
                 (integer)))))))))
 
@@ -222,10 +208,8 @@ module:function(Lambda(1, 'local$function'(1,2,3)))
   (expression
     (function_call
       (qualified_function_name
-        (atom
-          (unquoted_atom))
-        (atom
-          (unquoted_atom)))
+        (atom)
+        (atom))
       (expression
         (function_call
           (computed_function_name
@@ -235,8 +219,7 @@ module:function(Lambda(1, 'local$function'(1,2,3)))
           (expression
             (function_call
               (computed_function_name
-                (atom
-                  (quoted_atom)))
+                (atom))
               (expression
                 (integer))
               (expression

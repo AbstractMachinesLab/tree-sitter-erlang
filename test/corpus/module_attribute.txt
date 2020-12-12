@@ -8,8 +8,7 @@ name attribute
 
 (source_file
   (module_name
-    (atom
-      (unquoted_atom))))
+    (atom)))
 
 ================================================================================
 export attribute
@@ -22,16 +21,12 @@ export attribute
 
 (source_file
   (module_export
-    (atom
-      (unquoted_atom))
+    (atom)
     (integer)
-    (atom
-      (unquoted_atom))
+    (atom)
     (integer))
   (module_export
-    (atom
-      (unquoted_atom))
+    (atom)
     (integer)
-    (atom
-      (unquoted_atom))
+    (atom)
     (integer)))

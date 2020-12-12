@@ -22,11 +22,9 @@ with one key and value
   (expression
     (map
       (map_entry
-        (atom
-          (unquoted_atom))
+        (atom)
         (expression
-          (atom
-            (unquoted_atom)))))))
+          (atom))))))
 
 ================================================================================
 with many keys and values
@@ -43,14 +41,10 @@ with many keys and values
   (expression
     (map
       (map_entry
-        (atom
-          (unquoted_atom))
+        (atom)
         (expression
-          (atom
-            (unquoted_atom))))
+          (atom)))
       (map_entry
-        (atom
-          (unquoted_atom))
+        (atom)
         (expression
-          (atom
-            (unquoted_atom)))))))
+          (atom))))))

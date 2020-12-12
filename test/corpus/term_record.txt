@@ -9,8 +9,7 @@ empty
 (source_file
   (expression
     (record
-      (atom
-        (unquoted_atom)))))
+      (atom))))
 
 ================================================================================
 record access
@@ -25,10 +24,8 @@ A#r.a
     (expr_record_access
       (expression
         (variable))
-      (atom
-        (unquoted_atom))
-      (atom
-        (unquoted_atom)))))
+      (atom)
+      (atom))))
 
 ================================================================================
 with one key and value
@@ -41,14 +38,11 @@ with one key and value
 (source_file
   (expression
     (record
-      (atom
-        (unquoted_atom))
+      (atom)
       (record_field
-        (atom
-          (unquoted_atom))
+        (atom)
         (expression
-          (atom
-            (unquoted_atom)))))))
+          (atom))))))
 
 ================================================================================
 with many keys and values
@@ -63,20 +57,15 @@ with many keys and values
 (source_file
   (expression
     (record
-      (atom
-        (unquoted_atom))
+      (atom)
       (record_field
-        (atom
-          (unquoted_atom))
+        (atom)
         (expression
-          (atom
-            (unquoted_atom))))
+          (atom)))
       (record_field
-        (atom
-          (unquoted_atom))
+        (atom)
         (expression
-          (atom
-            (unquoted_atom)))))))
+          (atom))))))
 
 ================================================================================
 updates
@@ -93,8 +82,7 @@ M#r{ 1 = V }
       (expression
         (variable))
       (record
-        (atom
-          (unquoted_atom))
+        (atom)
         (record_field
           (integer)
           (expression
@@ -104,14 +92,11 @@ M#r{ 1 = V }
       (expression
         (function_call
           (computed_function_name
-            (atom
-              (unquoted_atom)))))
+            (atom))))
       (record
-        (atom
-          (unquoted_atom))
+        (atom)
         (record_field
-          (atom
-            (unquoted_atom))
+          (atom)
           (expression
             (variable)))))))
 
@@ -132,19 +117,13 @@ N2#nrec2.nrec1#nrec1.nrec0#nrec0{name = "nested0a"}
             (expr_record_access
               (expression
                 (variable))
-              (atom
-                (unquoted_atom))
-              (atom
-                (unquoted_atom))))
-          (atom
-            (unquoted_atom))
-          (atom
-            (unquoted_atom))))
+              (atom)
+              (atom)))
+          (atom)
+          (atom)))
       (record
-        (atom
-          (unquoted_atom))
+        (atom)
         (record_field
-          (atom
-            (unquoted_atom))
+          (atom)
           (expression
             (string)))))))

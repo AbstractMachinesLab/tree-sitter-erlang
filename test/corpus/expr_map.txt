@@ -22,11 +22,9 @@ M#{ 1 => V }
       (expression
         (function_call
           (computed_function_name
-            (atom
-              (unquoted_atom)))))
+            (atom))))
       (map
         (map_entry
-          (atom
-            (unquoted_atom))
+          (atom)
           (expression
             (variable)))))))

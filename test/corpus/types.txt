@@ -10,19 +10,15 @@ type application
 
 (source_file
   (type_declaration
-    (atom
-      (unquoted_atom))
+    (atom)
     (type_expression
       (type_application
-        (atom
-          (unquoted_atom)))))
+        (atom))))
   (type_declaration
-    (atom
-      (unquoted_atom))
+    (atom)
     (type_expression
       (type_application
-        (atom
-          (unquoted_atom))))))
+        (atom)))))
 
 ================================================================================
 qualified type application
@@ -34,14 +30,11 @@ qualified type application
 
 (source_file
   (type_declaration
-    (atom
-      (unquoted_atom))
+    (atom)
     (type_expression
       (type_application
-        (atom
-          (unquoted_atom))
-        (atom
-          (unquoted_atom))))))
+        (atom)
+        (atom)))))
 
 ================================================================================
 lists
@@ -55,23 +48,19 @@ lists
 
 (source_file
   (type_declaration
-    (atom
-      (unquoted_atom))
+    (atom)
     (type_expression
       (type_list
         (type_expression
           (type_application
-            (atom
-              (unquoted_atom)))))))
+            (atom))))))
   (type_declaration
-    (atom
-      (unquoted_atom))
+    (atom)
     (type_expression
       (type_nonempty_list
         (type_expression
           (type_application
-            (atom
-              (unquoted_atom))))))))
+            (atom)))))))
 
 ================================================================================
 unions
@@ -84,33 +73,25 @@ unions
 
 (source_file
   (type_declaration
-    (atom
-      (unquoted_atom))
+    (atom)
     (type_expression
       (type_atom
-        (atom
-          (unquoted_atom)))
+        (atom))
       (type_atom
-        (atom
-          (unquoted_atom)))
+        (atom))
       (type_atom
-        (atom
-          (unquoted_atom)))))
+        (atom))))
   (type_declaration
-    (atom
-      (unquoted_atom))
+    (atom)
     (type_expression
       (type_atom
-        (atom
-          (unquoted_atom)))
+        (atom))
       (type_tuple
         (type_expression
           (type_atom
-            (atom
-              (unquoted_atom)))
+            (atom))
           (type_atom
-            (atom
-              (unquoted_atom))))))))
+            (atom)))))))
 
 ================================================================================
 maps and records
@@ -124,17 +105,14 @@ maps and records
 
 (source_file
   (type_declaration
-    (atom
-      (unquoted_atom))
+    (atom)
     (type_expression
       (type_map)))
   (type_declaration
-    (atom
-      (unquoted_atom))
+    (atom)
     (type_expression
       (type_record
-        (atom
-          (unquoted_atom))))))
+        (atom)))))
 
 ================================================================================
 function types
@@ -148,26 +126,20 @@ function types
 
 (source_file
   (function_spec
-    (atom
-      (unquoted_atom))
+    (atom)
     (type_expression
       (type_atom
-        (atom
-          (unquoted_atom)))))
+        (atom))))
   (function_spec
-    (atom
-      (unquoted_atom))
+    (atom)
     (type_expression
       (type_application
-        (atom
-          (unquoted_atom))))
+        (atom)))
     (type_expression
       (type_application
-        (atom
-          (unquoted_atom)))
+        (atom))
       (type_atom
-        (atom
-          (unquoted_atom))))))
+        (atom)))))
 
 ================================================================================
 ADTs
@@ -179,18 +151,15 @@ ADTs
 
 (source_file
   (type_declaration
-    (atom
-      (unquoted_atom))
+    (atom)
     (variable)
     (type_expression
       (type_tuple
         (type_expression
           (type_atom
-            (atom
-              (unquoted_atom))))
+            (atom)))
         (type_expression
           (type_variable
             (variable))))
       (type_atom
-        (atom
-          (unquoted_atom))))))
+        (atom)))))

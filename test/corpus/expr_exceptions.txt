@@ -68,8 +68,7 @@ catch (throw hello)
       (expression
         (expr_throw
           (expression
-            (atom
-              (unquoted_atom))))))))
+            (atom)))))))
 
 ================================================================================
 try with single catch branch ignoring exception
@@ -93,8 +92,7 @@ end
             (pattern
               (variable)))
           (expression
-            (atom
-              (unquoted_atom))))))))
+            (atom)))))))
 
 ================================================================================
 try with multiple catch branches
@@ -121,15 +119,13 @@ end
             (pattern
               (variable)))
           (expression
-            (atom
-              (unquoted_atom))))
+            (atom)))
         (catch_clause
           (catch_pattern
             (pattern
               (variable)))
           (expression
-            (atom
-              (unquoted_atom))))))))
+            (atom)))))))
 
 ================================================================================
 try with catch capturing stacktrace
@@ -156,8 +152,7 @@ end
               (variable))
             (variable))
           (expression
-            (atom
-              (unquoted_atom))))))))
+            (atom)))))))
 
 ================================================================================
 try with catch capturing stacktrace with guard
@@ -189,13 +184,11 @@ end
                 (expression
                   (function_call
                     (computed_function_name
-                      (atom
-                        (unquoted_atom)))
+                      (atom))
                     (expression
                       (variable)))))))
           (expression
-            (atom
-              (unquoted_atom))))))))
+            (atom)))))))
 
 ================================================================================
 try with of patterns
@@ -223,13 +216,11 @@ end
               (expression
                 (function_call
                   (computed_function_name
-                    (atom
-                      (unquoted_atom)))
+                    (atom))
                   (expression
                     (variable)))))))
         (expression
-          (atom
-            (unquoted_atom))))
+          (atom)))
       (expr_try_catch
         (catch_clause
           (catch_pattern
@@ -244,13 +235,11 @@ end
                 (expression
                   (function_call
                     (computed_function_name
-                      (atom
-                        (unquoted_atom)))
+                      (atom))
                     (expression
                       (variable)))))))
           (expression
-            (atom
-              (unquoted_atom))))))))
+            (atom)))))))
 
 ================================================================================
 try with after
@@ -299,13 +288,11 @@ end
               (expression
                 (function_call
                   (computed_function_name
-                    (atom
-                      (unquoted_atom)))
+                    (atom))
                   (expression
                     (variable)))))))
         (expression
-          (atom
-            (unquoted_atom))))
+          (atom)))
       (expr_try_catch
         (catch_clause
           (catch_pattern
@@ -320,21 +307,17 @@ end
                 (expression
                   (function_call
                     (computed_function_name
-                      (atom
-                        (unquoted_atom)))
+                      (atom))
                     (expression
                       (variable)))))))
           (expression
-            (atom
-              (unquoted_atom))))
+            (atom)))
         (catch_clause
           (catch_pattern
             (pattern
               (variable)))
           (expression
-            (atom
-              (unquoted_atom)))))
+            (atom))))
       (expr_try_after
         (expression
-          (atom
-            (unquoted_atom)))))))
+          (atom))))))

@@ -13,8 +13,7 @@ receive _ -> ok end
         (pattern
           (variable))
         (expression
-          (atom
-            (unquoted_atom)))))))
+          (atom))))))
 
 ================================================================================
 receive with branches
@@ -32,18 +31,14 @@ end
     (expr_receive
       (case_clause
         (pattern
-          (atom
-            (unquoted_atom)))
+          (atom))
         (expression
-          (atom
-            (unquoted_atom))))
+          (atom)))
       (case_clause
         (pattern
-          (atom
-            (unquoted_atom)))
+          (atom))
         (expression
-          (atom
-            (unquoted_atom)))))))
+          (atom))))))
 
 ================================================================================
 receive with branches with guards
@@ -68,20 +63,16 @@ end
               (expression
                 (function_call
                   (computed_function_name
-                    (atom
-                      (unquoted_atom)))
+                    (atom))
                   (expression
                     (variable)))))))
         (expression
-          (atom
-            (unquoted_atom))))
+          (atom)))
       (case_clause
         (pattern
-          (atom
-            (unquoted_atom)))
+          (atom))
         (expression
-          (atom
-            (unquoted_atom)))))))
+          (atom))))))
 
 ================================================================================
 receive with timeout
@@ -102,16 +93,13 @@ end
         (pattern
           (variable))
         (expression
-          (atom
-            (unquoted_atom))))
+          (atom)))
       (expr_receive_after
         (case_clause
           (pattern
-            (atom
-              (unquoted_atom)))
+            (atom))
           (expression
-            (atom
-              (unquoted_atom))))))))
+            (atom)))))))
 
 ================================================================================
 receive without branches
@@ -129,8 +117,6 @@ end
       (expr_receive_after
         (case_clause
           (pattern
-            (atom
-              (unquoted_atom)))
+            (atom))
           (expression
-            (atom
-              (unquoted_atom))))))))
+            (atom)))))))

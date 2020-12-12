@@ -32,8 +32,7 @@ hello
 (source_file
   (comment)
   (expression
-    (atom
-      (unquoted_atom))))
+    (atom)))
 
 ================================================================================
 many consecutive lines
@@ -50,8 +49,7 @@ hello
   (comment)
   (comment)
   (expression
-    (atom
-      (unquoted_atom)))
+    (atom))
   (comment))
 
 ================================================================================

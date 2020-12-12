@@ -11,8 +11,7 @@ fun () -> ok end
     (lambda
       (lambda_clause
         (expression
-          (atom
-            (unquoted_atom)))))))
+          (atom))))))
 
 ================================================================================
 identity function
@@ -49,8 +48,7 @@ end
         (pattern
           (pat_list))
         (expression
-          (atom
-            (unquoted_atom))))
+          (atom)))
       (lambda_clause
         (pattern
           (variable))

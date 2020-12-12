@@ -17,8 +17,7 @@ end
         (pattern
           (pat_list))
         (expression
-          (atom
-            (unquoted_atom)))))))
+          (atom))))))
 
 ================================================================================
 multi branch
@@ -37,22 +36,19 @@ end
       (expression
         (function_call
           (computed_function_name
-            (atom
-              (unquoted_atom)))
+            (atom))
           (expression
             (variable))))
       (case_clause
         (pattern
           (pat_list))
         (expression
-          (atom
-            (unquoted_atom))))
+          (atom)))
       (case_clause
         (pattern
           (variable))
         (expression
-          (atom
-            (unquoted_atom)))))))
+          (atom))))))
 
 ================================================================================
 multi branch ignoring
@@ -72,11 +68,9 @@ end
         (variable))
       (case_clause
         (pattern
-          (atom
-            (unquoted_atom)))
+          (atom))
         (expression
-          (atom
-            (unquoted_atom))))
+          (atom)))
       (case_clause
         (pattern
           (variable))
@@ -107,8 +101,7 @@ end
               (expression
                 (variable)))))
         (expression
-          (atom
-            (unquoted_atom)))))))
+          (atom))))))
 
 ================================================================================
 simple with multiple guards
@@ -141,5 +134,4 @@ end
               (expression
                 (variable)))))
         (expression
-          (atom
-            (unquoted_atom)))))))
+          (atom))))))
