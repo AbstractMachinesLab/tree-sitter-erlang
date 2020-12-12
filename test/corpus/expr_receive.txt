@@ -61,7 +61,7 @@ end
           (guard_seq
             (guard
               (expression
-                (function_call
+                (expr_function_call
                   (computed_function_name
                     (atom))
                   (expression

@@ -20,7 +20,7 @@ M#{ 1 => V }
   (expression
     (expr_map_update
       (expression
-        (function_call
+        (expr_function_call
           (computed_function_name
             (atom))))
       (map

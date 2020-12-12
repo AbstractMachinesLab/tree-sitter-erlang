@@ -10,7 +10,7 @@ end
 
 (source_file
   (expression
-    (case
+    (expr_case
       (expression
         (variable))
       (case_clause
@@ -32,9 +32,9 @@ end
 
 (source_file
   (expression
-    (case
+    (expr_case
       (expression
-        (function_call
+        (expr_function_call
           (computed_function_name
             (atom))
           (expression
@@ -63,7 +63,7 @@ end
 
 (source_file
   (expression
-    (case
+    (expr_case
       (expression
         (variable))
       (case_clause
@@ -89,7 +89,7 @@ end
 
 (source_file
   (expression
-    (case
+    (expr_case
       (expression
         (variable))
       (case_clause
@@ -115,7 +115,7 @@ end
 
 (source_file
   (expression
-    (case
+    (expr_case
       (expression
         (variable))
       (case_clause

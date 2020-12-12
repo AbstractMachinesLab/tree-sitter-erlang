@@ -90,7 +90,7 @@ M#r{ 1 = V }
   (expression
     (expr_record_update
       (expression
-        (function_call
+        (expr_function_call
           (computed_function_name
             (atom))))
       (record

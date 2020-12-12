@@ -303,33 +303,33 @@ module.exports = grammar({
 
     expression: ($) =>
       choice(
-        prec(PREC.PARENTHESIZED_EXPRESSION, parens($._expression)),
-        prec(PREC.EXPRESSION, $._expression)
+        prec(PREC.PARENTHESIZED_EXPRESSION, parens($._expr)),
+        prec(PREC.EXPRESSION, $._expr)
       ),
 
-    _expression: ($) =>
+    _expr: ($) =>
       choice(
-        $.expr_map_update,
-        $.expr_record_update,
-        $.expr_record_access,
-        $.expr_try,
-        $.expr_catch,
-        $.expr_throw,
         $.expr_begin_block,
-        $.expr_list_comprehension,
-        $.expr_operator,
-        $.expr_receive,
-        $.expr_send,
-        $.expr_if,
-        $.expr_list,
         $.expr_bitstring_comprehension,
-        $.case,
-        $.variable,
+        $.expr_case,
+        $.expr_catch,
+        $.expr_function_call,
+        $.expr_if,
+        $.expr_lambda,
+        $.expr_list,
+        $.expr_list_comprehension,
+        $.expr_macro_application,
+        $.expr_map_update,
+        $.expr_match,
+        $.expr_receive,
+        $.expr_record_access,
+        $.expr_record_update,
+        $.expr_send,
+        $.expr_throw,
+        $.expr_try,
+        $.expr_op,
         $.term,
-        $.macro_application,
-        $.function_call,
-        $.lambda,
-        $.match
+        $.variable
       ),
 
     expr_map_update: ($) =>
@@ -402,7 +402,7 @@ module.exports = grammar({
       seq(BINARY_LEFT, $.expression, BINARY_RIGHT, REV_FAT_ARROW, $.expression),
     expr_bitstring_filter: ($) => sepBy(COMMA, $.expression),
 
-    expr_operator: ($) => choice($.expr_operator_unary, $.expr_operator_binary),
+    expr_op: ($) => choice($.expr_operator_unary, $.expr_operator_binary),
 
     expr_operator_unary: ($) =>
       prec(
@@ -465,7 +465,7 @@ module.exports = grammar({
         BRACKET_RIGHT
       ),
 
-    case: ($) =>
+    expr_case: ($) =>
       seq("case", $.expression, "of", sepBy(SEMI, $.case_clause), "end"),
 
     case_clause: ($) =>
@@ -480,10 +480,10 @@ module.exports = grammar({
     guard_seq: ($) => sepBy(SEMI, $.guard),
     guard: ($) => sepBy(COMMA, $.expression),
 
-    match: ($) =>
+    expr_match: ($) =>
       prec.right(PREC.MATCH, seq($.expression, EQUAL, $.expression)),
 
-    lambda: ($) => seq("fun", sepBy(SEMI, $.lambda_clause), "end"),
+    expr_lambda: ($) => seq("fun", sepBy(SEMI, $.lambda_clause), "end"),
 
     lambda_clause: ($) =>
       seq(
@@ -492,7 +492,7 @@ module.exports = grammar({
         field("body", sepBy(COMMA, $.expression))
       ),
 
-    function_call: ($) =>
+    expr_function_call: ($) =>
       seq(field("name", $._function_name), args($.expression)),
 
     _function_name: ($) =>
@@ -514,7 +514,7 @@ module.exports = grammar({
         choice($.variable, $.atom, parens($.expression))
       ),
 
-    macro_application: ($) =>
+    expr_macro_application: ($) =>
       prec.right(
         PREC.MACRO_APPLICATION,
         seq(QUESTION, $._macro_name, opt(args($.expression)))

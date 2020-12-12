@@ -53,7 +53,7 @@ end} | []],
             (pattern
               (variable))))
         (expression
-          (function_call
+          (expr_function_call
             (qualified_function_name
               (atom)
               (atom))
@@ -69,7 +69,7 @@ end} | []],
                   (expression
                     (expr_list)))))))
         (expression
-          (function_call
+          (expr_function_call
             (qualified_function_name
               (atom)
               (atom))
@@ -81,7 +81,7 @@ end} | []],
               (expr_list
                 (expr_list_cons
                   (expression
-                    (function_call
+                    (expr_function_call
                       (computed_function_name
                         (variable))))
                   (expression
@@ -111,17 +111,17 @@ end} | []],
         (pattern
           (variable))
         (expression
-          (function_call
+          (expr_function_call
             (qualified_function_name
               (atom)
               (atom))
             (expression
-              (lambda
+              (expr_lambda
                 (lambda_clause
                   (pattern
                     (variable))
                   (expression
-                    (function_call
+                    (expr_function_call
                       (computed_function_name
                         (atom))
                       (expression
@@ -143,7 +143,7 @@ end} | []],
         (pattern
           (variable))
         (expression
-          (function_call
+          (expr_function_call
             (qualified_function_name
               (atom)
               (atom))
@@ -154,7 +154,7 @@ end} | []],
             (expression
               (expr_list))))
         (expression
-          (match
+          (expr_match
             (expression
               (variable))
             (expression
@@ -165,23 +165,23 @@ end} | []],
                       (expression
                         (integer))
                       (expression
-                        (lambda
+                        (expr_lambda
                           (lambda_clause
                             (expression
-                              (function_call
+                              (expr_function_call
                                 (qualified_function_name
                                   (atom)
                                   (atom)))))))))
                   (expression
                     (expr_list)))))))
         (expression
-          (function_call
+          (expr_function_call
             (computed_function_name
               (atom))
             (expression
               (variable))))
         (expression
-          (function_call
+          (expr_function_call
             (qualified_function_name
               (atom)
               (atom))
@@ -290,78 +290,78 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
         (pattern
           (variable))
         (expression
-          (function_call
+          (expr_function_call
             (qualified_function_name
               (atom)
               (atom))
             (expression
-              (lambda
+              (expr_lambda
                 (lambda_clause
                   (pattern
                     (variable))
                   (pattern
                     (variable))
                   (expression
-                    (case
+                    (expr_case
                       (expression
                         (variable))
                       (case_clause
                         (pattern
                           (atom))
                         (expression
-                          (function_call
+                          (expr_function_call
                             (qualified_function_name
                               (atom)
                               (atom))
                             (expression
-                              (lambda
+                              (expr_lambda
                                 (lambda_clause
                                   (pattern
                                     (variable))
                                   (pattern
                                     (variable))
                                   (expression
-                                    (case
+                                    (expr_case
                                       (expression
                                         (variable))
                                       (case_clause
                                         (pattern
                                           (atom))
                                         (expression
-                                          (function_call
+                                          (expr_function_call
                                             (qualified_function_name
                                               (atom)
                                               (atom))
                                             (expression
-                                              (lambda
+                                              (expr_lambda
                                                 (lambda_clause
                                                   (pattern
                                                     (variable))
                                                   (pattern
                                                     (variable))
                                                   (expression
-                                                    (case
+                                                    (expr_case
                                                       (expression
                                                         (variable))
                                                       (case_clause
                                                         (pattern
                                                           (atom))
                                                         (expression
-                                                          (case
+                                                          (expr_case
                                                             (expression
-                                                              (function_call
+                                                              (expr_function_call
                                                                 (qualified_function_name
                                                                   (atom)
                                                                   (atom))
                                                                 (expression
                                                                   (variable))
                                                                 (expression
-                                                                  (function_call
+                                                                  (expr_function_call
                                                                     (qualified_function_name
                                                                       (atom)
                                                                       (atom))
                                                                     (expression
-                                                                      (function_call
+                                                                      (expr_function_call
                                                                         (qualified_function_name
                                                                           (atom)
                                                                           (atom))
@@ -379,12 +379,12 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
                                                                   (expression
                                                                     (atom))
                                                                   (expression
-                                                                    (function_call
+                                                                    (expr_function_call
                                                                       (qualified_function_name
                                                                         (atom)
                                                                         (atom))
                                                                       (expression
-                                                                        (function_call
+                                                                        (expr_function_call
                                                                           (qualified_function_name
                                                                             (atom)
                                                                             (atom))
@@ -453,54 +453,54 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
         (pattern
           (variable))
         (expression
-          (function_call
+          (expr_function_call
             (qualified_function_name
               (atom)
               (atom))
             (expression
-              (lambda
+              (expr_lambda
                 (lambda_clause
                   (pattern
                     (variable))
                   (pattern
                     (variable))
                   (expression
-                    (case
+                    (expr_case
                       (expression
                         (variable))
                       (case_clause
                         (pattern
                           (atom))
                         (expression
-                          (function_call
+                          (expr_function_call
                             (qualified_function_name
                               (atom)
                               (atom))
                             (expression
-                              (lambda
+                              (expr_lambda
                                 (lambda_clause
                                   (pattern
                                     (variable))
                                   (pattern
                                     (variable))
                                   (expression
-                                    (case
+                                    (expr_case
                                       (expression
                                         (variable))
                                       (case_clause
                                         (pattern
                                           (atom))
                                         (expression
-                                          (case
+                                          (expr_case
                                             (expression
-                                              (function_call
+                                              (expr_function_call
                                                 (qualified_function_name
                                                   (atom)
                                                   (atom))
                                                 (expression
                                                   (variable))
                                                 (expression
-                                                  (function_call
+                                                  (expr_function_call
                                                     (qualified_function_name
                                                       (atom)
                                                       (atom))
@@ -516,7 +516,7 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
                                                   (expression
                                                     (atom))
                                                   (expression
-                                                    (function_call
+                                                    (expr_function_call
                                                       (qualified_function_name
                                                         (atom)
                                                         (atom))
@@ -567,7 +567,7 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
           (expr_list
             (expr_list_cons
               (expression
-                (function_call
+                (expr_function_call
                   (computed_function_name
                     (atom))
                   (expression
@@ -593,7 +593,7 @@ run() -> [find_entry_pair(2020, [0 | [0 | [0 | []]]]) | [find_entry_triplet(2020
                 (expr_list
                   (expr_list_cons
                     (expression
-                      (function_call
+                      (expr_function_call
                         (computed_function_name
                           (atom))
                         (expression

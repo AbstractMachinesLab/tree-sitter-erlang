@@ -12,7 +12,7 @@ comprehensions
       (binary_string
         (bin_part
           (expression
-            (expr_operator
+            (expr_op
               (expr_operator_binary
                 (expression
                   (variable))
@@ -31,7 +31,7 @@ comprehensions
               (integer)))))
       (expr_bitstring_filter
         (expression
-          (function_call
+          (expr_function_call
             (computed_function_name
               (atom))
             (expression

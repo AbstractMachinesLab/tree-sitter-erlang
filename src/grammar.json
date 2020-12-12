@@ -1399,7 +1399,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "_expression"
+                "name": "_expr"
               },
               {
                 "type": "STRING",
@@ -1413,65 +1413,17 @@
           "value": 4,
           "content": {
             "type": "SYMBOL",
-            "name": "_expression"
+            "name": "_expr"
           }
         }
       ]
     },
-    "_expression": {
+    "_expr": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "expr_map_update"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expr_record_update"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expr_record_access"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expr_try"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expr_catch"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expr_throw"
-        },
-        {
-          "type": "SYMBOL",
           "name": "expr_begin_block"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expr_list_comprehension"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expr_operator"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expr_receive"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expr_send"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expr_if"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "expr_list"
         },
         {
           "type": "SYMBOL",
@@ -1479,11 +1431,71 @@
         },
         {
           "type": "SYMBOL",
-          "name": "case"
+          "name": "expr_case"
         },
         {
           "type": "SYMBOL",
-          "name": "variable"
+          "name": "expr_catch"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expr_function_call"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expr_if"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expr_lambda"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expr_list"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expr_list_comprehension"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expr_macro_application"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expr_map_update"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expr_match"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expr_receive"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expr_record_access"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expr_record_update"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expr_send"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expr_throw"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expr_try"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "expr_op"
         },
         {
           "type": "SYMBOL",
@@ -1491,19 +1503,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "macro_application"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "function_call"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "lambda"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "match"
+          "name": "variable"
         }
       ]
     },
@@ -2083,7 +2083,7 @@
         }
       ]
     },
-    "expr_operator": {
+    "expr_op": {
       "type": "CHOICE",
       "members": [
         {
@@ -2617,7 +2617,7 @@
         }
       ]
     },
-    "case": {
+    "expr_case": {
       "type": "SEQ",
       "members": [
         {
@@ -2784,7 +2784,7 @@
         }
       ]
     },
-    "match": {
+    "expr_match": {
       "type": "PREC_RIGHT",
       "value": -1,
       "content": {
@@ -2805,7 +2805,7 @@
         ]
       }
     },
-    "lambda": {
+    "expr_lambda": {
       "type": "SEQ",
       "members": [
         {
@@ -2935,7 +2935,7 @@
         }
       ]
     },
-    "function_call": {
+    "expr_function_call": {
       "type": "SEQ",
       "members": [
         {
@@ -3126,7 +3126,7 @@
         ]
       }
     },
-    "macro_application": {
+    "expr_macro_application": {
       "type": "PREC_RIGHT",
       "value": 1,
       "content": {

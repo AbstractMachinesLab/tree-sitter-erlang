@@ -8,7 +8,7 @@ A = 1
 
 (source_file
   (expression
-    (match
+    (expr_match
       (expression
         (variable))
       (expression
@@ -24,7 +24,7 @@ matching on constants
 
 (source_file
   (expression
-    (match
+    (expr_match
       (expression
         (integer))
       (expression
@@ -40,7 +40,7 @@ matching on tuples
 
 (source_file
   (expression
-    (match
+    (expr_match
       (expression
         (tuple
           (expression
@@ -60,7 +60,7 @@ matching on maps
 
 (source_file
   (expression
-    (match
+    (expr_match
       (expression
         (map
           (map_entry
@@ -83,13 +83,13 @@ matching on lists
 
 (source_file
   (expression
-    (match
+    (expr_match
       (expression
         (expr_list))
       (expression
         (variable))))
   (expression
-    (match
+    (expr_match
       (expression
         (expr_list
           (expr_list_cons
@@ -100,7 +100,7 @@ matching on lists
       (expression
         (variable))))
   (expression
-    (match
+    (expr_match
       (expression
         (expr_list
           (expression
@@ -110,7 +110,7 @@ matching on lists
       (expression
         (variable))))
   (expression
-    (match
+    (expr_match
       (expression
         (expr_list
           (expr_list_cons
@@ -133,7 +133,7 @@ _ = 1
 
 (source_file
   (expression
-    (match
+    (expr_match
       (expression
         (variable))
       (expression

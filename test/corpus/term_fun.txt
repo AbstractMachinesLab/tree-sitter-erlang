@@ -8,7 +8,7 @@ fun () -> ok end
 
 (source_file
   (expression
-    (lambda
+    (expr_lambda
       (lambda_clause
         (expression
           (atom))))))
@@ -23,7 +23,7 @@ fun (X) -> X end
 
 (source_file
   (expression
-    (lambda
+    (expr_lambda
       (lambda_clause
         (pattern
           (variable))
@@ -43,7 +43,7 @@ end
 
 (source_file
   (expression
-    (lambda
+    (expr_lambda
       (lambda_clause
         (pattern
           (pat_list))

@@ -8,7 +8,7 @@ Lambda()
 
 (source_file
   (expression
-    (function_call
+    (expr_function_call
       (computed_function_name
         (variable)))))
 
@@ -23,13 +23,13 @@ Lambda(1,2,3)
 
 (source_file
   (expression
-    (function_call
+    (expr_function_call
       (computed_function_name
         (variable))
       (expression
         (integer))))
   (expression
-    (function_call
+    (expr_function_call
       (computed_function_name
         (variable))
       (expression
@@ -49,13 +49,13 @@ Op(1, Lambda(1,2,3))
 
 (source_file
   (expression
-    (function_call
+    (expr_function_call
       (computed_function_name
         (variable))
       (expression
         (integer))
       (expression
-        (function_call
+        (expr_function_call
           (computed_function_name
             (variable))
           (expression
@@ -75,7 +75,7 @@ local:function()
 
 (source_file
   (expression
-    (function_call
+    (expr_function_call
       (qualified_function_name
         (atom)
         (atom)))))
@@ -91,14 +91,14 @@ local:function(1,2,3)
 
 (source_file
   (expression
-    (function_call
+    (expr_function_call
       (qualified_function_name
         (atom)
         (atom))
       (expression
         (integer))))
   (expression
-    (function_call
+    (expr_function_call
       (qualified_function_name
         (atom)
         (atom))
@@ -119,14 +119,14 @@ local:op(1, local:function(1,2,3))
 
 (source_file
   (expression
-    (function_call
+    (expr_function_call
       (qualified_function_name
         (atom)
         (atom))
       (expression
         (integer))
       (expression
-        (function_call
+        (expr_function_call
           (qualified_function_name
             (atom)
             (atom))
@@ -160,11 +160,11 @@ A = local_function(1)
 
 (source_file
   (expression
-    (match
+    (expr_match
       (expression
         (variable))
       (expression
-        (function_call
+        (expr_function_call
           (computed_function_name
             (atom))
           (expression
@@ -180,17 +180,17 @@ A = local_op(1, local_function(1))
 
 (source_file
   (expression
-    (match
+    (expr_match
       (expression
         (variable))
       (expression
-        (function_call
+        (expr_function_call
           (computed_function_name
             (atom))
           (expression
             (integer))
           (expression
-            (function_call
+            (expr_function_call
               (computed_function_name
                 (atom))
               (expression
@@ -206,18 +206,18 @@ module:function(Lambda(1, 'local$function'(1,2,3)))
 
 (source_file
   (expression
-    (function_call
+    (expr_function_call
       (qualified_function_name
         (atom)
         (atom))
       (expression
-        (function_call
+        (expr_function_call
           (computed_function_name
             (variable))
           (expression
             (integer))
           (expression
-            (function_call
+            (expr_function_call
               (computed_function_name
                 (atom))
               (expression

@@ -10,7 +10,7 @@ comprehensions
   (expression
     (expr_list_comprehension
       (expression
-        (expr_operator
+        (expr_op
           (expr_operator_binary
             (expression
               (variable))
@@ -29,7 +29,7 @@ comprehensions
               (integer)))))
       (expr_list_filter
         (expression
-          (expr_operator
+          (expr_op
             (expr_operator_binary
               (expression
                 (variable))

@@ -10,7 +10,7 @@ catch 1+2
   (expression
     (expr_catch
       (expression
-        (expr_operator
+        (expr_op
           (expr_operator_binary
             (expression
               (integer))
@@ -28,26 +28,26 @@ A = (catch 1+2)
 
 (source_file
   (expression
-    (match
+    (expr_match
       (expression
         (variable))
       (expression
         (expr_catch
           (expression
-            (expr_operator
+            (expr_op
               (expr_operator_binary
                 (expression
                   (integer))
                 (expression
                   (integer)))))))))
   (expression
-    (match
+    (expr_match
       (expression
         (variable))
       (expression
         (expr_catch
           (expression
-            (expr_operator
+            (expr_op
               (expr_operator_binary
                 (expression
                   (integer))
@@ -182,7 +182,7 @@ end
             (guard_seq
               (guard
                 (expression
-                  (function_call
+                  (expr_function_call
                     (computed_function_name
                       (atom))
                     (expression
@@ -214,7 +214,7 @@ end
           (guard_seq
             (guard
               (expression
-                (function_call
+                (expr_function_call
                   (computed_function_name
                     (atom))
                   (expression
@@ -233,7 +233,7 @@ end
             (guard_seq
               (guard
                 (expression
-                  (function_call
+                  (expr_function_call
                     (computed_function_name
                       (atom))
                     (expression
@@ -286,7 +286,7 @@ end
           (guard_seq
             (guard
               (expression
-                (function_call
+                (expr_function_call
                   (computed_function_name
                     (atom))
                   (expression
@@ -305,7 +305,7 @@ end
             (guard_seq
               (guard
                 (expression
-                  (function_call
+                  (expr_function_call
                     (computed_function_name
                       (atom))
                     (expression
