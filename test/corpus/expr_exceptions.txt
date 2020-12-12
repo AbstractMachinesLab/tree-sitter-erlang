@@ -8,10 +8,9 @@ catch 1+2
 
 (source_file
   (expr_op
-    (expr_operator_binary
-      (expr_catch
-        (integer))
-      (integer))))
+    (expr_catch
+      (integer))
+    (integer)))
 
 ================================================================================
 catch must be parenthesized
@@ -26,17 +25,15 @@ A = (catch 1+2)
   (expr_match
     (variable)
     (expr_op
-      (expr_operator_binary
-        (expr_catch
-          (integer))
-        (integer))))
+      (expr_catch
+        (integer))
+      (integer)))
   (expr_match
     (variable)
     (expr_op
-      (expr_operator_binary
-        (expr_catch
-          (integer))
-        (integer)))))
+      (expr_catch
+        (integer))
+      (integer))))
 
 ================================================================================
 catch throw

@@ -11,9 +11,8 @@ comprehensions
     (binary_string
       (bin_part
         (expr_op
-          (expr_operator_binary
-            (variable)
-            (integer)))))
+          (variable)
+          (integer))))
     (expr_bitstring_generator
       (variable)
       (binary_string

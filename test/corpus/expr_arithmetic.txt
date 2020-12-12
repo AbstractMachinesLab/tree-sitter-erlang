@@ -12,17 +12,13 @@ reference examples
 
 (source_file
   (expr_op
-    (expr_operator_binary
-      (integer)
-      (integer)))
+    (integer)
+    (integer))
   (expr_op
-    (expr_operator_binary
-      (integer)
-      (integer)))
+    (integer)
+    (integer))
   (expr_op
-    (expr_operator_binary
+    (integer)
+    (expr_op
       (integer)
-      (expr_op
-        (expr_operator_binary
-          (integer)
-          (integer))))))
+      (integer))))

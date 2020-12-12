@@ -2088,15 +2088,15 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "expr_operator_unary"
+          "name": "_expr_operator_unary"
         },
         {
           "type": "SYMBOL",
-          "name": "expr_operator_binary"
+          "name": "_expr_operator_binary"
         }
       ]
     },
-    "expr_operator_unary": {
+    "_expr_operator_unary": {
       "type": "PREC_RIGHT",
       "value": 10,
       "content": {
@@ -2138,7 +2138,7 @@
         ]
       }
     },
-    "expr_operator_binary": {
+    "_expr_operator_binary": {
       "type": "CHOICE",
       "members": [
         {
@@ -3921,7 +3921,7 @@
   "conflicts": [
     [
       "_structure_item",
-      "expr_operator_binary"
+      "_expr_operator_binary"
     ],
     [
       "_structure_item",

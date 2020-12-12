@@ -115,7 +115,7 @@ module.exports = grammar({
   inline: ($) => [$.term, $.expression],
 
   conflicts: ($) => [
-    [$._structure_item, $.expr_operator_binary],
+    [$._structure_item, $._expr_operator_binary],
     [
       $._structure_item,
       $.expr_map_update,
@@ -410,15 +410,15 @@ module.exports = grammar({
       seq(BINARY_LEFT, $.expression, BINARY_RIGHT, REV_FAT_ARROW, $.expression),
     expr_bitstring_filter: ($) => sepBy(COMMA, $.expression),
 
-    expr_op: ($) => choice($.expr_operator_unary, $.expr_operator_binary),
+    expr_op: ($) => choice($._expr_operator_unary, $._expr_operator_binary),
 
-    expr_operator_unary: ($) =>
+    _expr_operator_unary: ($) =>
       prec.right(
         PREC.UNARY_OP,
         seq(field("operator", oneOf(OP1)), field("operand", $.expression))
       ),
 
-    expr_operator_binary: ($) =>
+    _expr_operator_binary: ($) =>
       choice(
         prec.left(
           PREC.BINARY_OP,

@@ -2855,29 +2855,144 @@
   {
     "type": "expr_op",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "expr_operator_binary",
-          "named": true
-        },
-        {
-          "type": "expr_operator_unary",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "expr_operator_binary",
-    "named": true,
     "fields": {
       "lhs": {
         "multiple": true,
-        "required": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "atom",
+            "named": true
+          },
+          {
+            "type": "binary_string",
+            "named": true
+          },
+          {
+            "type": "char",
+            "named": true
+          },
+          {
+            "type": "expr_begin_block",
+            "named": true
+          },
+          {
+            "type": "expr_bitstring_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_case",
+            "named": true
+          },
+          {
+            "type": "expr_catch",
+            "named": true
+          },
+          {
+            "type": "expr_function_call",
+            "named": true
+          },
+          {
+            "type": "expr_if",
+            "named": true
+          },
+          {
+            "type": "expr_lambda",
+            "named": true
+          },
+          {
+            "type": "expr_list",
+            "named": true
+          },
+          {
+            "type": "expr_list_comprehension",
+            "named": true
+          },
+          {
+            "type": "expr_macro_application",
+            "named": true
+          },
+          {
+            "type": "expr_map_update",
+            "named": true
+          },
+          {
+            "type": "expr_match",
+            "named": true
+          },
+          {
+            "type": "expr_op",
+            "named": true
+          },
+          {
+            "type": "expr_receive",
+            "named": true
+          },
+          {
+            "type": "expr_record_access",
+            "named": true
+          },
+          {
+            "type": "expr_record_update",
+            "named": true
+          },
+          {
+            "type": "expr_send",
+            "named": true
+          },
+          {
+            "type": "expr_throw",
+            "named": true
+          },
+          {
+            "type": "expr_try",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "integer",
+            "named": true
+          },
+          {
+            "type": "list",
+            "named": true
+          },
+          {
+            "type": "map",
+            "named": true
+          },
+          {
+            "type": "record",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "tuple",
+            "named": true
+          },
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "operand": {
+        "multiple": true,
+        "required": false,
         "types": [
           {
             "type": "(",
@@ -3086,6 +3201,10 @@
             "named": false
           },
           {
+            "type": "bnot",
+            "named": false
+          },
+          {
             "type": "bor",
             "named": false
           },
@@ -3103,6 +3222,10 @@
           },
           {
             "type": "div",
+            "named": false
+          },
+          {
+            "type": "not",
             "named": false
           },
           {
@@ -3125,7 +3248,7 @@
       },
       "rhs": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "(",
@@ -3254,168 +3377,6 @@
           {
             "type": "variable",
             "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "expr_operator_unary",
-    "named": true,
-    "fields": {
-      "operand": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "(",
-            "named": false
-          },
-          {
-            "type": ")",
-            "named": false
-          },
-          {
-            "type": "atom",
-            "named": true
-          },
-          {
-            "type": "binary_string",
-            "named": true
-          },
-          {
-            "type": "char",
-            "named": true
-          },
-          {
-            "type": "expr_begin_block",
-            "named": true
-          },
-          {
-            "type": "expr_bitstring_comprehension",
-            "named": true
-          },
-          {
-            "type": "expr_case",
-            "named": true
-          },
-          {
-            "type": "expr_catch",
-            "named": true
-          },
-          {
-            "type": "expr_function_call",
-            "named": true
-          },
-          {
-            "type": "expr_if",
-            "named": true
-          },
-          {
-            "type": "expr_lambda",
-            "named": true
-          },
-          {
-            "type": "expr_list",
-            "named": true
-          },
-          {
-            "type": "expr_list_comprehension",
-            "named": true
-          },
-          {
-            "type": "expr_macro_application",
-            "named": true
-          },
-          {
-            "type": "expr_map_update",
-            "named": true
-          },
-          {
-            "type": "expr_match",
-            "named": true
-          },
-          {
-            "type": "expr_op",
-            "named": true
-          },
-          {
-            "type": "expr_receive",
-            "named": true
-          },
-          {
-            "type": "expr_record_access",
-            "named": true
-          },
-          {
-            "type": "expr_record_update",
-            "named": true
-          },
-          {
-            "type": "expr_send",
-            "named": true
-          },
-          {
-            "type": "expr_throw",
-            "named": true
-          },
-          {
-            "type": "expr_try",
-            "named": true
-          },
-          {
-            "type": "float",
-            "named": true
-          },
-          {
-            "type": "integer",
-            "named": true
-          },
-          {
-            "type": "list",
-            "named": true
-          },
-          {
-            "type": "map",
-            "named": true
-          },
-          {
-            "type": "record",
-            "named": true
-          },
-          {
-            "type": "string",
-            "named": true
-          },
-          {
-            "type": "tuple",
-            "named": true
-          },
-          {
-            "type": "variable",
-            "named": true
-          }
-        ]
-      },
-      "operator": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "+",
-            "named": false
-          },
-          {
-            "type": "-",
-            "named": false
-          },
-          {
-            "type": "bnot",
-            "named": false
-          },
-          {
-            "type": "not",
-            "named": false
           }
         ]
       }
