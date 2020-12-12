@@ -13,11 +13,9 @@ catch 1+2
         (expr_operator
           (expr_operator_binary
             (expression
-              (term
-                (integer)))
+              (integer))
             (expression
-              (term
-                (integer)))))))))
+              (integer))))))))
 
 ================================================================================
 catch must be parenthesized
@@ -39,11 +37,9 @@ A = (catch 1+2)
             (expr_operator
               (expr_operator_binary
                 (expression
-                  (term
-                    (integer)))
+                  (integer))
                 (expression
-                  (term
-                    (integer))))))))))
+                  (integer)))))))))
   (expression
     (match
       (expression
@@ -54,11 +50,9 @@ A = (catch 1+2)
             (expr_operator
               (expr_operator_binary
                 (expression
-                  (term
-                    (integer)))
+                  (integer))
                 (expression
-                  (term
-                    (integer)))))))))))
+                  (integer))))))))))
 
 ================================================================================
 catch throw
@@ -74,9 +68,8 @@ catch (throw hello)
       (expression
         (expr_throw
           (expression
-            (term
-              (atom
-                (unquoted_atom)))))))))
+            (atom
+              (unquoted_atom))))))))
 
 ================================================================================
 try with single catch branch ignoring exception
@@ -100,9 +93,8 @@ end
             (pattern
               (variable)))
           (expression
-            (term
-              (atom
-                (unquoted_atom)))))))))
+            (atom
+              (unquoted_atom))))))))
 
 ================================================================================
 try with multiple catch branches
@@ -129,17 +121,15 @@ end
             (pattern
               (variable)))
           (expression
-            (term
-              (atom
-                (unquoted_atom)))))
+            (atom
+              (unquoted_atom))))
         (catch_clause
           (catch_pattern
             (pattern
               (variable)))
           (expression
-            (term
-              (atom
-                (unquoted_atom)))))))))
+            (atom
+              (unquoted_atom))))))))
 
 ================================================================================
 try with catch capturing stacktrace
@@ -166,9 +156,8 @@ end
               (variable))
             (variable))
           (expression
-            (term
-              (atom
-                (unquoted_atom)))))))))
+            (atom
+              (unquoted_atom))))))))
 
 ================================================================================
 try with catch capturing stacktrace with guard
@@ -205,9 +194,8 @@ end
                     (expression
                       (variable)))))))
           (expression
-            (term
-              (atom
-                (unquoted_atom)))))))))
+            (atom
+              (unquoted_atom))))))))
 
 ================================================================================
 try with of patterns
@@ -240,9 +228,8 @@ end
                   (expression
                     (variable)))))))
         (expression
-          (term
-            (atom
-              (unquoted_atom)))))
+          (atom
+            (unquoted_atom))))
       (expr_try_catch
         (catch_clause
           (catch_pattern
@@ -262,9 +249,8 @@ end
                     (expression
                       (variable)))))))
           (expression
-            (term
-              (atom
-                (unquoted_atom)))))))))
+            (atom
+              (unquoted_atom))))))))
 
 ================================================================================
 try with after
@@ -281,8 +267,7 @@ try A after 1 end
         (variable))
       (expr_try_after
         (expression
-          (term
-            (integer)))))))
+          (integer))))))
 
 ================================================================================
 try with of patterns, after value, and multiple catch branches
@@ -319,9 +304,8 @@ end
                   (expression
                     (variable)))))))
         (expression
-          (term
-            (atom
-              (unquoted_atom)))))
+          (atom
+            (unquoted_atom))))
       (expr_try_catch
         (catch_clause
           (catch_pattern
@@ -341,19 +325,16 @@ end
                     (expression
                       (variable)))))))
           (expression
-            (term
-              (atom
-                (unquoted_atom)))))
+            (atom
+              (unquoted_atom))))
         (catch_clause
           (catch_pattern
             (pattern
               (variable)))
           (expression
-            (term
-              (atom
-                (unquoted_atom))))))
+            (atom
+              (unquoted_atom)))))
       (expr_try_after
         (expression
-          (term
-            (atom
-              (unquoted_atom))))))))
+          (atom
+            (unquoted_atom)))))))

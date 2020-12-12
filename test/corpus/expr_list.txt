@@ -15,22 +15,18 @@ comprehensions
             (expression
               (variable))
             (expression
-              (term
-                (integer))))))
+              (integer)))))
       (expr_list_generator
         (expression
           (variable))
         (expression
           (expr_list
             (expression
-              (term
-                (integer)))
+              (integer))
             (expression
-              (term
-                (integer)))
+              (integer))
             (expression
-              (term
-                (integer))))))
+              (integer)))))
       (expr_list_filter
         (expression
           (expr_operator
@@ -38,5 +34,4 @@ comprehensions
               (expression
                 (variable))
               (expression
-                (term
-                  (integer))))))))))
+                (integer)))))))))

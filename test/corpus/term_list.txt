@@ -22,8 +22,7 @@ list of size 1
   (expression
     (expr_list
       (expression
-        (term
-          (integer))))))
+        (integer)))))
 
 ================================================================================
 pair
@@ -37,12 +36,10 @@ pair
   (expression
     (expr_list
       (expression
-        (term
-          (integer)))
+        (integer))
       (expression
-        (term
-          (atom
-            (unquoted_atom)))))))
+        (atom
+          (unquoted_atom))))))
 
 ================================================================================
 nested lists
@@ -56,14 +53,12 @@ nested lists
   (expression
     (expr_list
       (expression
-        (term
-          (atom
-            (unquoted_atom))))
+        (atom
+          (unquoted_atom)))
       (expression
         (expr_list
           (expression
-            (term
-              (integer)))
+            (integer))
           (expression
             (expr_list)))))))
 
@@ -80,14 +75,12 @@ lists consing
     (expr_list
       (expr_list_cons
         (expression
-          (term
-            (atom
-              (unquoted_atom))))
+          (atom
+            (unquoted_atom)))
         (expression
           (expr_list
             (expr_list_cons
               (expression
-                (term
-                  (integer)))
+                (integer))
               (expression
                 (expr_list)))))))))

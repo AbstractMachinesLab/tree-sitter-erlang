@@ -12,12 +12,12 @@ not A
 (source_file
   (expression
     (expr_operator
-      (expr_operator_binary
+      (expr_operator_unary
         (expression
-          (expr_operator
-            (expr_operator_unary
-              (expression
-                (variable)))))
+          (variable)))))
+  (expression
+    (expr_operator
+      (expr_operator_unary
         (expression
           (variable)))))
   (expression
@@ -62,12 +62,10 @@ A xor 1 xor none
               (expression
                 (variable))
               (expression
-                (term
-                  (integer))))))
+                (integer)))))
         (expression
-          (term
-            (atom
-              (unquoted_atom)))))))
+          (atom
+            (unquoted_atom))))))
   (expression
     (expr_operator
       (expr_operator_binary
@@ -77,12 +75,10 @@ A xor 1 xor none
               (expression
                 (variable))
               (expression
-                (term
-                  (integer))))))
+                (integer)))))
         (expression
-          (term
-            (atom
-              (unquoted_atom)))))))
+          (atom
+            (unquoted_atom))))))
   (expression
     (expr_operator
       (expr_operator_binary
@@ -92,12 +88,10 @@ A xor 1 xor none
               (expression
                 (variable))
               (expression
-                (term
-                  (integer))))))
+                (integer)))))
         (expression
-          (term
-            (atom
-              (unquoted_atom)))))))
+          (atom
+            (unquoted_atom))))))
   (expression
     (expr_operator
       (expr_operator_binary
@@ -107,12 +101,10 @@ A xor 1 xor none
               (expression
                 (variable))
               (expression
-                (term
-                  (integer))))))
+                (integer)))))
         (expression
-          (term
-            (atom
-              (unquoted_atom)))))))
+          (atom
+            (unquoted_atom))))))
   (expression
     (expr_operator
       (expr_operator_binary
@@ -122,12 +114,10 @@ A xor 1 xor none
               (expression
                 (variable))
               (expression
-                (term
-                  (integer))))))
+                (integer)))))
         (expression
-          (term
-            (atom
-              (unquoted_atom)))))))
+          (atom
+            (unquoted_atom))))))
   (expression
     (expr_operator
       (expr_operator_binary
@@ -137,12 +127,36 @@ A xor 1 xor none
               (expression
                 (variable))
               (expression
-                (term
-                  (integer))))))
+                (integer)))))
         (expression
-          (term
-            (atom
-              (unquoted_atom)))))))
+          (atom
+            (unquoted_atom))))))
+  (expression
+    (variable))
+  (expression
+    (expr_operator
+      (expr_operator_unary
+        (expression
+          (integer)))))
+  (expression
+    (expr_operator
+      (expr_operator_unary
+        (expression
+          (atom
+            (unquoted_atom))))))
+  (expression
+    (variable))
+  (expression
+    (expr_operator
+      (expr_operator_unary
+        (expression
+          (integer)))))
+  (expression
+    (expr_operator
+      (expr_operator_unary
+        (expression
+          (atom
+            (unquoted_atom))))))
   (expression
     (expr_operator
       (expr_operator_binary
@@ -152,12 +166,10 @@ A xor 1 xor none
               (expression
                 (variable))
               (expression
-                (term
-                  (integer))))))
+                (integer)))))
         (expression
-          (term
-            (atom
-              (unquoted_atom)))))))
+          (atom
+            (unquoted_atom))))))
   (expression
     (expr_operator
       (expr_operator_binary
@@ -167,12 +179,10 @@ A xor 1 xor none
               (expression
                 (variable))
               (expression
-                (term
-                  (integer))))))
+                (integer)))))
         (expression
-          (term
-            (atom
-              (unquoted_atom)))))))
+          (atom
+            (unquoted_atom))))))
   (expression
     (expr_operator
       (expr_operator_binary
@@ -182,12 +192,10 @@ A xor 1 xor none
               (expression
                 (variable))
               (expression
-                (term
-                  (integer))))))
+                (integer)))))
         (expression
-          (term
-            (atom
-              (unquoted_atom)))))))
+          (atom
+            (unquoted_atom))))))
   (expression
     (expr_operator
       (expr_operator_binary
@@ -197,12 +205,10 @@ A xor 1 xor none
               (expression
                 (variable))
               (expression
-                (term
-                  (integer))))))
+                (integer)))))
         (expression
-          (term
-            (atom
-              (unquoted_atom)))))))
+          (atom
+            (unquoted_atom))))))
   (expression
     (expr_operator
       (expr_operator_binary
@@ -212,12 +218,10 @@ A xor 1 xor none
               (expression
                 (variable))
               (expression
-                (term
-                  (integer))))))
+                (integer)))))
         (expression
-          (term
-            (atom
-              (unquoted_atom)))))))
+          (atom
+            (unquoted_atom))))))
   (expression
     (expr_operator
       (expr_operator_binary
@@ -227,42 +231,10 @@ A xor 1 xor none
               (expression
                 (variable))
               (expression
-                (term
-                  (integer))))))
+                (integer)))))
         (expression
-          (term
-            (atom
-              (unquoted_atom)))))))
-  (expression
-    (expr_operator
-      (expr_operator_binary
-        (expression
-          (expr_operator
-            (expr_operator_binary
-              (expression
-                (variable))
-              (expression
-                (term
-                  (integer))))))
-        (expression
-          (term
-            (atom
-              (unquoted_atom)))))))
-  (expression
-    (expr_operator
-      (expr_operator_binary
-        (expression
-          (expr_operator
-            (expr_operator_binary
-              (expression
-                (variable))
-              (expression
-                (term
-                  (integer))))))
-        (expression
-          (term
-            (atom
-              (unquoted_atom))))))))
+          (atom
+            (unquoted_atom)))))))
 
 ================================================================================
 op right associativity
@@ -310,26 +282,10 @@ op precedence: + -
 
 (source_file
   (expression
-    (expr_operator
-      (expr_operator_binary
-        (expression
-          (term
-            (integer)))
-        (expression
-          (expr_operator
-            (expr_operator_unary
-              (expression
-                (expr_operator
-                  (expr_operator_unary
-                    (expression
-                      (term
-                        (integer))))))))))))
+    (integer))
   (expression
     (expr_operator
-      (expr_operator_binary
-        (expression
-          (term
-            (integer)))
+      (expr_operator_unary
         (expression
           (expr_operator
             (expr_operator_unary
@@ -337,8 +293,20 @@ op precedence: + -
                 (expr_operator
                   (expr_operator_unary
                     (expression
-                      (term
-                        (integer)))))))))))))
+                      (integer)))))))))))
+  (expression
+    (integer))
+  (expression
+    (expr_operator
+      (expr_operator_unary
+        (expression
+          (expr_operator
+            (expr_operator_unary
+              (expression
+                (expr_operator
+                  (expr_operator_unary
+                    (expression
+                      (integer))))))))))))
 
 ================================================================================
 binary ops
@@ -374,17 +342,17 @@ A xor B
 
 (source_file
   (expression
+    (variable))
+  (expression
     (expr_operator
-      (expr_operator_binary
-        (expression
-          (variable))
+      (expr_operator_unary
         (expression
           (variable)))))
   (expression
+    (variable))
+  (expression
     (expr_operator
-      (expr_operator_binary
-        (expression
-          (variable))
+      (expr_operator_unary
         (expression
           (variable)))))
   (expression

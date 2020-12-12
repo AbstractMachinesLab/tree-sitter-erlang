@@ -8,8 +8,7 @@ empty
 
 (source_file
   (expression
-    (term
-      (map))))
+    (map)))
 
 ================================================================================
 with one key and value
@@ -21,16 +20,13 @@ with one key and value
 
 (source_file
   (expression
-    (term
-      (map
-        (map_entry
-          (term
-            (atom
-              (unquoted_atom)))
-          (expression
-            (term
-              (atom
-                (unquoted_atom)))))))))
+    (map
+      (map_entry
+        (atom
+          (unquoted_atom))
+        (expression
+          (atom
+            (unquoted_atom)))))))
 
 ================================================================================
 with many keys and values
@@ -45,21 +41,16 @@ with many keys and values
 
 (source_file
   (expression
-    (term
-      (map
-        (map_entry
-          (term
-            (atom
-              (unquoted_atom)))
-          (expression
-            (term
-              (atom
-                (unquoted_atom)))))
-        (map_entry
-          (term
-            (atom
-              (unquoted_atom)))
-          (expression
-            (term
-              (atom
-                (unquoted_atom)))))))))
+    (map
+      (map_entry
+        (atom
+          (unquoted_atom))
+        (expression
+          (atom
+            (unquoted_atom))))
+      (map_entry
+        (atom
+          (unquoted_atom))
+        (expression
+          (atom
+            (unquoted_atom)))))))

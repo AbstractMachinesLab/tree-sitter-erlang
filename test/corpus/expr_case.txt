@@ -17,9 +17,8 @@ end
         (pattern
           (pat_list))
         (expression
-          (term
-            (atom
-              (unquoted_atom))))))))
+          (atom
+            (unquoted_atom)))))))
 
 ================================================================================
 multi branch
@@ -46,16 +45,14 @@ end
         (pattern
           (pat_list))
         (expression
-          (term
-            (atom
-              (unquoted_atom)))))
+          (atom
+            (unquoted_atom))))
       (case_clause
         (pattern
           (variable))
         (expression
-          (term
-            (atom
-              (unquoted_atom))))))))
+          (atom
+            (unquoted_atom)))))))
 
 ================================================================================
 multi branch ignoring
@@ -75,13 +72,11 @@ end
         (variable))
       (case_clause
         (pattern
-          (term
-            (atom
-              (unquoted_atom))))
+          (atom
+            (unquoted_atom)))
         (expression
-          (term
-            (atom
-              (unquoted_atom)))))
+          (atom
+            (unquoted_atom))))
       (case_clause
         (pattern
           (variable))
@@ -112,9 +107,8 @@ end
               (expression
                 (variable)))))
         (expression
-          (term
-            (atom
-              (unquoted_atom))))))))
+          (atom
+            (unquoted_atom)))))))
 
 ================================================================================
 simple with multiple guards
@@ -147,6 +141,5 @@ end
               (expression
                 (variable)))))
         (expression
-          (term
-            (atom
-              (unquoted_atom))))))))
+          (atom
+            (unquoted_atom)))))))

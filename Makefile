@@ -9,6 +9,10 @@ fmt:
 test: gen
 	$(TREE_SITTER) test
 
+.PHONY: debug
+debug: gen
+	$(TREE_SITTER) test -d
+
 .PHONY: gen
 gen:
 	$(TREE_SITTER) generate

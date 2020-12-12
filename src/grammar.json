@@ -10,41 +10,54 @@
       }
     },
     "_structure_item": {
-      "type": "PREC",
-      "value": 8,
-      "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "type_declaration"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "function_spec"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "function_declaration"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "module_attribute"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "module_name"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "module_export"
-          },
-          {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PREC",
+          "value": 100,
+          "content": {
             "type": "SYMBOL",
             "name": "expression"
           }
-        ]
-      }
+        },
+        {
+          "type": "PREC",
+          "value": 8,
+          "content": {
+            "type": "SYMBOL",
+            "name": "_module"
+          }
+        }
+      ]
+    },
+    "_module": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "type_declaration"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "function_spec"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "function_declaration"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "module_attribute"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "module_name"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "module_export"
+        }
+      ]
     },
     "module_attribute": {
       "type": "SEQ",
@@ -3907,7 +3920,9 @@
   ],
   "conflicts": [],
   "externals": [],
-  "inline": [],
+  "inline": [
+    "term"
+  ],
   "supertypes": []
 }
 

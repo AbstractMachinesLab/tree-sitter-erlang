@@ -8,8 +8,7 @@ empty
 
 (source_file
   (expression
-    (term
-      (string))))
+    (string)))
 
 ================================================================================
 alphabetic
@@ -21,8 +20,7 @@ alphabetic
 
 (source_file
   (expression
-    (term
-      (string))))
+    (string)))
 
 ================================================================================
 alphanumeric
@@ -34,8 +32,7 @@ alphanumeric
 
 (source_file
   (expression
-    (term
-      (string))))
+    (string)))
 
 ================================================================================
 escapes
@@ -48,5 +45,4 @@ escapes
 
 (source_file
   (expression
-    (term
-      (string))))
+    (string)))

@@ -8,5 +8,4 @@ $a
 
 (source_file
   (expression
-    (term
-      (char))))
+    (char)))

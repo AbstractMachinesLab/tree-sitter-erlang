@@ -10,13 +10,11 @@ a ! b
   (expression
     (expr_send
       (expression
-        (term
-          (atom
-            (unquoted_atom))))
+        (atom
+          (unquoted_atom)))
       (expression
-        (term
-          (atom
-            (unquoted_atom)))))))
+        (atom
+          (unquoted_atom))))))
 
 ================================================================================
 associativity
@@ -30,16 +28,13 @@ a ! b ! c
   (expression
     (expr_send
       (expression
-        (term
-          (atom
-            (unquoted_atom))))
+        (atom
+          (unquoted_atom)))
       (expression
         (expr_send
           (expression
-            (term
-              (atom
-                (unquoted_atom))))
+            (atom
+              (unquoted_atom)))
           (expression
-            (term
-              (atom
-                (unquoted_atom)))))))))
+            (atom
+              (unquoted_atom))))))))

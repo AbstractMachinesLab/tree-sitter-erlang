@@ -8,8 +8,7 @@ small
 
 (source_file
   (expression
-    (term
-      (float))))
+    (float)))
 
 ================================================================================
 negative
@@ -21,8 +20,7 @@ negative
 
 (source_file
   (expression
-    (term
-      (float))))
+    (float)))
 
 ================================================================================
 large
@@ -34,8 +32,7 @@ large
 
 (source_file
   (expression
-    (term
-      (float))))
+    (float)))
 
 ================================================================================
 large with separator
@@ -47,8 +44,7 @@ large with separator
 
 (source_file
   (expression
-    (term
-      (float))))
+    (float)))
 
 ================================================================================
 exponential notation
@@ -60,8 +56,7 @@ exponential notation
 
 (source_file
   (expression
-    (term
-      (float))))
+    (float)))
 
 ================================================================================
 negative exponential notation
@@ -73,5 +68,4 @@ negative exponential notation
 
 (source_file
   (expression
-    (term
-      (float))))
+    (float)))

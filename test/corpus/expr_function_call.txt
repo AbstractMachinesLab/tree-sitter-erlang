@@ -27,21 +27,17 @@ Lambda(1,2,3)
       (computed_function_name
         (variable))
       (expression
-        (term
-          (integer)))))
+        (integer))))
   (expression
     (function_call
       (computed_function_name
         (variable))
       (expression
-        (term
-          (integer)))
+        (integer))
       (expression
-        (term
-          (integer)))
+        (integer))
       (expression
-        (term
-          (integer))))))
+        (integer)))))
 
 ================================================================================
 nested lambda application
@@ -57,21 +53,17 @@ Op(1, Lambda(1,2,3))
       (computed_function_name
         (variable))
       (expression
-        (term
-          (integer)))
+        (integer))
       (expression
         (function_call
           (computed_function_name
             (variable))
           (expression
-            (term
-              (integer)))
+            (integer))
           (expression
-            (term
-              (integer)))
+            (integer))
           (expression
-            (term
-              (integer))))))))
+            (integer)))))))
 
 ================================================================================
 qualified function call without args
@@ -108,8 +100,7 @@ local:function(1,2,3)
         (atom
           (unquoted_atom)))
       (expression
-        (term
-          (integer)))))
+        (integer))))
   (expression
     (function_call
       (qualified_function_name
@@ -118,14 +109,11 @@ local:function(1,2,3)
         (atom
           (unquoted_atom)))
       (expression
-        (term
-          (integer)))
+        (integer))
       (expression
-        (term
-          (integer)))
+        (integer))
       (expression
-        (term
-          (integer))))))
+        (integer)))))
 
 ================================================================================
 nested qualified function calls
@@ -144,8 +132,7 @@ local:op(1, local:function(1,2,3))
         (atom
           (unquoted_atom)))
       (expression
-        (term
-          (integer)))
+        (integer))
       (expression
         (function_call
           (qualified_function_name
@@ -154,14 +141,11 @@ local:op(1, local:function(1,2,3))
             (atom
               (unquoted_atom)))
           (expression
-            (term
-              (integer)))
+            (integer))
           (expression
-            (term
-              (integer)))
+            (integer))
           (expression
-            (term
-              (integer))))))))
+            (integer)))))))
 
 ================================================================================
 local function call without args
@@ -173,9 +157,8 @@ local_function().
 
 (source_file
   (expression
-    (term
-      (atom
-        (unquoted_atom))))
+    (atom
+      (unquoted_atom)))
   (ERROR))
 
 ================================================================================
@@ -197,8 +180,7 @@ A = local_function(1)
             (atom
               (unquoted_atom)))
           (expression
-            (term
-              (integer))))))))
+            (integer)))))))
 
 ================================================================================
 nested local function calls
@@ -219,16 +201,14 @@ A = local_op(1, local_function(1))
             (atom
               (unquoted_atom)))
           (expression
-            (term
-              (integer)))
+            (integer))
           (expression
             (function_call
               (computed_function_name
                 (atom
                   (unquoted_atom)))
               (expression
-                (term
-                  (integer))))))))))
+                (integer)))))))))
 
 ================================================================================
 mixed function calls
@@ -251,19 +231,15 @@ module:function(Lambda(1, 'local$function'(1,2,3)))
           (computed_function_name
             (variable))
           (expression
-            (term
-              (integer)))
+            (integer))
           (expression
             (function_call
               (computed_function_name
                 (atom
                   (quoted_atom)))
               (expression
-                (term
-                  (integer)))
+                (integer))
               (expression
-                (term
-                  (integer)))
+                (integer))
               (expression
-                (term
-                  (integer))))))))))
+                (integer)))))))))

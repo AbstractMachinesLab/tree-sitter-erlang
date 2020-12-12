@@ -26,30 +26,25 @@ macro application
     (macro_application
       (variable)
       (expression
-        (term
-          (integer)))))
+        (integer))))
   (expression
     (macro_application
       (variable)
       (expression
-        (term
-          (integer)))
+        (integer))
       (expression
         (expr_list
           (expression
-            (term
-              (integer)))))))
+            (integer))))))
   (expression
     (macro_application
       (variable)
       (expression
-        (term
-          (integer)))
+        (integer))
       (expression
         (expr_list
           (expression
-            (term
-              (integer)))))
+            (integer))))
       (expression
         (macro_application
           (variable))))))

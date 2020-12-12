@@ -15,32 +15,25 @@ reference examples
     (expr_operator
       (expr_operator_binary
         (expression
-          (term
-            (integer)))
+          (integer))
         (expression
-          (term
-            (integer))))))
+          (integer)))))
   (expression
     (expr_operator
       (expr_operator_binary
         (expression
-          (term
-            (integer)))
+          (integer))
         (expression
-          (term
-            (integer))))))
+          (integer)))))
   (expression
     (expr_operator
       (expr_operator_binary
         (expression
-          (term
-            (integer)))
+          (integer))
         (expression
           (expr_operator
             (expr_operator_binary
               (expression
-                (term
-                  (integer)))
+                (integer))
               (expression
-                (term
-                  (integer))))))))))
+                (integer)))))))))

@@ -8,9 +8,8 @@ atom
 
 (source_file
   (expression
-    (term
-      (atom
-        (unquoted_atom)))))
+    (atom
+      (unquoted_atom))))
 
 ================================================================================
 simple with symbol
@@ -22,9 +21,8 @@ a_to_mic
 
 (source_file
   (expression
-    (term
-      (atom
-        (unquoted_atom)))))
+    (atom
+      (unquoted_atom))))
 
 ================================================================================
 simple with number
@@ -36,9 +34,8 @@ atom1
 
 (source_file
   (expression
-    (term
-      (atom
-        (unquoted_atom)))))
+    (atom
+      (unquoted_atom))))
 
 ================================================================================
 mixed case
@@ -50,9 +47,8 @@ anAtom
 
 (source_file
   (expression
-    (term
-      (atom
-        (unquoted_atom)))))
+    (atom
+      (unquoted_atom))))
 
 ================================================================================
 mixed case with number
@@ -64,9 +60,8 @@ anAtom9
 
 (source_file
   (expression
-    (term
-      (atom
-        (unquoted_atom)))))
+    (atom
+      (unquoted_atom))))
 
 ================================================================================
 quoted atom
@@ -78,9 +73,8 @@ quoted atom
 
 (source_file
   (expression
-    (term
-      (atom
-        (quoted_atom)))))
+    (atom
+      (quoted_atom))))
 
 ================================================================================
 quoted atom with number
@@ -92,9 +86,8 @@ quoted atom with number
 
 (source_file
   (expression
-    (term
-      (atom
-        (quoted_atom)))))
+    (atom
+      (quoted_atom))))
 
 ================================================================================
 quoted atom with symbols
@@ -106,9 +99,8 @@ quoted atom with symbols
 
 (source_file
   (expression
-    (term
-      (atom
-        (quoted_atom)))))
+    (atom
+      (quoted_atom))))
 
 ================================================================================
 quoted atom with escapes
@@ -121,6 +113,5 @@ quoted atom with escapes
 
 (source_file
   (expression
-    (term
-      (atom
-        (quoted_atom)))))
+    (atom
+      (quoted_atom))))

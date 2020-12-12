@@ -12,8 +12,7 @@ A = 1
       (expression
         (variable))
       (expression
-        (term
-          (integer))))))
+        (integer)))))
 
 ================================================================================
 matching on constants
@@ -27,8 +26,7 @@ matching on constants
   (expression
     (match
       (expression
-        (term
-          (integer)))
+        (integer))
       (expression
         (variable)))))
 
@@ -44,13 +42,11 @@ matching on tuples
   (expression
     (match
       (expression
-        (term
-          (tuple
-            (expression
-              (variable))
-            (expression
-              (term
-                (integer))))))
+        (tuple
+          (expression
+            (variable))
+          (expression
+            (integer))))
       (expression
         (variable)))))
 
@@ -66,14 +62,12 @@ matching on maps
   (expression
     (match
       (expression
-        (term
-          (map
-            (map_entry
-              (term
-                (atom
-                  (unquoted_atom)))
-              (expression
-                (variable))))))
+        (map
+          (map_entry
+            (atom
+              (unquoted_atom))
+            (expression
+              (variable)))))
       (expression
         (variable)))))
 
@@ -101,8 +95,7 @@ matching on lists
         (expr_list
           (expr_list_cons
             (expression
-              (term
-                (integer)))
+              (integer))
             (expression
               (variable)))))
       (expression
@@ -112,8 +105,7 @@ matching on lists
       (expression
         (expr_list
           (expression
-            (term
-              (integer)))
+            (integer))
           (expression
             (variable))))
       (expression
@@ -124,8 +116,7 @@ matching on lists
         (expr_list
           (expr_list_cons
             (expression
-              (term
-                (integer)))
+              (integer))
             (expression
               (variable))
             (expression
@@ -147,5 +138,4 @@ _ = 1
       (expression
         (variable))
       (expression
-        (term
-          (integer))))))
+        (integer)))))

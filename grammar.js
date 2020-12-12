@@ -69,6 +69,7 @@ const OP2_RIGHT_ASSOC = ["=!", "++", "--"];
 //
 ///////////////////////////////////////////////////////////////////////////////
 const PREC = {
+  TOP_LEVEL_EXPRESSION: 100,
   UNARY_OP: 10,
   BINARY_OP: 9,
   MODULE_DECLARATION: 8,
@@ -111,21 +112,17 @@ module.exports = grammar({
 
   extras: ($) => [/[\x00-\x20\x80-\xA0]/, $.comment],
 
+  inline: ($) => [$.term],
+
+  conflicts: ($) => [],
+
   rules: {
     source_file: ($) => repeat($._structure_item),
 
     _structure_item: ($) =>
-      prec(
-        PREC.MODULE_DECLARATION,
-        choice(
-          $.type_declaration,
-          $.function_spec,
-          $.function_declaration,
-          $.module_attribute,
-          $.module_name,
-          $.module_export,
-          $.expression
-        )
+      choice(
+        prec(PREC.TOP_LEVEL_EXPRESSION, $.expression),
+        prec(PREC.MODULE_DECLARATION, $._module)
       ),
 
     ////////////////////////////////////////////////////////////////////////////
@@ -133,6 +130,16 @@ module.exports = grammar({
     // Modules
     //
     ////////////////////////////////////////////////////////////////////////////
+
+    _module: ($) =>
+      choice(
+        $.type_declaration,
+        $.function_spec,
+        $.function_declaration,
+        $.module_attribute,
+        $.module_name,
+        $.module_export
+      ),
 
     module_attribute: ($) =>
       seq(DASH, $.atom, delim(PARENS_LEFT, $.expression, PARENS_RIGHT), DOT),

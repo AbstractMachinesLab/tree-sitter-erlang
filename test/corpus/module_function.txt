@@ -13,9 +13,8 @@ main() -> ok.
         (unquoted_atom))
       (lambda_clause
         (expression
-          (term
-            (atom
-              (unquoted_atom))))))))
+          (atom
+            (unquoted_atom)))))))
 
 ================================================================================
 single clause function with one arg
@@ -34,9 +33,8 @@ main(A) -> ok.
         (pattern
           (variable))
         (expression
-          (term
-            (atom
-              (unquoted_atom))))))))
+          (atom
+            (unquoted_atom)))))))
 
 ================================================================================
 single clause function with one ignored arg
@@ -55,9 +53,8 @@ main(_) -> ok.
         (pattern
           (variable))
         (expression
-          (term
-            (atom
-              (unquoted_atom))))))))
+          (atom
+            (unquoted_atom)))))))
 
 ================================================================================
 multi clause function
@@ -77,9 +74,8 @@ main(Args) -> ok.
         (pattern
           (pat_list))
         (expression
-          (term
-            (atom
-              (unquoted_atom))))))
+          (atom
+            (unquoted_atom)))))
     (function_clause
       (atom
         (unquoted_atom))
@@ -87,6 +83,5 @@ main(Args) -> ok.
         (pattern
           (variable))
         (expression
-          (term
-            (atom
-              (unquoted_atom))))))))
+          (atom
+            (unquoted_atom)))))))
