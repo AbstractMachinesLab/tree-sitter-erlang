@@ -9,22 +9,24 @@ M#{ 1 => V }
 
 (source_file
   (expression
-    (variable))
+    (expr_map_update
+      (expression
+        (variable))
+      (map
+        (map_entry
+          (integer)
+          (expression
+            (variable))))))
   (expression
-    (map
-      (map_entry
-        (integer)
-        (expression
-          (variable)))))
-  (expression
-    (function_call
-      (computed_function_name
-        (atom
-          (unquoted_atom)))))
-  (expression
-    (map
-      (map_entry
-        (atom
-          (unquoted_atom))
-        (expression
-          (variable))))))
+    (expr_map_update
+      (expression
+        (function_call
+          (computed_function_name
+            (atom
+              (unquoted_atom)))))
+      (map
+        (map_entry
+          (atom
+            (unquoted_atom))
+          (expression
+            (variable)))))))

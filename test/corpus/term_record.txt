@@ -22,11 +22,13 @@ A#r.a
 
 (source_file
   (expression
-    (variable))
-  (ERROR
-    (atom
-      (unquoted_atom))
-    (unquoted_atom)))
+    (expr_record_access
+      (expression
+        (variable))
+      (atom
+        (unquoted_atom))
+      (atom
+        (unquoted_atom)))))
 
 ================================================================================
 with one key and value
@@ -87,29 +89,31 @@ M#r{ 1 = V }
 
 (source_file
   (expression
-    (variable))
-  (expression
-    (record
-      (atom
-        (unquoted_atom))
-      (record_field
-        (integer)
-        (expression
-          (variable)))))
-  (expression
-    (function_call
-      (computed_function_name
-        (atom
-          (unquoted_atom)))))
-  (expression
-    (record
-      (atom
-        (unquoted_atom))
-      (record_field
+    (expr_record_update
+      (expression
+        (variable))
+      (record
         (atom
           (unquoted_atom))
-        (expression
-          (variable))))))
+        (record_field
+          (integer)
+          (expression
+            (variable))))))
+  (expression
+    (expr_record_update
+      (expression
+        (function_call
+          (computed_function_name
+            (atom
+              (unquoted_atom)))))
+      (record
+        (atom
+          (unquoted_atom))
+        (record_field
+          (atom
+            (unquoted_atom))
+          (expression
+            (variable)))))))
 
 ================================================================================
 nested record updates
@@ -121,19 +125,26 @@ N2#nrec2.nrec1#nrec1.nrec0#nrec0{name = "nested0a"}
 
 (source_file
   (expression
-    (variable))
-  (ERROR
-    (atom
-      (unquoted_atom))
-    (unquoted_atom)
-    (unquoted_atom)
-    (unquoted_atom))
-  (expression
-    (record
-      (atom
-        (unquoted_atom))
-      (record_field
+    (expr_record_update
+      (expression
+        (expr_record_access
+          (expression
+            (expr_record_access
+              (expression
+                (variable))
+              (atom
+                (unquoted_atom))
+              (atom
+                (unquoted_atom))))
+          (atom
+            (unquoted_atom))
+          (atom
+            (unquoted_atom))))
+      (record
         (atom
           (unquoted_atom))
-        (expression
-          (string))))))
+        (record_field
+          (atom
+            (unquoted_atom))
+          (expression
+            (string)))))))

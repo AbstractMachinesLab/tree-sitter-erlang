@@ -69,13 +69,13 @@ const OP2_RIGHT_ASSOC = ["=!", "++", "--"];
 //
 ///////////////////////////////////////////////////////////////////////////////
 const PREC = {
+  EXPR_MAP_UPDATE: 101,
   TOP_LEVEL_EXPRESSION: 100,
   UNARY_OP: 10,
   BINARY_OP: 9,
   MODULE_DECLARATION: 8,
   FUNCTION_CLAUSE: 7,
   FUNCTION_NAME: 5,
-  EXPR_MAP_UPDATE: 9,
   PARENTHESIZED_EXPRESSION: 6,
   EXPR_LIST_CONS: 5,
   EXPRESSION: 4,

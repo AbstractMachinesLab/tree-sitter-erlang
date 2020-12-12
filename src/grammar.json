@@ -1509,7 +1509,7 @@
     },
     "expr_map_update": {
       "type": "PREC_LEFT",
-      "value": 9,
+      "value": 101,
       "content": {
         "type": "SEQ",
         "members": [
@@ -1526,7 +1526,7 @@
     },
     "expr_record_access": {
       "type": "PREC_LEFT",
-      "value": 9,
+      "value": 101,
       "content": {
         "type": "SEQ",
         "members": [
@@ -1555,7 +1555,7 @@
     },
     "expr_record_update": {
       "type": "PREC_LEFT",
-      "value": 9,
+      "value": 101,
       "content": {
         "type": "SEQ",
         "members": [
