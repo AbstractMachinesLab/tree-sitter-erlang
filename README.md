@@ -1,7 +1,9 @@
 # tree-sitter grammar for Erlang
 
 Installation:
-1. Install `tree-sitter` from [the tree-sitter release page](https://github.com/tree-sitter/tree-sitter/releases)
+1. Download `tree-sitter` from [the tree-sitter release
+   page](https://github.com/tree-sitter/tree-sitter/releases) and place it
+   somewhere on your path.
 1. Run `make` in the `tree-sitter-erlang` directory. This should automatically
 install dependencies via `yarn` and run all tests.
 
