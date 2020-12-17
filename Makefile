@@ -1,6 +1,8 @@
+SHELL:=/bin/bash
+
 TREE_SITTER=tree-sitter
 
-all: fmt gen test
+all: binp depsp fmt gen test
 
 fmt:
 	./node_modules/.bin/prettier --write grammar.js
@@ -16,6 +18,10 @@ debug: gen
 .PHONY: gen
 gen:
 	$(TREE_SITTER) generate
+
+.PHONY: depsp
+depsp:
+	@if [ ! -d "node_modules" ]; then $(MAKE) deps; fi
 
 .PHONY: deps
 deps:
@@ -33,3 +39,6 @@ wasm:
 publish: all wasm
 	cp ./tree-sitter-erlang.wasm ./docs
 
+.PHONY: binp
+binp:
+	@if [ ! -x "`command -v $(TREE_SITTER)`" ]; then echo 'Error: tree-sitter cannot be found on your path.' >&2; exit 1; fi
