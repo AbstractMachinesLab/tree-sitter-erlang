@@ -4813,6 +4813,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "guard_clause",
+          "named": true
+        }
+      ]
     }
   },
   {

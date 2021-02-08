@@ -32,7 +32,7 @@ multiple clauses
 
 fun
   ([]) -> ok;
-  (Args) -> Args
+  (Args) when Args > 0 -> Args
 end
 
 --------------------------------------------------------------------------------
@@ -46,4 +46,10 @@ end
     (lambda_clause
       (pattern
         (variable))
+      (guard_clause
+        (guard_seq
+          (guard
+            (expr_op
+              (variable)
+              (integer)))))
       (variable))))
