@@ -4,13 +4,14 @@
   "description": "Tree Parser support for Erlang",
   "scripts": {
     "gen": "tree-sitter generate",
-    "parse": "tree-sitter parse"
+    "parse": "tree-sitter parse",
+    "test": "yarn run gen && tree-sitter test"
   },
   "author": "Leandro Ostera <leandro@ostera.io>",
   "license": "Apache-2.0",
   "dependencies": {
     "nan": "^2.14.1",
     "prettier": "^2.2.1",
-    "tree-sitter-cli": "^0.17.1"
+    "tree-sitter-cli": "^0.17.3"
   }
 }
