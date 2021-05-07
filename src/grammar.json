@@ -3947,6 +3947,7 @@
       "expr_record_update"
     ]
   ],
+  "precedences": [],
   "externals": [],
   "inline": [
     "term",
