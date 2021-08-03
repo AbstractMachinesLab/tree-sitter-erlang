@@ -110,7 +110,7 @@ module.exports = grammar({
 
   word: ($) => $._unquoted_atom,
 
-  extras: ($) => [/[\x00-\x20\x80-\xA0]/, $.comment],
+  extras: ($) => [/[\x01-\x20\x80-\xA0]/, $.comment],
 
   inline: ($) => [$.term, $.expression],
 
@@ -166,7 +166,7 @@ module.exports = grammar({
     function_clause: ($) =>
       prec(PREC.FUNCTION_CLAUSE, seq(field("name", $.atom), $.lambda_clause)),
 
-    comment: ($) => /%.*\n/,
+    comment: ($) => /%.*/,
 
     ////////////////////////////////////////////////////////////////////////////
     //
