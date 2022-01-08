@@ -4100,7 +4100,7 @@
     "fields": {},
     "children": {
       "multiple": false,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "atom",
@@ -5276,10 +5276,44 @@
       "required": false,
       "types": [
         {
+          "type": "pat_list_cons",
+          "named": true
+        },
+        {
           "type": "pattern",
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "pat_list_cons",
+    "named": true,
+    "fields": {
+      "init": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "pattern",
+            "named": true
+          }
+        ]
+      },
+      "tail": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "pattern",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
