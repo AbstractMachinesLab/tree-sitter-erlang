@@ -295,7 +295,20 @@ module.exports = grammar({
     pattern: ($) =>
       prec(PREC.PATTERN, choice($.term, $.variable, $.pat_list, $.pat_tuple)),
 
-    pat_list: ($) => prec(PREC.PATTERN, list($.pattern)),
+    pat_list: ($) =>
+      prec(PREC.PATTERN, choice(list($.pattern), $.pat_list_cons)),
+
+    pat_list_cons: ($) =>
+      delim(
+        BRACKET_LEFT,
+        seq(
+          field("init", sepBy(COMMA, $.pattern)),
+          PIPE,
+          field("tail", $.pattern)
+        ),
+        BRACKET_RIGHT
+      ),
+
     pat_tuple: ($) => prec(PREC.PATTERN, tuple($.pattern)),
     pat_map: ($) =>
       seq(HASH, BRACE_LEFT, opt(sepBy(COMMA, $.pat_map_entry)), BRACE_RIGHT),
