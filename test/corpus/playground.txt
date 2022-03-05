@@ -1,0 +1,46 @@
+================================================================================
+playground example code
+================================================================================
+-module(hello_joe).
+
+-export([main/1]).
+
+% that's right. we got this.
+main([]) -> ok;
+main([Name | _]) -> io:format(<<"Hello, ~p!">>, [Name]).
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (module_name
+    (atom))
+  (module_export
+    (atom)
+    (integer))
+  (comment)
+  (function_declaration
+    (function_clause
+      (atom)
+      (lambda_clause
+        (pattern
+          (pat_list))
+        (atom)))
+    (function_clause
+      (atom)
+      (lambda_clause
+        (pattern
+          (pat_list
+            (pat_list_cons
+              (pattern
+                (variable))
+              (pattern
+                (variable)))))
+        (expr_function_call
+          (qualified_function_name
+            (atom)
+            (atom))
+          (binary_string
+            (bin_part
+              (string)))
+          (expr_list
+            (variable)))))))
